@@ -1,0 +1,16 @@
+{
+  "name": "LeanLog",
+  "short_name": "LeanLog",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f0e8",
+  "theme_color": "#8a7968",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
