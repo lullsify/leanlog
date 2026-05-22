@@ -28,8 +28,8 @@
     select, input[type="number"], textarea { width: 100%; padding: 10px 12px; border: 1px solid #ece8e4; border-radius: 2px; font-size: 0.88rem; background: white; color: #1a1a18; font-family: 'Jost', sans-serif; font-weight: 300; }
     select:focus, input:focus, textarea:focus { outline: none; border-color: #8a7968; }
     textarea { resize: none; }
-    .btn-primary { display: block; width: 100%; margin-top: 14px; background: #1a1a18; color: white; border: none; padding: 13px; border-radius: 2px; font-size: 0.80rem; font-weight: 500; cursor: pointer; font-family: 'Jost', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; }
-    .btn-primary:hover { background: #2e2e2c; }
+    .btn-primary { display: block; width: 100%; margin-top: 14px; background: #9a8878; color: white; border: none; padding: 13px; border-radius: 2px; font-size: 0.80rem; font-weight: 500; cursor: pointer; font-family: 'Jost', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; }
+    .btn-primary:hover { background: #8a7968; }
     .pass-info { margin-top: 9px; padding: 10px 13px; background: #f6f0e8; border-left: 2px solid #8a7968; border-radius: 0 2px 2px 0; font-size: 0.80rem; color: #6a5a48; line-height: 1.6; display: none; }
     .success-msg { background: #f6f0e8; color: #5a3c2a; padding: 10px 13px; border-radius: 2px; font-size: 0.88rem; margin-top: 10px; display: none; }
     .goal-bars { display: flex; flex-direction: column; gap: 8px; }
@@ -2249,17 +2249,22 @@ function renderDagPanel(dk){
     ${(()=>{
       const visV=LS.visaVit(), visL=LS.visaLas();
       if(!visV&&!visL) return '';
-      const veckoLas=getLäsveckaSumma();
-      return`<div class="dag-sek" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        ${visV?`<button class="vit-btn${LS.vit(dk)?' active':''}" style="width:auto;flex-shrink:0" onclick="toggleVit('${dk}')">
-          <span class="vit-check">${LS.vit(dk)?'✓':''}</span>
-          Vitaminer
-        </button>`:''}
-        ${visL?`<div class="las-rad" style="flex:1;justify-content:flex-end">
-          <span style="font-size:0.60rem;color:#9e9490;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap">Lästid för veckan: ${veckoLas} min</span>
-          ${LS.las(dk)>0?`<button class="las-plus" onclick="läggTillLäsning('${dk}',-15)">-15</button>`:''}
-          <button class="las-plus" onclick="läggTillLäsning('${dk}',15)">+15</button>
-          <button class="las-plus" onclick="läggTillLäsning('${dk}',30)">+30</button>
+      const veckoLas=getLäsveckaSumma(dk);
+      const dagLas=LS.las(dk);
+      const vanorStil='font-size:0.65rem;font-family:\'Jost\',sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:#9e9490';
+      return`<div class="dag-sek" style="display:flex;flex-direction:column;gap:8px">
+        ${visV?`<div style="display:flex;align-items:center;gap:6px;cursor:pointer" onclick="toggleVit('${dk}')">
+          <span style="${vanorStil}">Vitaminer</span>
+          <span style="width:13px;height:13px;border:1px solid ${LS.vit(dk)?'#8a7968':'#ddd8d4'};border-radius:2px;display:inline-flex;align-items:center;justify-content:center;background:${LS.vit(dk)?'#f6f0e8':'none'};font-size:0.55rem;color:#8a7968;flex-shrink:0">${LS.vit(dk)?'✓':''}</span>
+        </div>`:''}
+        ${visL?`<div style="display:flex;align-items:center;gap:6px">
+          <span style="${vanorStil}">Lästid denna vecka</span>
+          <input id="lasInput_${dk}" type="number" min="0" max="600" value="${dagLas||''}" placeholder="0" style="width:36px;border:none;border-bottom:1px solid #ddd8d4;padding:1px 3px;font-size:0.65rem;font-family:'Jost',sans-serif;letter-spacing:0.06em;color:#5a4a40;text-align:center;outline:none;background:none">
+          <span style="${vanorStil}">min</span>
+          <span style="color:#ddd8d4;font-size:0.65rem">·</span>
+          <span style="font-size:0.65rem;font-family:'Jost',sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:#b8b0aa;cursor:pointer" onclick="sparaLäsning('${dk}')">Spara</span>
+          <span style="color:#ddd8d4;font-size:0.65rem">·</span>
+          <span style="${vanorStil}">${veckoLas} min/v</span>
         </div>`:''}
       </div>`;
     })()}
@@ -3087,10 +3092,21 @@ function läggTillLäsning(dk, min){
   renderDagPanel(dk);
 }
 
-function getLäsveckaSumma(){
+function sparaLäsning(dk){
+  const input=document.getElementById('lasInput_'+dk);
+  if(!input) return;
+  LS.saveLas(dk, Math.max(0, parseInt(input.value)||0));
+  renderDagPanel(dk);
+}
+
+function getLäsveckaSumma(dk){
+  const ref=dk?parseDateKey(dk):new Date();
+  ref.setHours(0,0,0,0);
+  const dagIndex=ref.getDay()===0?6:ref.getDay()-1;
+  const måndag=new Date(ref); måndag.setDate(ref.getDate()-dagIndex);
   let sum=0;
   for(let i=0;i<7;i++){
-    const d=new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()-i);
+    const d=new Date(måndag); d.setDate(måndag.getDate()+i);
     sum+=LS.las(d.toISOString().slice(0,10).replace(/-/g,''));
   }
   return sum;
