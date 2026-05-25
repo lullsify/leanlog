@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="LeanLog">
-  <meta name="theme-color" content="#8a7968">
+  <meta name="theme-color" content="#c4a9a1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -26,22 +26,22 @@
     h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.2rem; color: #1a1a18; margin-bottom: 10px; font-weight: 600; letter-spacing: 0.03em; }
     label { display: block; font-size: 0.65rem; color: #b8b0ac; margin: 8px 0 4px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
     select, input[type="number"], textarea { width: 100%; padding: 10px 12px; border: 1px solid #ece8e4; border-radius: 2px; font-size: 0.88rem; background: white; color: #1a1a18; font-family: 'Jost', sans-serif; font-weight: 300; }
-    select:focus, input:focus, textarea:focus { outline: none; border-color: #8a7968; }
+    select:focus, input:focus, textarea:focus { outline: none; border-color: #c4a9a1; }
     textarea { resize: none; }
-    .btn-primary { display: block; width: 100%; margin-top: 14px; background: #9a8878; color: white; border: none; padding: 13px; border-radius: 2px; font-size: 0.80rem; font-weight: 500; cursor: pointer; font-family: 'Jost', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; }
-    .btn-primary:hover { background: #8a7968; }
-    .pass-info { margin-top: 9px; padding: 10px 13px; background: #f6f0e8; border-left: 2px solid #8a7968; border-radius: 0 2px 2px 0; font-size: 0.80rem; color: #6a5a48; line-height: 1.6; display: none; }
+    .btn-primary { display: block; width: 100%; margin-top: 14px; background: #b59991; color: white; border: none; padding: 13px; border-radius: 2px; font-size: 0.80rem; font-weight: 500; cursor: pointer; font-family: 'Jost', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; }
+    .btn-primary:hover { background: #c4a9a1; }
+    .pass-info { margin-top: 9px; padding: 10px 13px; background: #f6f0e8; border-left: 2px solid #c4a9a1; border-radius: 0 2px 2px 0; font-size: 0.80rem; color: #6a5a48; line-height: 1.6; display: none; }
     .success-msg { background: #f6f0e8; color: #5a3c2a; padding: 10px 13px; border-radius: 2px; font-size: 0.88rem; margin-top: 10px; display: none; }
     .goal-bars { display: flex; flex-direction: column; gap: 8px; }
     .goal-item { display: flex; flex-direction: column; gap: 3px; }
     .goal-label { display: flex; justify-content: space-between; font-size: 0.80rem; color: #6a6460; }
     .bar-bg { background: #f0ebe8; border-radius: 100px; height: 5px; }
-    .bar-fill { height: 5px; border-radius: 100px; background: #8a7968; transition: width 0.4s; }
-    .bar-fill.done { background: #8a7968; }
-    .recommendation { margin-top: 8px; padding: 10px 12px; background: #f6f0e8; border-left: 2px solid #8a7968; border-radius: 0 2px 2px 0; font-size: 0.80rem; line-height: 1.7; color: #3a2820; }
+    .bar-fill { height: 5px; border-radius: 100px; background: #c4a9a1; transition: width 0.4s; }
+    .bar-fill.done { background: #c4a9a1; }
+    .recommendation { margin-top: 8px; padding: 10px 12px; background: #f6f0e8; border-left: 2px solid #c4a9a1; border-radius: 0 2px 2px 0; font-size: 0.80rem; line-height: 1.7; color: #3a2820; }
     .workout-box { margin-top: 10px; padding: 12px 14px; background: #faf7f2; border: 1px solid #ece8e4; border-radius: 2px; }
     .workout-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: #1a1a18; margin-bottom: 4px; font-weight: 600; }
-    .workout-box .dur { display: inline-block; background: #8a7968; color: white; padding: 2px 10px; border-radius: 1px; font-size: 0.65rem; font-weight: 500; margin-bottom: 8px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .workout-box .dur { display: inline-block; background: #c4a9a1; color: white; padding: 2px 10px; border-radius: 1px; font-size: 0.65rem; font-weight: 500; margin-bottom: 8px; letter-spacing: 0.1em; text-transform: uppercase; }
     .workout-box .desc { font-size: 0.80rem; color: #9e9490; margin-bottom: 8px; line-height: 1.55; }
     .workout-box .exlist { font-size: 0.80rem; color: #4a4240; line-height: 1.9; }
     .pass-list { display: flex; flex-direction: column; gap: 5px; }
@@ -49,28 +49,32 @@
     .pass-typ { font-weight: 500; font-size: 0.88rem; }
     .pass-meta { color: #b8b0ac; font-size: 0.72rem; margin-top: 2px; }
     .icon-btn { background: none; border: none; color: #d4ccc8; cursor: pointer; font-size: 0.88rem; padding: 4px 6px; border-radius: 2px; }
-    .icon-btn:hover { color: #8a7968; background: #f6f0e8; }
+    .icon-btn:hover { color: #c4a9a1; background: #f6f0e8; }
     .empty { color: #c8c0bc; font-size: 0.80rem; text-align: center; padding: 18px 0; letter-spacing: 0.05em; }
     .tabs { display: flex; gap: 5px; margin-bottom: 10px; flex-wrap: wrap; }
+    .filter-chips { display:flex; gap:6px; margin-bottom:12px; overflow-x:auto; padding-bottom:2px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+    .filter-chips::-webkit-scrollbar { display:none; }
+    .chip { flex-shrink:0; padding:6px 16px; border-radius:20px; font-size:0.70rem; cursor:pointer; border:1px solid #ece8e4; background:white; color:#9e9490; font-weight:500; letter-spacing:0.07em; text-transform:uppercase; font-family:'Jost',sans-serif; }
+    .chip.active { background:#c4a9a1; color:white; border-color:#c4a9a1; }
     .tab { padding: 6px 16px; border-radius: 1px; font-size: 0.72rem; cursor: pointer; border: 1px solid #ece8e4; background: white; color: #9e9490; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
-    .tab.active { background: #8a7968; color: white; border-color: #8a7968; }
-    .tab.fav.active { background: #8a7968; border-color: #8a7968; }
+    .tab.active { background: #c4a9a1; color: white; border-color: #c4a9a1; }
+    .tab.fav.active { background: #c4a9a1; border-color: #c4a9a1; }
     .recipe-grid { display: flex; flex-direction: column; gap: 7px; }
     .recipe-card { border: 1px solid #e8e2dc; border-radius: 3px; padding: 14px 16px 12px; transition: border-color 0.25s, box-shadow 0.25s; }
     .recipe-card:hover { border-color: #c8b89e; box-shadow: 0 2px 12px rgba(160,112,96,0.07); }
-    .recipe-card.is-fav { border-color: #8a7968; }
+    .recipe-card.is-fav { border-color: #c4a9a1; }
     .recipe-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
     .recipe-name { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 1.08rem; cursor: pointer; color: #1a1a18; line-height: 1.25; letter-spacing: 0.01em; }
     .recipe-name:hover { color: #5a3c2a; }
-    .recipe-rating { font-size: 0.72rem; color: #8a7968; margin-top: 3px; letter-spacing: 0.02em; }
+    .recipe-rating { font-size: 0.72rem; color: #c4a9a1; margin-top: 3px; letter-spacing: 0.02em; }
     .recipe-btns { display: flex; gap: 5px; flex-shrink: 0; align-items: flex-start; flex-wrap: wrap; justify-content: flex-end; }
-    .fav-btn { background: none; border: none; font-size: 1.05rem; cursor: pointer; line-height: 1; padding: 1px 3px; color: #8a7968; }
+    .fav-btn { background: none; border: none; font-size: 1.05rem; cursor: pointer; line-height: 1; padding: 1px 3px; color: #c4a9a1; }
     .small-btn { border: 1px solid #ece8e4; background: none; border-radius: 1px; font-size: 0.65rem; color: #9e9490; padding: 3px 9px; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Jost', sans-serif; }
     .small-btn:hover { border-color: #1a1a18; color: #1a1a18; }
-    .small-btn.green { background: #8a7968; color: white; border-color: #8a7968; }
+    .small-btn.green { background: #c4a9a1; color: white; border-color: #c4a9a1; }
     .small-btn.green:hover { background: #2e2e2c; }
     .small-btn.dismiss { color: #d4ccc8; border-color: #f0ebe8; }
-    .small-btn.dismiss:hover { color: #8a7968; border-color: #8a7968; background: #f6f0e8; }
+    .small-btn.dismiss:hover { color: #c4a9a1; border-color: #c4a9a1; background: #f6f0e8; }
     .recipe-tags { margin-top: 8px; display: flex; gap: 4px; flex-wrap: wrap; }
     .tag { background: #fdf0eb; color: #5a3c2a; padding: 2px 9px; border-radius: 1px; font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
     .tag.kott { background: #fdf4ec; color: #7a5030; }
@@ -81,7 +85,7 @@
     .nutr-cell:last-child { border-right: none; }
     .nutr-val { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; font-weight: 600; color: #1a1a18; }
     .nutr-lbl { font-size: 0.60rem; color: #b8b0ac; margin-top: 1px; text-transform: uppercase; letter-spacing: 0.09em; }
-    .glow-desc { margin-top: 6px; font-size: 0.80rem; color: #5a4840; line-height: 1.7; background: #f6f0e8; padding: 11px 14px; border-radius: 2px; border-left: 2px solid #8a7968; }
+    .glow-desc { margin-top: 6px; font-size: 0.80rem; color: #5a4840; line-height: 1.7; background: #f6f0e8; padding: 11px 14px; border-radius: 2px; border-left: 2px solid #c4a9a1; }
     .recipe-details { display: none; margin-top: 8px; padding-top: 8px; border-top: 1px solid #f0ebe8; }
     .recipe-details.open { display: block; }
     .recipe-details h4 { font-size: 0.65rem; color: #b8b0ac; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
@@ -105,7 +109,7 @@
     /* ── MAIN NAVIGATION ── */
     .main-tabs { display: flex; background: white; border-radius: 2px; padding: 4px; margin-bottom: 10px; border: 1px solid #ece8e4; gap: 3px; }
     .main-tab { flex: 1; padding: 10px 4px; border: none; border-radius: 1px; font-size: 0.65rem; font-weight: 500; cursor: pointer; background: none; color: #9e9490; transition: all 0.15s; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Jost', sans-serif; }
-    .main-tab.active { background: #8a7968; color: white; }
+    .main-tab.active { background: #c4a9a1; color: white; }
     .panel { display: none; }
     .panel.active { display: block; }
 
@@ -116,19 +120,19 @@
     .week-label { font-weight: 500; font-size: 0.72rem; color: #4a4240; letter-spacing: 0.1em; text-transform: uppercase; }
     .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 10px; }
     .day-cell { border: 1px solid #ece8e4; border-radius: 2px; padding: 5px 2px 4px; text-align: center; cursor: pointer; transition: all 0.15s; display: flex; flex-direction: column; align-items: center; gap: 1px; min-height: 52px; }
-    .day-cell:hover { border-color: #8a7968; background: #faf7f2; }
-    .day-cell.today { border-color: #8a7968; }
-    .day-cell.selected { border-color: #8a7968; background: #8a7968; }
+    .day-cell:hover { border-color: #c4a9a1; background: #faf7f2; }
+    .day-cell.today { border-color: #c4a9a1; }
+    .day-cell.selected { border-color: #c4a9a1; background: #c4a9a1; }
     .d-name { font-size: 0.60rem; color: #b8b0ac; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
     .day-cell.selected .d-name { color: rgba(255,255,255,0.5); }
     .d-num { font-size: 1rem; font-weight: 600; color: #1a1a18; line-height: 1; }
-    .day-cell.today .d-num { color: #8a7968; }
+    .day-cell.today .d-num { color: #c4a9a1; }
     .day-cell.selected .d-num { color: white; }
     .d-icons { font-size: 0.72rem; line-height: 1.4; margin-top: 2px; min-height: 16px; }
     .dag-panel { border: 1px solid #ece8e4; border-radius: 2px; overflow: hidden; }
     .dag-panel.anim { animation: fadeSlide 0.18s ease; }
     @keyframes fadeSlide { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
-    .dag-header { background: #8a7968; color: white; padding: 12px 16px; }
+    .dag-header { background: #c4a9a1; color: white; padding: 12px 16px; }
     .dag-dato { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.15rem; letter-spacing: 0.02em; }
     .dag-sub { font-size: 0.72rem; opacity: 0.55; margin-top: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
     .dag-sek { padding: 10px 16px; border-bottom: 1px solid #f5f1ee; }
@@ -148,14 +152,14 @@
     .dag-nutr-bars { display: flex; flex-direction: column; gap: 8px; }
     .dag-n-row { display: flex; flex-direction: column; gap: 4px; }
     .dag-n-label { display: flex; justify-content: space-between; font-size: 0.72rem; color: #6a6460; }
-    .dag-rec { background: #f6f0e8; border-left: 2px solid #8a7968; border-radius: 0 2px 2px 0; padding: 10px 13px; font-size: 0.80rem; color: #6a5a48; line-height: 1.65; margin-top: 10px; }
+    .dag-rec { background: #f6f0e8; border-left: 2px solid #c4a9a1; border-radius: 0 2px 2px 0; padding: 10px 13px; font-size: 0.80rem; color: #6a5a48; line-height: 1.65; margin-top: 10px; }
 
     /* ── PROFIL & VECKOPLAN ── */
     .profil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
     .profil-grid > div label { margin-top: 0; }
     .profil-result { margin-top: 10px; padding: 10px 14px; background: #faf7f2; border-radius: 2px; font-size: 0.80rem; line-height: 1.95; border: 1px solid #ece8e4; }
     .pr-row { display: flex; justify-content: space-between; align-items: baseline; }
-    .pr-val { font-weight: 600; color: #9a8878; }
+    .pr-val { font-weight: 600; color: #b59991; }
     .pr-note { font-size: 0.72rem; color: #b8b0ac; margin-top: 6px; line-height: 1.55; }
     .kollaps-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
     .kollaps-header h2 { margin: 0; }
@@ -167,7 +171,7 @@
     .session-left { display: flex; flex-direction: column; gap: 3px; }
     .session-dag { font-size: 0.60rem; color: #c8c0bc; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
     .session-name { font-size: 0.88rem; font-weight: 500; color: #1a1a18; }
-    .session-meta { font-size: 0.72rem; color: #8a7968; font-weight: 500; margin-top: 1px; letter-spacing: 0.04em; }
+    .session-meta { font-size: 0.72rem; color: #c4a9a1; font-weight: 500; margin-top: 1px; letter-spacing: 0.04em; }
     .session-body { display: none; padding: 10px 13px; border-top: 1px solid #f5f1ee; }
     .session-body.open { display: block; }
     .session-beskr { font-size: 0.80rem; color: #6a6460; margin-bottom: 10px; line-height: 1.6; }
@@ -180,7 +184,7 @@
     /* ── PICKER MODAL ── */
     .picker-tabs { display: flex; gap: 5px; margin-bottom: 12px; flex-wrap: wrap; }
     .picker-tab { padding: 5px 12px; border-radius: 1px; border: 1px solid #ece8e4; background: white; color: #9e9490; font-size: 0.72rem; cursor: pointer; font-family: 'Jost', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
-    .picker-tab.active { background: #8a7968; color: white; border-color: #8a7968; }
+    .picker-tab.active { background: #c4a9a1; color: white; border-color: #c4a9a1; }
     .picker-card { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border: 1px solid #ece8e4; border-radius: 2px; margin-bottom: 6px; gap: 10px; }
     .pc-info { flex: 1; min-width: 0; }
     .pc-name { font-size: 0.88rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -201,18 +205,18 @@
     .ovn-lagg-till { display:block; width:100%; margin-top:6px; background:none; border:1px dashed #ddd8d4; border-radius:2px; padding:7px; font-size:0.65rem; color:#c8c0bc; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.08em; text-transform:uppercase; }
     .skada-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
     .skada-chip { padding:5px 12px; border:1px solid #ddd8d4; border-radius:20px; font-size:0.65rem; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.06em; color:#9e9490; background:none; transition:all 0.15s; }
-    .skada-chip.active { background:#f6f0e8; border-color:#9a8878; color:#5a4a40; }
+    .skada-chip.active { background:#f6f0e8; border-color:#b59991; color:#5a4a40; }
     .vit-btn { display:flex; align-items:center; gap:8px; background:none; border:1px solid #ece8e4; border-radius:2px; padding:8px 12px; font-size:0.72rem; font-family:'Jost',sans-serif; color:#9e9490; cursor:pointer; width:100%; letter-spacing:0.04em; transition:all 0.15s; }
-    .vit-btn.active { border-color:#8a7968; background:#f6f0e8; color:#5a4a40; }
+    .vit-btn.active { border-color:#c4a9a1; background:#f6f0e8; color:#5a4a40; }
     .vit-check { width:16px; height:16px; border:1.5px solid #ddd8d4; border-radius:3px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.65rem; transition:all 0.15s; }
-    .vit-btn.active .vit-check { background:#8a7968; border-color:#8a7968; color:white; }
+    .vit-btn.active .vit-check { background:#c4a9a1; border-color:#c4a9a1; color:white; }
     .las-rad { display:flex; align-items:center; justify-content:space-between; gap:8px; }
     .las-min { font-size:1rem; font-weight:600; color:#3a2820; min-width:32px; }
     .las-plus { background:none; border:1px solid #ddd8d4; border-radius:2px; padding:4px 10px; font-size:0.80rem; cursor:pointer; font-family:'Jost',sans-serif; color:#9e9490; transition:all 0.15s; }
-    .las-plus:hover { border-color:#8a7968; color:#5a4a40; }
+    .las-plus:hover { border-color:#c4a9a1; color:#5a4a40; }
     .rutin-dag-tab { padding:5px 12px; border:1px solid #ddd8d4; border-radius:20px; font-size:0.65rem; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#9e9490; background:none; transition:all 0.15s; }
-    .rutin-dag-tab.active { background:#f6f0e8; border-color:#9a8878; color:#5a4a40; }
-    .rutin-dag-tab.har-aktivitet::after { content:'·'; margin-left:2px; color:#8a7968; }
+    .rutin-dag-tab.active { background:#f6f0e8; border-color:#b59991; color:#5a4a40; }
+    .rutin-dag-tab.har-aktivitet::after { content:'·'; margin-left:2px; color:#c4a9a1; }
     .rutin-item { display:flex; align-items:center; gap:8px; padding:7px 0; border-bottom:1px solid #f5f1ee; }
     .rutin-item:last-child { border-bottom:none; }
     .rutin-item input { flex:1; border:none; background:none; font-size:0.80rem; font-family:'Jost',sans-serif; color:#3a2820; padding:0; outline:none; min-width:0; }
@@ -221,7 +225,7 @@
     .rutin-ta-bort { background:none; border:none; color:#d4ccc8; font-size:0.80rem; cursor:pointer; padding:0 2px; flex-shrink:0; }
     .rutin-ta-bort:hover { color:#9e9490; }
     .rutin-chip { display:inline-flex; align-items:center; gap:6px; border:1px solid #ddd8d4; border-radius:2px; padding:5px 10px; font-size:0.72rem; font-family:'Jost',sans-serif; color:#7a6a60; background:none; cursor:pointer; width:100%; text-align:left; transition:all 0.15s; }
-    .rutin-chip.loggad { border-color:#8a7968; background:#f6f0e8; color:#5a4a40; }
+    .rutin-chip.loggad { border-color:#c4a9a1; background:#f6f0e8; color:#5a4a40; }
     .ex-tip { position: relative; border-bottom: 1px dotted #c4b09a; cursor: help; }
     .ex-tip::after { content: attr(data-tip); display: none; position: absolute; bottom: calc(100% + 7px); left: 0; background: #1a1a18; color: #f5f1ee; padding: 10px 13px; border-radius: 2px; font-size: 0.72rem; line-height: 1.6; width: 250px; text-align: left; z-index: 300; box-shadow: 0 4px 24px rgba(0,0,0,0.25); white-space: normal; pointer-events: none; }
     .ex-tip:hover::after { display: block; }
@@ -229,29 +233,29 @@
     .ex-reps { color: #b8b0ac; margin-left: 6px; font-size: 0.72rem; }
     .hipt-bar { display: flex; align-items: center; justify-content: space-between; margin-top: 11px; padding: 9px 12px; background: #f6f0e8; border: 1px solid #d8cbb0; border-radius: 2px; }
     .hipt-bar span { font-size: 0.80rem; color: #5a3c2a; font-weight: 500; }
-    .hipt-btn { background: #8a7968; color: white; border: none; border-radius: 1px; padding: 5px 12px; font-size: 0.72rem; cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+    .hipt-btn { background: #c4a9a1; color: white; border: none; border-radius: 1px; padding: 5px 12px; font-size: 0.72rem; cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
     .hipt-btn:hover { background: #8a7858; }
 
     /* ── FOKUS, VIKT & VILA ── */
     .fokus-chips { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 14px; }
     .fokus-chip { padding:6px 15px; border-radius:1px; border:1px solid #ece8e4; background:white; color:#9e9490; font-size:0.72rem; cursor:pointer; font-family:'Jost',sans-serif; transition:all 0.15s; letter-spacing:0.06em; text-transform:uppercase; }
-    .fokus-chip.active { background:#8a7968; color:white; border-color:#8a7968; }
+    .fokus-chip.active { background:#c4a9a1; color:white; border-color:#c4a9a1; }
     .vikt-up { background:none; border:1px solid #c4b09a; color:#5a3c2a; border-radius:1px; padding:1px 6px; font-size:0.65rem; cursor:pointer; font-family:'Jost',sans-serif; margin-left:5px; white-space:nowrap; letter-spacing:0.04em; }
     .vikt-up:hover { background:#f6f0e8; }
     .week-tip { font-size:0.72rem; color:#b8b0ac; margin-bottom:10px; font-style:italic; letter-spacing:0.02em; }
     .vila-btn { display:block; width:100%; margin-top:7px; padding:9px 12px; border:1px dashed #ddd8d4; border-radius:2px; background:none; color:#c8c0bc; font-size:0.72rem; cursor:pointer; font-family:'Jost',sans-serif; text-align:center; letter-spacing:0.08em; text-transform:uppercase; }
     .vila-btn:hover { border-color:#1a1a18; color:#1a1a18; }
-    .vila-btn.active { border-style:solid; border-color:#8a7968; background:#f6f0e8; color:#5a3c2a; font-weight:500; }
+    .vila-btn.active { border-style:solid; border-color:#c4a9a1; background:#f6f0e8; color:#5a3c2a; font-weight:500; }
     .dag-sek .mbar-bg { background:#f0ebe8; border-radius:100px; height:5px; }
     .session-card.session-past { opacity:0.5; }
-    .session-card.session-past .session-dag { color:#8a7968; }
+    .session-card.session-past .session-dag { color:#c4a9a1; }
     /* ── MANUAL MEAL ── */
     .mm-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-top:6px; }
     .mm-grid > div label { margin-top:0; }
     .mm-grid input { padding:7px 10px; font-size:0.88rem; }
     .mm-lib { margin-top:11px; }
     .mm-lib-title { font-size:0.72rem; color:#b8b0ac; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.08em; }
-    .add-link-manual { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; margin-top:5px; padding:8px; border:1px dashed #c4b09a; border-radius:2px; background:none; color:#8a7968; font-size:0.72rem; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.06em; }
+    .add-link-manual { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; margin-top:5px; padding:8px; border:1px dashed #c4b09a; border-radius:2px; background:none; color:#c4a9a1; font-size:0.72rem; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.06em; }
     .add-link-manual:hover { border-color:#5a3c2a; color:#5a3c2a; background:#faf7f2; }
 
     /* ── PLAN WEEK NAV ── */
@@ -263,14 +267,14 @@
     .sess-btn-ok:hover { background:#333330; }
     .sess-btn-ok.planned { background:#f6f0e8; color:#5a3c2a; border-color:#b8a888; }
     .sess-btn-skip { flex:1; padding:10px; border:1px solid #ece8e4; border-radius:2px; background:white; color:#9e9490; font-size:0.72rem; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.08em; text-transform:uppercase; }
-    .sess-btn-skip:hover { border-color:#8a7968; color:#5a3c2a; }
-    .sess-btn-skip.skipped { background:#faf7f2; color:#5a3c2a; border-color:#8a7968; opacity:0.7; }
+    .sess-btn-skip:hover { border-color:#c4a9a1; color:#5a3c2a; }
+    .sess-btn-skip.skipped { background:#faf7f2; color:#5a3c2a; border-color:#c4a9a1; opacity:0.7; }
     .session-motivering { font-size:0.72rem; color:#8a7a68; background:#faf7f2; padding:10px 12px; border-radius:2px; margin-top:8px; line-height:1.6; border-left:2px solid #c4b09a; }
-    .session-card.session-planned { border-color:#8a7968; }
+    .session-card.session-planned { border-color:#c4a9a1; }
     .session-card.session-skipped { opacity:0.45; }
     /* ── FOOD SEARCH ── */
     .food-search-inp { width:100%; padding:9px 12px; border:1px solid #ece8e4; border-radius:2px; font-size:0.88rem; margin-bottom:6px; font-family:'Jost',sans-serif; background:#faf7f2; }
-    .food-search-inp:focus { outline:none; border-color:#8a7968; background:white; }
+    .food-search-inp:focus { outline:none; border-color:#c4a9a1; background:white; }
     .food-result { border:1px solid #ece8e4; border-radius:2px; max-height:180px; overflow-y:auto; margin-bottom:8px; }
     .food-row { display:flex; align-items:center; justify-content:space-between; padding:8px 11px; cursor:pointer; border-bottom:1px solid #f5f0ec; }
     .food-row:last-child { border-bottom:none; }
@@ -279,12 +283,12 @@
     .food-row .fnu { font-size:0.72rem; color:#b8b0ac; }
     .gram-row { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
     .gram-row input { flex:1; padding:8px 10px; border:1px solid #ece8e4; border-radius:2px; font-size:0.88rem; font-family:'Jost',sans-serif; }
-    .gram-row input:focus { outline:none; border-color:#8a7968; }
+    .gram-row input:focus { outline:none; border-color:#c4a9a1; }
     .gram-add-btn { background:#1a1a18; color:white; border:none; border-radius:2px; padding:9px 14px; font-size:0.72rem; font-weight:500; cursor:pointer; font-family:'Jost',sans-serif; white-space:nowrap; letter-spacing:0.08em; text-transform:uppercase; }
     .gram-add-btn:hover { background:#333330; }
     .mm-items { display:flex; flex-direction:column; gap:4px; margin-bottom:8px; }
     .mm-item { display:flex; justify-content:space-between; align-items:center; padding:7px 10px; background:#faf7f2; border-radius:2px; border:1px solid #ece8e4; font-size:0.80rem; }
-    .mi-del { background:none; border:none; color:#8a7968; cursor:pointer; font-size:0.88rem; padding:0 4px; }
+    .mi-del { background:none; border:none; color:#c4a9a1; cursor:pointer; font-size:0.88rem; padding:0 4px; }
     .mi-del:hover { color:#5a3c2a; }
     .mm-totals { background:#f6f0e8; border-radius:2px; border:1px solid #e8d8d8; padding:9px 12px; display:flex; gap:10px; flex-wrap:wrap; font-size:0.80rem; color:#5a3c2a; font-weight:500; margin-bottom:8px; }
     .mm-divider { font-size:0.72rem; color:#b8b0ac; font-style:italic; margin:6px 0 4px; }
@@ -294,10 +298,10 @@
     #pinLock p { color:#b8b0ac; font-size:0.72rem; margin-bottom:28px; text-align:center; letter-spacing:0.1em; text-transform:uppercase; }
     .pin-dots { display:flex; gap:14px; margin-bottom:28px; }
     .pin-dot { width:12px; height:12px; border-radius:50%; background:#ece8e4; transition:background 0.15s; }
-    .pin-dot.filled { background:#8a7968; }
+    .pin-dot.filled { background:#c4a9a1; }
     .pin-pad { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; width:100%; max-width:280px; }
     .pin-key { padding:18px; border:1px solid #ece8e4; border-radius:2px; background:white; font-size:1.1rem; font-weight:400; cursor:pointer; font-family:'Jost',sans-serif; color:#1a1a18; transition:all 0.1s; }
-    .pin-key:hover { border-color:#8a7968; background:#f6f0e8; }
+    .pin-key:hover { border-color:#c4a9a1; background:#f6f0e8; }
     .pin-key:active { transform:scale(0.96); background:#f6f0e8; }
     .pin-error { color:#5a3c2a; font-size:0.80rem; margin-top:10px; min-height:20px; letter-spacing:0.04em; }
     .pin-setup-note { font-size:0.72rem; color:#b8b0ac; margin-top:18px; text-align:center; max-width:260px; line-height:1.6; letter-spacing:0.04em; }
@@ -306,15 +310,15 @@
     .mål-grid > div label { margin-top:0; font-size:0.65rem; }
     .mål-grid input { padding:8px 11px; font-size:0.88rem; }
     .mål-återställ { background:none; border:1px solid #ece8e4; border-radius:2px; color:#9e9490; font-size:0.72rem; cursor:pointer; padding:10px; flex:1; font-family:'Jost',sans-serif; letter-spacing:0.08em; text-transform:uppercase; }
-    .mål-återställ:hover { border-color:#8a7968; color:#5a3c2a; }
+    .mål-återställ:hover { border-color:#c4a9a1; color:#5a3c2a; }
     .custom-badge { font-size:0.65rem; background:#f6f0e8; color:#5a3c2a; padding:2px 7px; border-radius:1px; border:1px solid #c4b09a; margin-left:6px; letter-spacing:0.05em; text-transform:uppercase; }
     /* ── DAG-VÄLJARE (byt dag) ── */
     .dag-picker { margin-top:10px; padding:10px 12px; background:#faf7f2; border-radius:2px; border:1px solid #ece8e4; }
     .dag-picker-label { font-size:0.65rem; color:#b8b0ac; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px; }
     .dag-picker-days { display:flex; gap:5px; flex-wrap:wrap; }
     .dp-dag { padding:7px 9px; border:1px solid #ece8e4; border-radius:2px; background:white; font-size:0.72rem; cursor:pointer; font-family:'Jost',sans-serif; color:#1a1a18; transition:all 0.1s; }
-    .dp-dag:hover:not(:disabled) { background:#f6f0e8; border-color:#8a7968; }
-    .dp-dag.sel { background:#8a7968; color:white; border-color:#8a7968; }
+    .dp-dag:hover:not(:disabled) { background:#f6f0e8; border-color:#c4a9a1; }
+    .dp-dag.sel { background:#c4a9a1; color:white; border-color:#c4a9a1; }
     .dp-dag:disabled { opacity:0.35; cursor:default; }
     .skip-warn { font-size:0.72rem; color:#5a3c2a; background:#f6f0e8; border:1px solid #e0d4b8; border-radius:2px; padding:7px 10px; margin-top:8px; line-height:1.5; }
     /* ── EGNA PASS ── */
@@ -325,7 +329,7 @@
     .ep-actions { display:flex; gap:7px; }
     .ep-btn { padding:8px 11px; border:1px solid #ece8e4; border-radius:2px; font-size:0.72rem; font-weight:500; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.07em; text-transform:uppercase; background:white; color:#9e9490; }
     .ep-btn.primary { background:#1a1a18; color:white; border-color:#1a1a18; flex:1; }
-    .ep-btn:hover { border-color:#8a7968; color:#5a3c2a; }
+    .ep-btn:hover { border-color:#c4a9a1; color:#5a3c2a; }
     .ep-btn.primary:hover { background:#333330; }
     .ep-form { margin-top:14px; padding:16px; border:1px dashed #c4b09a; border-radius:2px; background:#faf7f2; }
 
@@ -337,20 +341,20 @@
     .handel-port-btn { width:24px; height:24px; border:1px solid #ece8e4; border-radius:2px; background:white; font-size:0.88rem; cursor:pointer; line-height:1; color:#1a1a18; display:flex; align-items:center; justify-content:center; }
     .handel-item { display:flex; align-items:flex-start; gap:10px; padding:5px 0; border-bottom:1px solid #f5f1ee; cursor:pointer; }
     .handel-item:last-child { border-bottom:none; }
-    .handel-cb { width:18px; height:18px; border:1.5px solid #8a7968; border-radius:2px; flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center; }
-    .handel-cb.checked { background:#8a7968; border-color:#8a7968; color:white; font-size:0.72rem; }
+    .handel-cb { width:18px; height:18px; border:1.5px solid #c4a9a1; border-radius:2px; flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center; }
+    .handel-cb.checked { background:#c4a9a1; border-color:#c4a9a1; color:white; font-size:0.72rem; }
     .handel-item-text { font-size:0.88rem; color:#1a1a18; line-height:1.4; }
     .handel-item.done .handel-item-text { text-decoration:line-through; color:#c9c5c2; }
     .handel-manuell-rad { display:flex; gap:6px; margin-top:10px; }
     .handel-manuell-input { flex:1; padding:8px 10px; border:1px solid #ece8e4; border-radius:2px; font-size:0.88rem; font-family:'Jost',sans-serif; }
-    .handel-add-btn { background:#8a7968; color:white; border:none; border-radius:2px; padding:8px 14px; font-size:0.72rem; font-weight:500; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap; }
+    .handel-add-btn { background:#c4a9a1; color:white; border:none; border-radius:2px; padding:8px 14px; font-size:0.72rem; font-weight:500; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap; }
     .handel-ta-bort { background:none; border:none; color:#c4b09a; font-size:0.72rem; cursor:pointer; padding:0 4px; margin-left:auto; flex-shrink:0; }
     @media (hover:none) { .handel-item .handel-ta-bort[title] { opacity:1 !important; } }
     .handel-recept-lista { list-style:none; }
     .handel-recept-valjare { display:flex; flex-direction:column; gap:6px; max-height:340px; overflow-y:auto; }
     .handel-valj-rad { display:flex; align-items:center; justify-content:space-between; padding:8px 10px; border:1px solid #ece8e4; border-radius:2px; background:white; }
     .handel-valj-namn { font-size:0.88rem; color:#1a1a18; }
-    .handel-valj-btn { background:#8a7968; color:white; border:none; border-radius:2px; padding:5px 10px; font-size:0.72rem; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.07em; text-transform:uppercase; }
+    .handel-valj-btn { background:#c4a9a1; color:white; border:none; border-radius:2px; padding:5px 10px; font-size:0.72rem; cursor:pointer; font-family:'Jost',sans-serif; letter-spacing:0.07em; text-transform:uppercase; }
     .handel-valj-btn.remove { background:#f5f1ee; color:#9e9490; }
     .handel-tom { font-size:0.80rem; color:#b8b0ac; text-align:center; padding:20px 0; }
     .handel-kategori-block { margin-bottom:18px; }
@@ -364,7 +368,7 @@
     .sok-wrap { position:relative; margin-bottom:14px; }
     .sok-wrap input { width:100%; padding:10px 36px 10px 14px; border:1px solid #e8e2dc; border-radius:2px; font-family:'Jost',sans-serif; font-size:0.80rem; font-weight:300; color:#1a1a18; background:#faf7f2; letter-spacing:0.04em; -webkit-appearance:none; }
     .sok-wrap input::placeholder { color:#c0b8b2; letter-spacing:0.06em; }
-    .sok-wrap input:focus { outline:none; border-color:#8a7968; background:white; }
+    .sok-wrap input:focus { outline:none; border-color:#c4a9a1; background:white; }
     .sok-wrap input::-webkit-search-cancel-button { -webkit-appearance:none; }
     .sok-icon { position:absolute; right:12px; top:50%; transform:translateY(-50%); color:#c0b8b2; font-size:1.1rem; pointer-events:none; }
     .kat-box-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:8px 0 4px; }
@@ -374,8 +378,11 @@
     .kat-box-emoji { font-size:1.8rem; display:block; margin-bottom:8px; }
     .kat-box-label { font-family:'Cormorant Garamond',Georgia,serif; font-size:1.1rem; font-weight:600; color:#1a1a18; display:block; letter-spacing:0.02em; }
     .kat-box-count { font-size:0.72rem; color:#b8b0ac; font-family:'Jost',sans-serif; display:block; margin-top:4px; letter-spacing:0.05em; }
-    .kat-back { display:inline-flex; align-items:center; gap:5px; color:#8a7968; font-size:0.72rem; font-weight:500; cursor:pointer; padding:4px 0 14px; letter-spacing:0.1em; text-transform:uppercase; }
+    .kat-back { display:inline-flex; align-items:center; gap:5px; color:#c4a9a1; font-size:0.72rem; font-weight:500; cursor:pointer; padding:4px 0 14px; letter-spacing:0.1em; text-transform:uppercase; }
     .kat-aktiv-rubrik { font-family:'Cormorant Garamond',Georgia,serif; font-size:1.25rem; font-weight:600; color:#1a1a18; padding-bottom:12px; border-bottom:1px solid #e8e2dc; margin-bottom:6px; letter-spacing:0.02em; }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button { -webkit-appearance:none; margin:0; }
+  input[type=number] { -moz-appearance:textfield; }
   </style>
 </head>
 <body>
@@ -442,10 +449,14 @@
       <input type="search" id="receptSok" placeholder="Sök recept..." oninput="sokRecept(this.value)" autocomplete="off" autocorrect="off" spellcheck="false">
       <span class="sok-icon">⌕</span>
     </div>
-    <div class="tabs" id="receptTabs">
-      <button class="tab active" onclick="byttTab('frukost',this)">Frukost</button>
-      <button class="tab" onclick="byttTab('middag',this)">Lunch & Middag</button>
-      <button class="tab fav" onclick="byttTab('favoriter',this)">★ Favoriter</button>
+    <div class="filter-chips" id="receptTabs">
+      <button class="chip active" onclick="byttFilter('alla',this)">Alla</button>
+      <button class="chip" onclick="byttFilter('frukost',this)">Frukost</button>
+      <button class="chip" onclick="byttFilter('kott',this)">Kött</button>
+      <button class="chip" onclick="byttFilter('fisk',this)">Fisk</button>
+      <button class="chip" onclick="byttFilter('veg',this)">Vegetarisk</button>
+      <button class="chip" onclick="byttFilter('snack',this)">Snacks</button>
+      <button class="chip" onclick="byttFilter('favoriter',this)">★</button>
     </div>
     <div class="recipe-grid" id="recipeGrid"></div>
   </section>
@@ -469,9 +480,9 @@
       </div>
       <div style="display:flex;gap:8px;margin-top:14px">
         <button onclick="rensaCheckadeHandel()" style="flex:1;padding:9px;border:1px solid #ece8e4;border-radius:2px;background:white;font-size:0.72rem;cursor:pointer;font-family:inherit;letter-spacing:0.08em;text-transform:uppercase;color:#9e9490">✕ Rensa incheckade</button>
-        <button onclick="rensaHelHandel()" style="flex:1;padding:9px;border:1px solid #ece8e4;border-radius:2px;background:white;font-size:0.72rem;cursor:pointer;font-family:inherit;letter-spacing:0.08em;text-transform:uppercase;color:#8a7968">↺ Rensa allt</button>
+        <button onclick="rensaHelHandel()" style="flex:1;padding:9px;border:1px solid #ece8e4;border-radius:2px;background:white;font-size:0.72rem;cursor:pointer;font-family:inherit;letter-spacing:0.08em;text-transform:uppercase;color:#c4a9a1">↺ Rensa allt</button>
       </div>
-      <button id="delaBtn" onclick="delaHandlingslista()" style="width:100%;margin-top:8px;padding:11px;border:1px solid #8a7968;border-radius:2px;background:white;font-size:0.72rem;font-weight:500;cursor:pointer;font-family:inherit;letter-spacing:0.1em;text-transform:uppercase;color:#8a7968">↗ Dela handlingslista</button>
+      <button id="delaBtn" onclick="delaHandlingslista()" style="width:100%;margin-top:8px;padding:11px;border:1px solid #c4a9a1;border-radius:2px;background:white;font-size:0.72rem;font-weight:500;cursor:pointer;font-family:inherit;letter-spacing:0.1em;text-transform:uppercase;color:#c4a9a1">↗ Dela handlingslista</button>
     </div>
   </section>
 </div>
@@ -487,6 +498,7 @@
     <div class="tabs" style="margin-bottom:12px">
       <button class="tab active" id="hTab-frukost" onclick="byttHandelTab('frukost',this)">Frukost</button>
       <button class="tab" id="hTab-middag" onclick="byttHandelTab('middag',this)">Lunch & Middag</button>
+      <button class="tab" id="hTab-snacks" onclick="byttHandelTab('snacks',this)">Snacks</button>
     </div>
     <div class="handel-recept-valjare" id="handelValjareLista"></div>
     <div class="modal-footer" style="margin-top:16px">
@@ -512,7 +524,7 @@
       <option value="mattlig">Måttligt aktiv (rör mig en hel del på jobbet)</option>
     </select>
     <div style="display:flex;gap:8px;margin-top:10px">
-      <button style="flex:2;background:#9a8878;color:white;border:none;padding:9px 12px;border-radius:2px;font-size:0.72rem;font-weight:500;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.08em;text-transform:uppercase" onclick="sparaProfil()">Beräkna & spara</button>
+      <button style="flex:2;background:#b59991;color:white;border:none;padding:9px 12px;border-radius:2px;font-size:0.72rem;font-weight:500;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.08em;text-transform:uppercase" onclick="sparaProfil()">Beräkna & spara</button>
       <button id="posBtn" style="flex:0 0 auto;background:#ece8e4;color:#7a6a60;border:none;padding:9px 14px;border-radius:2px;font-size:0.72rem;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.06em;text-transform:uppercase" onclick="hämtaPosition()" title="Hämta din position för väderdata">Plats</button>
     </div>
     <div id="posStatus" style="font-size:0.72rem;color:#9e9490;margin-top:5px;text-align:center"></div>
@@ -664,7 +676,7 @@
     <button class="ovn-lagg-till" onclick="läggTillÖvningsRad()">+ Lägg till övning</button>
     <div class="modal-footer">
       <button class="cancel" onclick="stängSessionModal()">Avbryt</button>
-      <button class="cancel" style="color:#8a7968;border:1px solid #8a7968" onclick="återställSession()">↺ Original</button>
+      <button class="cancel" style="color:#c4a9a1;border:1px solid #c4a9a1" onclick="återställSession()">↺ Original</button>
       <button class="save" onclick="sparaSession()">Spara</button>
     </div>
   </div>
@@ -727,8 +739,9 @@
       <button class="picker-tab" onclick="byttPickerTab('mina',this)">Mina måltider</button>
     </div>
     <div id="pickerLista"></div>
-    <div class="modal-footer">
+    <div class="modal-footer" style="display:flex;gap:8px">
       <button class="cancel" onclick="stängPicker()">Stäng</button>
+      <button class="cancel" style="color:#c4a9a1;border-color:#c4a9a1" onclick="(()=>{const dk=document.getElementById('pickerDatum').value;const typ=document.getElementById('pickerTyp').value;document.getElementById('pickerBg').classList.remove('open');öppnaManualMeal(dk,typ);})()">Logga manuellt</button>
     </div>
   </div>
 </div>
@@ -938,12 +951,12 @@ const ÖVNINGAR = {
 };
 
 const ÖVNING_SKADA = {
-  knä:     ['sumosquat','reverselunge','leglifts','toetaps'],
-  rygg:    ['rdl','goodmornings','rows','singlearow','deadbug'],
-  axel:    ['skulderpress','frontlift','skullcrusher','inclinepushup','facepull','reardelt'],
-  handled: ['inclinepushup','skulderpress','skullcrusher'],
-  höft:    ['hipthrust','glutepuls','singlegbridge','rdl'],
-  vrist:   ['reverselunge','bandkickback','toetaps'],
+  knä:     ['sumosquat','reverselunge','leglifts','toetaps','hipthrust','glutepuls','singlegbridge','bandkickback'],
+  rygg:    ['rdl','rows','singlearow','deadbug','skulderpress','skulder','frontlift','russian','planka','pingvinen','halfroll','leglifts'],
+  axel:    ['skulderpress','frontlift','skullcrusher','inclinepushup','reardelt','skulder','triceps','facepull'],
+  handled: ['inclinepushup','skulderpress','skullcrusher','planka','rows','singlearow'],
+  höft:    ['hipthrust','glutepuls','singlegbridge','rdl','reverselunge','bandkickback','abduktion','sumosquat'],
+  vrist:   ['reverselunge','bandkickback','toetaps','sumosquat'],
 };
 
 // Build name->key lookup for YouTube links in freetext editor
@@ -971,33 +984,33 @@ const DR = {
   frukost: [
     { id:'f1', name:'Antiinflammatorisk smoothiebowl med bär och mango', rating:4.9, cat:'veg',
       tags:['Antioxidanter','Klorofyll','Omega-3'],
-      glow:'Spenat ger klorofyll och järn, järn ökar syresättningen i hudcellerna och ger den naturliga rodnaden. Chiafrön ger omega-3 och mango ger betakaroten som omvandlas till A-vitamin i kroppen, centralt för cellförnyelse.',
-      nutr:{kcal:365,protein:13,kolh:54,fett:11,fiber:11},
-      ingr:['50 g babyspenat','1 mango (200 g), fryst','1 banan, fryst','2 msk chiafrön','1 dl havremjölk','Topping: 40 g sockerfri granola eller blandade nötter & frön, näve bär, 1 tsk honung'],
-      steps:'1. Mixa spenat, mango, banan och havremjölk till en tjock och slät bas.\n2. Häll i en djup skål.\n3. Toppa med granola, blandade bär och lite honung.' },
+      glow:'Spenat ger klorofyll och järn, järn ökar syresättningen i hudcellerna och ger den naturliga rodnaden. Chiafrön och hampafrön ger omega-3. Mango ger betakaroten som omvandlas till A-vitamin i kroppen, centralt för cellförnyelse.',
+      nutr:{kcal:388,protein:16,kolh:49,fett:15,fiber:12},
+      ingr:['50 g babyspenat','1 mango (200 g), fryst','1 banan, fryst','2 msk chiafrön','1 msk hampafrön','1 dl mandelmjölk (osötad)','Topping: 40 g sockerfri granola eller blandade nötter & frön, näve bär, 1 tsk honung'],
+      steps:'1. Mixa spenat, mango, banan, mandelmjölk och hampafrön till en tjock och slät bas.\n2. Häll i en djup skål.\n3. Toppa med granola, blandade bär och lite honung.' },
     { id:'f2', name:'Overnight oats med bär och passionsfrukt', rating:4.7, cat:'veg',
       tags:['Prebiotika','Hög fiber','Blodsockerstabil'],
       glow:'Beta-glukan i havre stabiliserar blodsockret, blodsockertoppar bryter ned kollagen. Passionsfrukt ger C-vitamin som är nödvändigt för kollagensyntes. Bär ger antocyaniner som skyddar kollagentrådar.',
       nutr:{kcal:358,protein:12,kolh:58,fett:9,fiber:9},
-      ingr:['50 g havregryn','150 ml havremjölk','1 msk chiafrön','1 msk honung','100 g blandade bär','1 passionsfrukt'],
-      steps:'1. Blanda havregryn, havremjölk, chiafrön och honung i ett glas eller en burk. Rör om ordentligt.\n2. Ställ i kylen minst 6 h, gärna över natten.\n3. Toppa med blandade bär och passionsfrukt vid servering.' },
+      ingr:['50 g havregryn','150 ml havremjölk','1 msk chiafrön','1 msk honung','100 g blandade bär','1 passionsfrukt','En nypa salt'],
+      steps:'1. Blanda havregryn, havremjölk, chiafrön, honung och en nypa salt i ett glas eller en burk. Rör om ordentligt.\n2. Ställ i kylen minst 6 h, gärna över natten.\n3. Toppa med blandade bär och passionsfrukt vid servering.' },
     { id:'f3', name:'Avokadotoast med pocherat ägg', rating:4.8, cat:'veg',
       tags:['E-vitamin','Biotin','Skin food'],
-      glow:'Avokado ger E-vitamin och glutathion, kroppens eget antioxidant. Ägg ger biotin (B7) för hår och hud, och kolin som stärker cellmembranen. Ruccola ger glucosinolater som stödjer leverns avgiftning.',
-      nutr:{kcal:460,protein:20,kolh:38,fett:24,fiber:9},
-      ingr:['2 skivor surdegsbröd','½ avokado','2 ägg','50 g körsbärstomater','Citronjuice, salt, peppar, chiliflingor','Ruccola'],
-      steps:'1. Rosta surdegsbrödet.\n2. Mosa avokadon med citronsaft, salt och peppar.\n3. Pochera äggen: koka upp vatten med en skvätt ättika, sänk värmen. Rör om vattnet, knäck ägg i ett glas, glid ner i vattnet. Koka 3 min.\n4. Bred avokado på brödet, lägg ägg ovan. Toppa med körsbärstomater, ruccola och chiliflingor.' },
+      glow:'Avokado ger E-vitamin och glutathion, kroppens eget antioxidant. Ägg ger biotin (B7) för hår och hud, och kolin som stärker cellmembranen. Körsbärstomater ger lykopen, en antioxidant som skyddar hudceller mot UV-skada.',
+      nutr:{kcal:453,protein:19,kolh:37,fett:24,fiber:9},
+      ingr:['2 skivor surdegsbröd','½ avokado','2 ägg','50 g körsbärstomater','Citronjuice, salt, peppar, chiliflingor','1 msk ättika (till poachering)'],
+      steps:'1. Rosta surdegsbrödet.\n2. Mosa avokadon med citronsaft, salt och peppar.\n3. Pochera äggen: fyll en kastrull med ca 8 cm vatten och tillsätt 1 msk ättika. Koka upp, sänk sedan till svag sjudning, vattnet ska darra men inte bubbla.\n4. Knäck ett ägg i en liten kopp eller ramekin. Rör om vattnet med en sked så det bildas en virvel, håll koppen nära vattenytan och glid ner ägget försiktigt i mitten av virveln. Ättikan och virveln hjälper vitan att samla sig runt gulan.\n5. Sjud 3 min för rinnig gula, 4 min för halvfast. Lyft upp med hålslev och låt rinna av på hushållspapper. Upprepa med det andra ägget.\n6. Bred avokado på brödet, lägg ägg ovan. Toppa med körsbärstomater och chiliflingor.' },
     { id:'f4', name:'Bananpannkakor (2 ingredienser)', rating:4.6, cat:'veg',
       tags:['Glutenfri','Hög protein','Snabb'],
       glow:'Ägg ger komplett protein med alla essentiella aminosyror, byggstenarna för kollagen och elastin. Banan ger B6 som reglerar inflammationsprocesser i huden.',
-      nutr:{kcal:355,protein:19,kolh:44,fett:13,fiber:4},
-      ingr:['2 mogna bananer','3 ägg','Kanel','Bär och honung till topping'],
-      steps:'1. Mosa bananerna ordentligt med en gaffel till en slät smet.\n2. Vispa ner äggen och lite kanel. Rör tills smidigt.\n3. Stek små pannkakor på medelhög värme i lite smör eller kokosolja, 2–3 min/sida tills de är fasta.\n4. Servera med bär och lite honung.' },
+      nutr:{kcal:400,protein:19,kolh:44,fett:18,fiber:4},
+      ingr:['2 mogna bananer','3 ägg','Kanel','1 tsk kokosolja att steka i','Bär och honung till topping'],
+      steps:'1. Mosa bananerna ordentligt med en gaffel till en slät smet.\n2. Vispa ner äggen och lite kanel. Rör tills smidigt.\n3. Hetta upp kokosoljan i en stekpanna på medelhög värme. Stek små pannkakor 2–3 min/sida tills fasta och gyllene.\n4. Servera med bär och lite honung.' },
     { id:'f5', name:'Grekisk yoghurtbowl med bär och valnötter', rating:4.7, cat:'veg',
       tags:['Probiotika','Omega-3','Hög protein'],
       glow:'Grekisk yoghurt ger levande probiotika som stärker tarmbarriären, en frisk tarm minskar systemisk inflammation som yttar sig i huden. Valnötter är en av få nötsorter med omega-3.',
-      nutr:{kcal:318,protein:23,kolh:27,fett:13,fiber:5},
-      ingr:['200 g grekisk yoghurt (0–2%)','100 g blandade bär','20 g valnötter','1 tsk honung','1 msk chiafrön'],
+      nutr:{kcal:272,protein:23,kolh:24,fett:9,fiber:5},
+      ingr:['200 g grekisk yoghurt (0%)','100 g blandade bär','20 g valnötter','½ tsk honung','1 msk chiafrön'],
       steps:'1. Häll upp yoghurten i en skål.\n2. Toppa med blandade bär, valnötter och chiafrön.\n3. Ringla lite honung och servera direkt.' },
     { id:'f6', name:'Kryddiga äggmuffins med spenat, fetaost och örter', rating:4.6, cat:'veg',
       tags:['Meal prep','Hög protein','Järn'],
@@ -1009,27 +1022,24 @@ const DR = {
         '80 g fetaost, smulad',
         '1 tomat, urkärnad och finhackad',
         '2 vitlöksklyftor, rivna',
-        '½ tsk chiliflingor',
-        '½ tsk rökt paprika',
         '½ tsk oregano',
-        'Citronskal av ½ citron',
-        'Näve dill eller basilika, hackad',
+        'Näve basilika, hackad',
         'Salt & svartpeppar',
         'Olivolja till formen'
       ],
-      steps:'1. Ugn 180°. Olja muffinsformen väl.\n2. Vispa ägg med vitlök, chiliflingor, rökt paprika, oregano, citronskal, salt och peppar.\n3. Rör ner spenat, tomat och örter. Fördela i formen till ¾.\n4. Toppa varje muffin med smulad fetaost.\n5. Baka 18–20 min tills fasta och lätt gyllene. Portionen = 3 muffins.' },
+      steps:'1. Ugn 180°. Olja muffinsformen väl.\n2. Vispa ägg med vitlök, oregano, salt och svartpeppar.\n3. Rör ner spenat, tomat och basilika. Fördela i formen till ¾.\n4. Toppa varje muffin med smulad fetaost.\n5. Baka 18–20 min tills fasta och lätt gyllene. Portionen = 3 muffins.' },
     { id:'f7', name:'Chiapudding med kokosmjölk och mango', rating:4.8, cat:'veg',
       tags:['Omega-3','Hög fiber','Glow-boost'],
       glow:'Chiafrön har mer omega-3 per gram än lax (växtbaserat ALA). Fiber är prebiotika för tarmbakterierna, forskning via gut-skin axis visar direkt koppling mellan tarmhälsa och hudens klarhet.',
-      nutr:{kcal:358,protein:9,kolh:43,fett:17,fiber:17},
-      ingr:['40 g chiafrön','200 ml kokosmjölk (light)','100 ml havremjölk','1 tsk vaniljextrakt','150 g mango, skivad','Lime och mynta'],
+      nutr:{kcal:326,protein:9,kolh:37,fett:17,fiber:17},
+      ingr:['40 g chiafrön','200 ml kokosmjölk (light)','100 ml mandelmjölk (osötad)','1 tsk vaniljextrakt','150 g mango, skivad','Lime och mynta'],
       steps:'1. Blanda chiafrön med kokosmjölk, havremjölk och vaniljextrakt. Rör kraftigt.\n2. Vänta 5 min, rör igen så klumpar löser sig.\n3. Kyl minst 4 h, gärna över natten.\n4. Toppa med skivad mango och limejuice.' },
     { id:'f9', name:'Lemon Balance Smoothie', rating:4.8, cat:'veg',
       tags:['Avgiftning','Anti-inflammatorisk','Klorofyll'],
       glow:'Citron och ingefära stödjer leverns avgiftning, en välmående lever reglerar hormonnivåerna som direkt påverkar hudens klarhet och jämnhet. Linfrön ger lignaner (fytoöstrogener som balanserar hormoner) och omega-3. Spenat ger klorofyll och nitrat som ökar blodflödet till huden.',
-      nutr:{kcal:125,protein:3,kolh:17,fett:5,fiber:5},
-      ingr:['Saft från ½ citron','½ grönt äpple','1 näve bladspenat (ca 30 g)','2 cm färsk ingefära','1 msk linfrön','4 dl vatten eller kokosvatten'],
-      steps:'1. Lägg alla ingredienser i mixern.\n2. Mixa slät. Drick direkt, linfrönens nyttiga ämnen oxiderar snabbt.\nTips: frys ingefäran i bitar i förväg för enklare hantering. 1 portion.' },
+      nutr:{kcal:241,protein:4,kolh:48,fett:5,fiber:7},
+      ingr:['Saft från ½ citron','½ grönt äpple','½ banan, fryst','1 näve bladspenat (ca 30 g)','1 cm färsk ingefära','1 msk linfrön','1 msk honung','4 dl vatten eller kokosvatten'],
+      steps:'1. Lägg alla ingredienser i mixern.\n2. Mixa slät och krämig. Drick direkt, linfrönens nyttiga ämnen oxiderar snabbt.\nTips: frys ingefäran och bananen i bitar i förväg för enklare hantering. 1 portion.' },
     { id:'f10', name:'Green Mineral Smoothie med spirulina', rating:4.7, cat:'veg',
       tags:['Spirulina','Hudbarriär','Mineraler'],
       glow:'Spirulina är ett av de mest näringsdensa livsmedlen på planeten, ger komplett protein, klorofyll, järn, B12 och kraftfulla antioxidanter som phycocyanin. Avokado stärker hudbarriären med E-vitamin och hälsosamma fettsyror. Dadlar ger naturlig sötma plus kalium och magnesium som lugnar inflammation. Chiafrön ger omega-3 och prebiotisk fiber.',
@@ -1059,9 +1069,9 @@ const DR = {
     { id:'d03', name:'Röd linssoppa med kokosmjölk och ingefära', rating:4.9, cat:'veg',
       tags:['Anti-inflammatorisk','Hög fiber','Ledhälsa'],
       glow:'Ingefärans gingerol och gurkumejans curcumin är bland de mest studerade antiinflammatoriska ämnena, direkt relevanta för knäleder och hudinflammation. Svartpeppar ökar curcuminupptaget med upp till 2 000%.',
-      nutr:{kcal:372,protein:18,kolh:52,fett:8,fiber:12},
-      ingr:['100 g röda linser','100 ml kokosmjölk (light)','1 lök','1 vitlöksklyfta','1 msk riven ingefära','1 tsk gurkmeja','1 tsk spiskummin','Nypa svartpeppar','4 dl grönsaksbuljong','Lime, koriander'],
-      steps:'1. Fräs lök, vitlök och ingefära i olja på medelhög värme, 3–4 min.\n2. Tillsätt gurkmeja, spiskummin och svartpeppar, rör 1 min tills doftsamt.\n3. Häll i linser, kokosmjölk och buljong. Koka upp.\n4. Sjud under lock 20 min tills linserna är mjuka och sönderfalliga.\n5. Mixa slät med stavmixer. Smaka av med salt.\n6. Servera med limeklyftor och rikligt med färsk koriander.' },
+      nutr:{kcal:399,protein:21,kolh:56,fett:8,fiber:14},
+      ingr:['100 g röda linser','100 ml kokosmjölk (light)','1 lök','1 vitlöksklyfta','1 msk riven ingefära','1 tsk gurkmeja','1 tsk spiskummin','Nypa svartpeppar','4 dl grönsaksbuljong','¼ broccoli, delad i mindre buketter','Lime, koriander'],
+      steps:'1. Fräs lök, vitlök och ingefära i olja på medelhög värme, 3–4 min.\n2. Tillsätt gurkmeja, spiskummin och svartpeppar, rör 1 min tills doftsamt.\n3. Häll i linser, kokosmjölk och buljong. Koka upp.\n4. Sjud under lock 20 min tills linserna är mjuka och sönderfalliga.\n5. Mixa slät med stavmixer. Smaka av med salt.\n6. Lägg i broccolibuketterna och sjud 3–4 min tills de är mjuka men fortfarande gröna och har lite tuggmotstånd.\n7. Servera med limeklyftor och rikligt med färsk koriander.' },
     { id:'d04', name:'Buddha bowl med svart ris, kikärtor och tahini', rating:4.7, cat:'veg',
       tags:['Komplett protein','Kalcium','Zink'],
       glow:'Tahini (sesamfrön) ger koppar och zink, koppar aktiverar enzymer som behövs för kollagenproduktion. Kikärtor ger zink och folat. Avokado tillför glutathion, kroppens kraftigaste inbyggda antioxidant.',
@@ -1130,12 +1140,12 @@ const DR = {
         'Salt & svartpeppar'
       ],
       steps:'1. Biffar: riv morötterna grovt och krama ur all vätska ordentligt i en ren handduk, det är avgörande för att biffarna håller ihop. Riv halloumi. Hacka grönkålen fint. Blanda allt med ägg, mandelmjöl, vitlök, chiliflakes, gurkmeja, peppar och örter. Forma 8 biffar och stek i olivolja 3–4 min/sida på medelhög värme tills gyllene och fasta.\n2. Tabbouleh: koka bulgur enligt förpackning, svalna. Blanda med gurka, tomat, persilja, mynta, citron och olivolja. Smaka av med salt och peppar.\n3. Glow-tzatziki: riv gurkan och krama ur vätskan ordentligt. Blanda med yoghurt, vitlök, dill, mynta, olivolja, citron och gurkmeja. Smaka av med salt och peppar. Kyl 15 min så smakerna sätter sig.\n4. Servera 3 biffar per portion med tabbouleh och rikligt med glow-tzatziki.' },
-    { id:'d06', name:'Räkwok med soba-nudlar och grönsaker', rating:4.7, cat:'fisk',
+    { id:'d06', name:'Scampiwok med soba-nudlar och grönsaker', rating:4.7, cat:'fisk',
       tags:['Zink','Jod','Lågkalorig'],
-      glow:'Räkor är bland de rikaste källorna till zink och jod. Zink är ett nyckelmineral för sårheling och aknebehandling. Jod reglerar sköldkörteln som styr ämnesomsättning och hudcellsomsättning.',
-      nutr:{kcal:420,protein:42,kolh:41,fett:8,fiber:7},
-      ingr:['150 g räkor (skalade)','50 g soba-nudlar (bovete)','100 g broccoli','1 paprika','80 g sockerärtor','1 vitlöksklyfta','1 msk ingefära','2 msk soja','1 msk sesamolja','Lime, sesamfrön'],
-      steps:'1. Koka soba-nudlarna enligt förpackning, skölj kallt och ställ åt sidan.\n2. Hetta upp wok på hög värme. Stek vitlök och ingefära 1 min.\n3. Tillsätt broccoli, paprika och sockerärtor, woka 3–4 min.\n4. Räkor i, stek 2 min tills rosa.\n5. Nudlar och soja i, rör om 1 min.\n6. Servera med limeklyftor och sesamfrön.' },
+      glow:'Scampi är rika på zink och jod. Zink är ett nyckelmineral för sårheling och aknebehandling. Jod reglerar sköldkörteln som styr ämnesomsättning och hudcellsomsättning.',
+      nutr:{kcal:420,protein:40,kolh:42,fett:8,fiber:7},
+      ingr:['150 g scampi (råa, skalade)','50 g soba-nudlar (bovete)','100 g broccoli','1 paprika','80 g sockerärtor','1 vitlöksklyfta','1 msk ingefära','2 msk soja','1 msk fisksås','1 msk sesamolja','Lime, sesamfrön'],
+      steps:'1. Koka soba-nudlarna enligt förpackning, skölj kallt och ställ åt sidan.\n2. Hetta upp wok på hög värme. Stek vitlök och ingefära 1 min.\n3. Tillsätt broccoli, paprika och sockerärtor, woka 3–4 min.\n4. Scampi i, stek 3–4 min tills genomstekta och rosa.\n5. Nudlar, soja och fisksås i, rör om 1 min.\n6. Servera med limeklyftor och sesamfrön.' },
     { id:'d07', name:'Blomkålsstek med kikärtor och citronharissa', rating:4.5, cat:'veg',
       tags:['Kolin','C-vitamin','Anti-inflammatorisk'],
       glow:'Blomkål ger kolin som stödjer cellmembraner och leverfunktion, en välmående lever ger klarare hud. Capsaicin i harissa ökar blodcirkulationen till huden.',
@@ -1287,12 +1297,27 @@ const DR = {
         'Salt'
       ],
       steps:'1. Blanda scampi med vitlök, chiliflingor, citronskal, olivolja, salt och peppar.\n2. Stek scampin på hög värme 1–2 min/sida tills rosa och lätt karamelliserade, överkoka inte.\n3. Blanda ruccola, mango, avokado och rödlök.\n4. Vispa ihop dressing: lime, olivolja, honung, chili och koriander.\n5. Häll dressing över salladen, toppa med varm scampi.' },
-    { id:'d14', name:'Kikärtscurry med sötpotatis och spenat', rating:4.9, cat:'veg',
-      tags:['Curcumin','Hög fiber','Ledhälsa'],
-      glow:'Curcumin + capsaicin + svartpeppar = tre av de mest studerade antiinflammatoriska föreningarna i en enda rätt. Kliniska studier visar reducerade ledmarkörer. Kikärtor ger zink för kollagensyntesen.',
-      nutr:{kcal:442,protein:16,kolh:56,fett:14,fiber:12},
-      ingr:['1 burk kikärtor (400 g)','1 sötpotatis (200 g), tärnad','100 g spenat','1 burk kokosmjölk (light)','1 burk krossade tomater','1 lök','1 vitlöksklyfta','2 tsk curry','1 tsk gurkmeja','Nypa svartpeppar'],
-      steps:'1. Fräs lök och vitlök i olja 4 min. Tillsätt curry, gurkmeja och svartpeppar, rör 1 min.\n2. Lägg i sötpotatis och kikärtor, vänd runt.\n3. Häll i krossade tomater och kokosmjölk. Koka upp.\n4. Sjud 20 min tills sötpotatisen är mjuk.\n5. Rör ner spenat och låt falla ihop, 1–2 min. Smaka av.' },
+    { id:'d14', name:'Pasta med svamp och silkestofu', rating:4.8, cat:'veg',
+      tags:['Komplett protein','D-vitamin','Hög fiber'],
+      glow:'Silkestofu ger komplett vegetabiliskt protein med alla essentiella aminosyror - sällsynt i växtbaserade livsmedel. Svamp ger D-vitamin och selen, centralt för immunförsvar och inflammationsreglering. Frön och nötter ger omega-3, zink och E-vitamin.',
+      nutr:{kcal:600,protein:26,kolh:62,fett:25,fiber:5},
+      ingr:[
+        '200 g svamp, t.ex. champinjoner',
+        '1 klick smör eller margarin',
+        '1 gul lök',
+        '3 vitlöksklyftor',
+        'Olja att steka i',
+        '400 g silkestofu (1 paket)',
+        '1 citron (juicen)',
+        '0,5 dl fryst persilja',
+        '100 g smakrik ost (t.ex. prästost, västerbotten eller parmesan)',
+        '320 g pasta (80 g/portion)',
+        '2–3 dl pastavatten',
+        '1 dl frön eller nötter (t.ex. solroskärnor, mandlar, valnötter)',
+        '— Vegansk variant —',
+        '3 msk näringsjäst istället för ost, eller vegansk ost'
+      ],
+      steps:'1. Rosta frön eller nötter i torr stekpanna på medelhög värme tills gyllene och doftande. Ställ åt sidan.\n2. Skär svampen i bitar. Fräs i torr stekpanna på hög värme tills allt vatten ångat av och svampen fått fin färg. Lägg i en klick smör, rör om. Ställ åt sidan.\n3. Hacka lök och vitlök. Stek i olja på medelhög värme tills löken är mjuk och genomskinlig, 5–7 min.\n4. Koka upp saltat vatten och koka pastan al dente. Spara 2–3 dl pastavatten innan du häller av.\n5. Lägg löken i en mixer. Tillsätt silkestofu och citronsaft. Mixa till en slät, krämig sås.\n6. Häll tillbaka såsen i pannan på låg värme. Späd med pastavatten och rör om. Tillsätt fryst persilja och riv i osten. Rör tills osten smält och såsen är sammetslen.\n7. Blanda ner pastan i såsen och vänd runt.\n8. Servera med rikligt med svartpeppar, rostade frön/nötter, stekt svamp och lite extra riven ost.\nRecept: 4 portioner. Näring angiven per portion.' },
     { id:'d15', name:'Teriyaki-lax med pak choi och svart ris', rating:4.7, cat:'fisk',
       tags:['Omega-3','K-vitamin','Umami'],
       glow:'Pak choi ger K-vitamin som är nödvändigt för benmetabolism. Laxen ger omega-3 och astaxantin. Ingefäran i marinaden ger gingerol som minskar ledinflammation.',
@@ -1435,12 +1460,31 @@ const DR = {
         'Salt & svartpeppar'
       ],
       steps:'1. Vispa ihop alla dressingingredienser tills slät. Smaka av, späd med vatten till önskad konsistens.\n2. Lägg ruccola och spenat i botten av en skål. Arrangera rödbeta, edamame, avokado och blåbär ovan.\n3. Strö valnötter, granatäpple, fetaost och pumpafrön.\n4. Ringla dressing precis innan servering.' },
-    { id:'d27', name:'Biff med chimichurri och sötpotatisklyftor', rating:4.8, cat:'kott',
-      tags:['Klorofyll','Betakaroten','Koenzym Q10'],
-      glow:'Nötkött ger koenzym Q10, centralt för mitokondriernas energiproduktion i hudceller. Chimichurrins persilja ger klorofyll och C-vitamin. Sötpotatis ger betakaroten.',
-      nutr:{kcal:540,protein:38,kolh:32,fett:28,fiber:6},
-      ingr:['150 g entrecôte','1 stor sötpotatis (200 g), i klyftor','Chimichurri: stor näve persilja, 2 msk olivolja, 1 vitlöksklyfta, rödvinsvinäger, chili, salt'],
-      steps:'1. Ugn 200°. Skär sötpotatis i klyftor, vänd i olivolja och salt. Rosta 25 min.\n2. Mixa persilja, olivolja, vitlök, rödvinsvinäger, chili och salt grovt till chimichurri.\n3. Ta ut biffarna ur kylen 15 min innan stekning. Krydda med salt och peppar.\n4. Stek entrecôten 2–3 min/sida på hög värme till medium. Vila 3 min innan uppskärning.\n5. Servera med sötpotatisklyftor och riklig chimichurri.' },
+    { id:'d27', name:'Entrecôte med grönkåls-chimichurri', rating:4.8, cat:'kott',
+      tags:['Klorofyll','K-vitamin','Koenzym Q10'],
+      glow:'Nötkött ger koenzym Q10, centralt för mitokondriernas energiproduktion i hudceller. Grönkåls-chimichurrin ger K-vitamin, C-vitamin, klorofyll och sulforafan - en av de mest näringsdensa grönsaker som finns.',
+      nutr:{kcal:580,protein:32,kolh:21,fett:42,fiber:3},
+      ingr:[
+        '150 g entrecôte',
+        '½ sötpotatis (ca 100 g), i klyftor',
+        '½ tsk olivolja',
+        'En klick smör, 1 vitlöksklyfta, 1 kvist timjan (till bastering)',
+        'Salt & nymald svartpeppar',
+        '— Grönkåls-chimichurri (6 portioner, håller 1 vecka i kylen) —',
+        '2 dl finhackad grönkål',
+        '1 msk finhackad persilja',
+        '1 msk finhackad koriander',
+        '1 msk finhackad basilika',
+        '1 msk finhackad mynta',
+        '1 vitlöksklyfta, finhackad',
+        '1 silverlök, finhackad',
+        '1 grön chili, finhackad',
+        '0,5 dl neutral olja',
+        '3 msk olivolja',
+        '0,5 msk citronjuice',
+        'Salt & nymald svartpeppar'
+      ],
+      steps:'1. Gör chimichurrin: finhacka grönkål, persilja, koriander, basilika, mynta, vitlök, silverlök och chili. Blanda med neutral olja, olivolja och citronjuice. Smaka av med salt och svartpeppar. Ställ åt sidan minst 15 min. Håller 1 vecka i kylskåp.\n2. Ugn 200°. Skär sötpotatisen i klyftor, vänd i olivolja och salt. Rosta 25 min tills gyllene och mjuka.\n3. Ta ut entrecôten ur kylen minst 30 min innan stekning - en kall biff ger ojämn stekning.\n4. Hetta upp en stekpanna, helst gjutjärn, på högsta värme tills den börjar ryka. Tillsätt lite neutral olja med hög rökpunkt.\n5. Krydda entrecôten generöst med salt och nymald svartpeppar precis innan stekning.\n6. Lägg biffen i pannan utan att röra. Stek 2–3 min tills djupt brunstekt yta bildas, vänd en gång. Stek 2 min till för medium-rare (57°) eller 3 min för medium (63°).\n7. Sänk värmen, tillsätt smör, krossad vitlöksklyfta och timjankvist. Luta pannan och basta biffen med det skummande smöret i 1 min.\n8. Vila biffen 3–5 min löst täckt med folie. Skär mot fibrerna.\n9. Servera med sötpotatisklyftorna och riklig grönkåls-chimichurri.' },
     { id:'d28', name:'Nötköttswok med broccoli, oyster sauce och blomkålsris', rating:4.7, cat:'kott',
       tags:['Järn+C-vitamin','Sulforafan','Snabb'],
       glow:'Broccoli + nötkött: C-vitaminet i broccolin ökar järnupptaget från köttet med upp till 300%. Järn ger bättre syresättning och naturlig rodnad. Sulforafan bromsar brosk-nedbrytning.',
@@ -1482,7 +1526,7 @@ const DR = {
     { id:'d30', name:'Kryddiga köttfärsbiffar med avokadosalsa och sötpotatisklyftor', rating:4.7, cat:'kott',
       tags:['Glutathion','Q10','Betakaroten','Curcumin'],
       glow:'Avokado ger glutathion, kroppens starkaste inbyggda antioxidant. Nötfärs (5% fett) ger koenzym Q10 och järn. Sötpotatis ger betakaroten och långsam energi. Gurkmeja + svartpeppar aktiverar curcumin, curcumin tas upp 2 000% bättre med peppar. Spenat och riven morot i biffarna boostar järn, C-vitamin och fiber.',
-      nutr:{kcal:620,protein:40,kolh:38,fett:28,fiber:12},
+      nutr:{kcal:634,protein:40,kolh:41,fett:28,fiber:12},
       ingr:[
         '— Biffar —',
         '300 g nötfärs 5%',
@@ -1514,14 +1558,16 @@ const DR = {
         'Saften av 1 lime',
         'En näve koriander, hackad',
         '2 msk granatäpplekärnor',
-        'Salt & chiliflingor',
+        'Salt, vitpeppar & chiliflingor',
         '— Gurkmejayoghurt —',
         '3 msk turkisk yoghurt (2%)',
         '½ tsk gurkmeja',
-        '½ tsk vitlökspulver',
+        '1 vitlöksklyfta, riven',
+        '½ tsk sambal oelek',
+        '½ tsk honung',
         'Salt & limejuice'
       ],
-      steps:'1. Ugn 220°. Skär sötpotatis i klyftor, vänd i olja + rökt paprika + vitlökspulver + salt. Rosta 25–30 min tills gyllene och mjuka.\n2. Blanda alla biff-ingredienser i en bunke, rör ihop ordentligt. Forma 6–8 biffar.\n3. Hetta upp stekpanna på medelhög värme med lite olja. Stek biffar 4–5 min/sida tills genomstekta och med fin stekyta.\n4. Blanda avokadosalsa: mosa avokado grovt, vänd ner tomat, rödlök, jalapeño, lime, koriander och granatäpple. Smaka av med salt och chiliflingor.\n5. Rör ihop gurkmejayoghurt.\n6. Servera biffar med sötpotatisklyftor, rikligt med glow-salsa och en klick gurkmejayoghurt.\nRecept: 2 portioner. Näring angiven per portion.' },
+      steps:'1. Ugn 220°. Skär sötpotatis i klyftor, vänd i olja + rökt paprika + vitlökspulver + salt. Rosta 25–30 min tills gyllene och mjuka.\n2. Blanda alla biff-ingredienser i en bunke, rör ihop ordentligt. Forma 6–8 biffar.\n3. Hetta upp stekpanna på medelhög värme med lite olja. Stek biffar 4–5 min/sida tills genomstekta och med fin stekyta.\n4. Blanda avokadosalsa: mosa avokado grovt, vänd ner tomat, rödlök, jalapeño, lime, koriander och granatäpple. Smaka av med salt, vitpeppar och chiliflingor.\n5. Rör ihop gurkmejayoghurt: blanda yoghurt med riven vitlök, gurkmeja, sambal oelek, honung, salt och limejuice.\n6. Servera biffar med sötpotatisklyftor, rikligt med glow-salsa och en klick gurkmejayoghurt.\nRecept: 2 portioner. Näring angiven per portion.' },
     { id:'d31', name:'Rödbets- och linssallad med getost och valnötter', rating:4.7, cat:'veg',
       tags:['Betalainer','Omega-3','Probiotika'],
       glow:'Rödbeta ger betalainer som skyddar DNA mot oxidativ skada. Getost ger probiotika och är lättare att smälta än komjölk. Valnötter ger omega-3 och E-vitamin.',
@@ -1658,15 +1704,46 @@ const DR = {
       tags:['Hemjärn','Hög fiber','Anti-inflammatorisk'],
       glow:'Svarta linser (linser behåller sitt skal) ger antocyaniner och är rika på järn och folat. Högrev ger kollagenpeptider vid lång tillagning, direkt bioaktivt för hud och leder. Shiitake ger D-vitamin och eritadenin som sänker kolesterol. Blomkål i moset ersätter ½ potatismängden och minskar GI markant. Rödvinsvinäger aktiverar och balanserar rätten utan socker.',
       nutr:{kcal:635,protein:44,kolh:40,fett:24,fiber:12},
-      ingr:['800 g högrev, i bitar','75 g rökt sidfläsk, tärnat','250 g champinjoner','200 g shiitake','200 g portabello','2 morötter, skivade','12 pärllökar','3 vitlöksklyftor','2 msk tomatpuré','2 dl svarta linser, sköljda','5 dl rött vin','4 dl benbuljong','2 lagerblad','2 kvistar timjan','1 msk japansk soja','1–2 tsk rödvinsvinäger','1 msk olivolja','— Glow-blomkålsmos —','700 g potatis','300 g blomkål','4 rostade vitlöksklyftor (i folie 200°, 30 min)','1,5 dl grekisk yoghurt 0%','1 msk smör','2 msk finriven parmesan','Salt, vitpeppar','— Topping —','Rikligt med färsk persilja'],
-      steps:'1. Bryn sidfläsket krispigt i gryta, ta upp och ställ åt sidan.\n2. Salta och peppra högreven lätt, bryn i omgångar på hög värme för djup smak.\n3. Stek svamp, morot, pärllök och vitlök tills svampen fått färg och utvecklat umami.\n4. Tillsätt tomatpuré och stek 1 min.\n5. Lägg tillbaka kött och fläsk. Tillsätt linser, vin, buljong, lagerblad, timjan och soja.\n6. Koka upp, sänk värmen och sjud under lock 2–2,5 h tills köttet är mört. Ta av locket sista 20–30 min för tjockare sås.\n7. Avsluta med rödvinsvinäger och smaka av.\n8. Blomkålsmos: rosta vitlök i folie 200° i 30 min. Koka potatis och blomkål, häll av noga.\n9. Mosa potatis och blomkål med rostade vitlöksklyftor, yoghurt, smör och parmesan. Smaka av med salt och vitpeppar.\n10. Servera grytan över moset, toppa generöst med hackad persilja.\nRecept: 4 portioner. Näring angiven per portion.'  },
+      ingr:[
+        '800 g högrev, i bitar',
+        '75 g rökt sidfläsk, tärnat',
+        '2 morötter, skivade',
+        '3 vitlöksklyftor',
+        '2 msk tomatpuré',
+        '2 dl svarta linser, sköljda',
+        '5 dl rött vin',
+        '4 dl benbuljong',
+        '2 lagerblad',
+        '2 kvistar timjan',
+        '1 msk japansk soja',
+        '1–2 tsk rödvinsvinäger',
+        '1 msk olivolja',
+        '— Svamp & syltlök (vid sidan av) —',
+        '250 g champinjoner, skivade',
+        '200 g shiitake, skivade',
+        '200 g portabello, skivade',
+        '1 burk syltlök, avrunnen',
+        '1 klick smör',
+        'Salt & svartpeppar',
+        '— Glow-blomkålsmos —',
+        '700 g potatis',
+        '300 g blomkål',
+        '4 rostade vitlöksklyftor (i folie 200°, 30 min)',
+        '1,5 dl grekisk yoghurt 0%',
+        '1 msk smör',
+        '2 msk finriven parmesan',
+        'Salt, vitpeppar',
+        '— Topping —',
+        'Rikligt med färsk persilja'
+      ],
+      steps:'1. Bryn sidfläsket krispigt i gryta, ta upp och ställ åt sidan.\n2. Salta och peppra högreven lätt, bryn i omgångar på hög värme för djup smak.\n3. Stek morot och vitlök i grytan tills mjuka, ca 3 min.\n4. Tillsätt tomatpuré och stek 1 min.\n5. Lägg tillbaka kött och fläsk. Tillsätt linser, vin, buljong, lagerblad, timjan och soja.\n6. Koka upp, sänk värmen och sjud under lock 2–2,5 h tills köttet är mört. Ta av locket sista 20–30 min för tjockare sås.\n7. Avsluta med rödvinsvinäger och smaka av.\n8. Blomkålsmos: rosta vitlök i folie 200° i 30 min. Koka potatis och blomkål, häll av noga. Mosa med rostade vitlöksklyftor, yoghurt, smör och parmesan. Smaka av med salt och vitpeppar.\n9. Svamp & syltlök: stek svampen i smör på hög värme tills gyllene och all vätska ångat bort, ca 8 min. Salta och peppra. Lägg i syltlöken och värm igenom en minut.\n10. Servera grytan över moset med svamp och syltlök vid sidan av. Toppa generöst med hackad persilja.\nRecept: 4 portioner. Näring angiven per portion.'  },
     { id:'d43', name:'Scampiwok med sweet chili, thaibasilika och svart ris', rating:4.8, cat:'fisk',
       tags:['Zink','Probiotika','Hög protein','Gut-skin axis'],
       glow:'Scampi ger zink och jod, zink är nödvändigt för kollagensyntes och sårheling. Broccoli ger sulforafan som bromsar brosk-nedbrytning. Miso ger levande probiotika som stärker gut-skin axis. Avokado ger glutathion, kroppens kraftigaste inbyggda antioxidant. Svart ris ger antocyaniner, 3x mer än blåbär.',
       nutr:{kcal:550,protein:37,kolh:57,fett:14,fiber:7},
       ingr:[
         '— Scampi —',
-        '550 g scampi (råa, skalade)',
+        '600 g scampi (råa, skalade)',
         '1 msk japansk soja',
         '1 msk vit miso',
         '1 tsk majsstärkelse',
@@ -1707,7 +1784,7 @@ const DR = {
       nutr:{kcal:490,protein:37,kolh:33,fett:21,fiber:8},
       ingr:[
         '— Scampi —',
-        '550 g scampi (råa, skalade)',
+        '600 g scampi (råa, skalade)',
         '1 msk soja',
         '1 tsk riven ingefära',
         '— Wokgrönsaker —',
@@ -1734,7 +1811,45 @@ const DR = {
         'Sesamfrön',
         'Limeklyftor'
       ],
-      steps:'1. Blanda scampi med soja och ingefära. Låt stå 10 min medan du förbereder grönsakerna.\n2. Vispa ihop alla såsingredienser i en skål.\n3. Hetta upp wok på hög värme. Fräs lök och vitlök 2 min tills de mjuknar.\n4. Tillsätt ingefära och salladslök, rör 1 min.\n5. Lägg i broccoli, morot och paprika. Woka 3–4 min på hög värme så grönsakerna behåller lite crunch.\n6. Scampin i, stek 1–2 min tills de precis blivit rosa. Överkoka inte.\n7. Häll i såsen, rör om 1 min tills allt är glaserat och doftsamt.\n8. Servera toppad med avokado, babyspenat, cashew, thaibasilika, sesamfrön och limeklyftor.\nRecept: 4 portioner. Näring angiven per portion.' }
+      steps:'1. Blanda scampi med soja och ingefära. Låt stå 10 min medan du förbereder grönsakerna.\n2. Vispa ihop alla såsingredienser i en skål.\n3. Hetta upp wok på hög värme. Fräs lök och vitlök 2 min tills de mjuknar.\n4. Tillsätt ingefära och salladslök, rör 1 min.\n5. Lägg i broccoli, morot och paprika. Woka 3–4 min på hög värme så grönsakerna behåller lite crunch.\n6. Scampin i, stek 1–2 min tills de precis blivit rosa. Överkoka inte.\n7. Häll i såsen, rör om 1 min tills allt är glaserat och doftsamt.\n8. Servera toppad med avokado, babyspenat, cashew, thaibasilika, sesamfrön och limeklyftor.\nRecept: 4 portioner. Näring angiven per portion.' },
+    { id:'d45', name:'Shirazisallad', rating:4.8, cat:'veg',
+      tags:['Antioxidanter','C-vitamin','Lätt'],
+      glow:'Tomat och gurka ger lykopen och C-vitamin för kollagenproduktionen. Persilja är extremt rik på C-vitamin och K-vitamin. Färsk mynta ger rosmansyra, ett antiinflammatoriskt ämne. Granatäpplesirap ger punicalagin, med upp till 3 gånger mer antioxidantkraft än rödvin.',
+      nutr:{kcal:102,protein:2,kolh:12,fett:5,fiber:2},
+      ingr:[
+        '1,5 gurka',
+        '4 plommontomater',
+        '1–2 bananschalotten eller 1 rödlök',
+        '10–15 blad färsk mynta',
+        '½ kruka persilja',
+        '1 tsk torkad mynta',
+        '1 msk granatäpplesirap',
+        '3 msk olivolja',
+        'Saft av 1 citron',
+        'Salt & nymald svartpeppar'
+      ],
+      steps:'1. Skär gurkan i bitar ca ½ cm. Skär plommonttomaterna i liknande storlek.\n2. Finhacka schalotten eller rödlöken. Finhacka färsk mynta och persilja.\n3. Blanda gurka, tomat och lök i en skål. Tillsätt färsk mynta, persilja och torkad mynta.\n4. Ringla olivolja och granatäpplesirap över. Pressa över citronsaften.\n5. Smaka av med salt och nymald svartpeppar. Blanda väl.\n6. Servera direkt eller kyl 15 min för mer smak.\nRecept: 6 portioner. Näring angiven per portion.' }
+  ],
+  snacks: [
+    { id:'s01', name:'Energibollar med dadlar och valnötter', rating:4.8, cat:'snack',
+      tags:['Omega-3','Anti-inflammatorisk','Sockerfri'],
+      glow:'Valnötter är en av de bästa växtkällorna för omega-3 som motverkar inflammation. Chiafrön och hampafrön ger fiber, protein och ytterligare omega-3. Kakao ger flavonoider och antioxidanter. Kanel reglerar blodsockret.',
+      nutr:{kcal:102,protein:3,kolh:8,fett:7,fiber:3},
+      ingr:[
+        '½ dl solroskärnor',
+        '½ dl valnötter',
+        '½ dl riven kokos (+ extra att rulla i)',
+        '3 msk kakaopulver (osötat)',
+        '1 msk chiafrön',
+        '1 msk hampafrön',
+        '1 msk mandelsmör',
+        '1 tsk kanel',
+        '1 nypa salt',
+        '1 nypa vaniljpulver',
+        '8 dadlar, urkärnade',
+        '1 msk kallt espresso eller kaffe'
+      ],
+      steps:'1. Lägg solroskärnor, valnötter, kokos, kakaopulver, chiafrön, hampafrön, mandelsmör, kanel, salt, vaniljpulver, dadlar och kaffe i en matberedare eller blender.\n2. Mixa tills massan är jämn och klumpig.\n3. Blanda ner havregryn för hand med en sked.\n4. Rulla till ca 12 bollar.\n5. Rulla bollarna i riven kokos.\n6. Förvara i kylen upp till en vecka, eller i frysen i upp till 3 månader.\nRecept: 12 bollar. Näring angiven per boll.' }
   ]
 };
 
@@ -1833,6 +1948,7 @@ const LIVSMEDEL=[
 // ── STATE ────────────────────────────────────────────────────
 let aktivTab = 'frukost';
 let aktivKategori = null;
+let aktivFilter = new Set(['alla']);
 let aktivPickerTab = 'vecka';
 let pickerSokTerm='';
 let veckaOffset = 0;
@@ -2008,7 +2124,7 @@ const VIKT_STEG={hipthrust:2,rdl:2,skulderpress:2,biceps:2,hammer:2,triceps:2,sk
 function getRecipes(){
   const c=LS.custom();
   const merge=list=>list.map(r=>c[r.id]?{...r,...c[r.id],modified:true}:r);
-  return{frukost:merge(DR.frukost),middag:merge(DR.middag)};
+  return{frukost:merge(DR.frukost),middag:merge(DR.middag),snacks:merge(DR.snacks)};
 }
 
 // ── FOKUS → SESSIONER ────────────────────────────────────────
@@ -2024,6 +2140,13 @@ const FOKUS_SESSION_POOL={
   core:     ['core','core_rumpa'],
   helkropp: ['fullbody','combo','core_rumpa']
 };
+function sessionKonfliktScore(sessId){
+  const skadade=skadadeÖvningar();
+  if(!skadade.size) return 0;
+  const sess=PLAN_SESSIONS[sessId];
+  if(!sess||!sess.övn) return 0;
+  return sess.övn.filter(o=>skadade.has(o.k)).length;
+}
 function buildSessionsFromFokus(antal,weekNum){
   const fokus=LS.fokus();
   if(!fokus.length) return(SPLIT_VARIANTS[antal]||SPLIT_VARIANTS[3])[weekNum%2]||['fullbody'];
@@ -2033,10 +2156,18 @@ function buildSessionsFromFokus(antal,weekNum){
     const area=fokus[i%fokus.length];
     const pool=FOKUS_SESSION_POOL[area]||['fullbody'];
     const used=usedCnt[area]||0;
+    // Sortera kandidater efter skadakonflikter (färst konflikter först)
+    const kandidater=pool.filter(c=>!sessions.includes(c));
     let picked=null;
-    for(let j=0;j<pool.length*2;j++){
-      const cand=pool[(used+j+weekNum)%pool.length];
-      if(!sessions.includes(cand)){picked=cand;break;}
+    if(kandidater.length){
+      kandidater.sort((a,b)=>sessionKonfliktScore(a)-sessionKonfliktScore(b));
+      picked=kandidater[0];
+    }
+    if(!picked){
+      for(let j=0;j<pool.length*2;j++){
+        const cand=pool[(used+j+weekNum)%pool.length];
+        if(!sessions.includes(cand)){picked=cand;break;}
+      }
     }
     if(!picked) picked=pool[weekNum%pool.length];
     sessions.push(picked);
@@ -2172,7 +2303,7 @@ function renderDagPanel(dk){
   const dagPass=allPass.filter(p=>p.datum.slice(0,10).replace(/-/g,'')===dk);
   const meal=LS.meal(dk);
   const recipes=getRecipes();
-  const allRecipes=[...recipes.frukost,...recipes.middag];
+  const allRecipes=[...recipes.frukost,...recipes.middag,...recipes.snacks];
   const vilaFlag=LS.vila(dk);
   const rek=dagRek(dagPass,dk);
 
@@ -2202,20 +2333,14 @@ function renderDagPanel(dk){
   function mealSlot(typ,r){
     const typLbl=typ==='frukost'?'frukost':typ==='lunch'?'lunch':'middag';
     if(r) return`<div class="meal-slot"><div><div class="ms-name">${r.name}</div><div class="ms-nutr">${r.nutr.kcal} kcal · ${r.nutr.protein}g protein · ${r.nutr.fiber}g fiber</div></div><div class="ms-actions"><button class="ms-btn" onclick="öppnaPicker('${dk}','${typ}')">Ändra</button><button class="ms-btn" onclick="taBortMåltid('${dk}','${typ}')">✕</button></div></div>`;
-    const harGår=!!gårMeal[typ];
-    const gårNamn=harGår?(()=>{const v=gårMeal[typ];if(typeof v==='string'){const rec=allRecipes.find(r=>r.id===v);return rec?rec.name:null;}return v?.name||null;})():null;
-    return`<div style="display:flex;flex-direction:column;gap:5px">
-      ${harGår&&gårNamn?`<button class="add-link" style="border-color:#c8d4b8;color:#7a9060" onclick="kopieraMåltid('${dk}','${typ}')">↩ ${gårNamn}</button>`:''}
-      <button class="add-link" onclick="öppnaPicker('${dk}','${typ}')">+ Välj ${typLbl}</button>
-      <button class="add-link-manual" onclick="öppnaManualMeal('${dk}','${typ}')">Logga manuellt</button>
-    </div>`;
+    return`<button class="add-link" onclick="öppnaPicker('${dk}','${typ}')">+ Välj ${typLbl}</button>`;
   }
 
   const t=getDailyTargets();
   const mål={...t,kcal:rek.kcal};
   const macros=[
-    {k:'kcal',lbl:'Kalorier',unit:'kcal',col:'#8a7968'},
-    {k:'kolh',lbl:'Kolhydrater',unit:'g',col:'#9a8878'},
+    {k:'kcal',lbl:'Kalorier',unit:'kcal',col:'#c4a9a1'},
+    {k:'kolh',lbl:'Kolhydrater',unit:'g',col:'#b59991'},
     {k:'fett',lbl:'Fett',unit:'g',col:'#c4b490'},
     {k:'fiber',lbl:'Fiber',unit:'g',col:'#e0cece'}
   ];
@@ -2255,17 +2380,37 @@ function renderDagPanel(dk){
       return`<div class="dag-sek" style="display:flex;flex-direction:column;gap:8px">
         ${visV?`<div style="display:flex;align-items:center;gap:6px;cursor:pointer" onclick="toggleVit('${dk}')">
           <span style="${vanorStil}">Vitaminer</span>
-          <span style="width:13px;height:13px;border:1px solid ${LS.vit(dk)?'#8a7968':'#ddd8d4'};border-radius:2px;display:inline-flex;align-items:center;justify-content:center;background:${LS.vit(dk)?'#f6f0e8':'none'};font-size:0.55rem;color:#8a7968;flex-shrink:0">${LS.vit(dk)?'✓':''}</span>
+          <span style="width:13px;height:13px;border:1px solid ${LS.vit(dk)?'#c4a9a1':'#ddd8d4'};border-radius:2px;display:inline-flex;align-items:center;justify-content:center;background:${LS.vit(dk)?'#f6f0e8':'none'};font-size:0.55rem;color:#c4a9a1;flex-shrink:0">${LS.vit(dk)?'✓':''}</span>
         </div>`:''}
-        ${visL?`<div style="display:flex;align-items:center;gap:6px">
-          <span style="${vanorStil}">Lästid denna vecka</span>
-          <input id="lasInput_${dk}" type="number" min="0" max="600" value="${dagLas||''}" placeholder="0" style="width:36px;border:none;border-bottom:1px solid #ddd8d4;padding:1px 3px;font-size:0.65rem;font-family:'Jost',sans-serif;letter-spacing:0.06em;color:#5a4a40;text-align:center;outline:none;background:none">
-          <span style="${vanorStil}">min</span>
-          <span style="color:#ddd8d4;font-size:0.65rem">·</span>
-          <span style="font-size:0.65rem;font-family:'Jost',sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:#b8b0aa;cursor:pointer" onclick="sparaLäsning('${dk}')">Spara</span>
-          <span style="color:#ddd8d4;font-size:0.65rem">·</span>
-          <span style="${vanorStil}">${veckoLas} min/v</span>
+        ${visL?`<div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="${vanorStil}">Lästid idag</span>
+            <input id="lasInput_${dk}" type="number" min="0" max="600" value="${dagLas||''}" placeholder="" onblur="sparaLäsning('${dk}')" style="width:28px;height:14px;border:1px solid #ddd8d4;border-radius:2px;padding:0 2px;font-size:0.65rem;font-family:'Jost',sans-serif;color:#5a4a40;text-align:center;outline:none;background:none">
+            ${dagLas?`<span style="${vanorStil}">min</span>`:''}
+          </div>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="${vanorStil}">Total lästid denna vecka</span>
+            <span style="min-width:28px;height:14px;border:1px solid #ddd8d4;border-radius:2px;padding:0 3px;font-size:0.65rem;font-family:'Jost',sans-serif;color:#5a4a40;text-align:center;display:inline-flex;align-items:center;justify-content:center">${veckoLas||''}</span>
+            ${veckoLas?`<span style="${vanorStil}">min/v</span>`:''}
+          </div>
         </div>`:''}
+      </div>`;
+    })()}
+
+    ${(()=>{
+      if(!isToday) return '';
+      const ingetMat=!frokostR&&!lunchR&&!middagR;
+      const ingetPass=!aktivaPassDag.length&&!vilaFlag;
+      if(!(ingetMat&&ingetPass)) return '';
+      const h=new Date().getHours();
+      const måltid=h<10?'frukost':h<14?'lunch':'middag';
+      const tips=ingetMat&&ingetPass
+        ?`Kom igång och registrera dagens aktivitet &amp; mål!`
+        :ingetMat?`Logga din ${måltid}`
+        :'Logga dagens träning';
+      const action=ingetPass&&!ingetMat?`öppnaTraningModal('${dk}')`:`öppnaPicker('${dk}','${måltid}')`;
+      return`<div style="margin-bottom:8px;padding:12px 14px;background:#f6f3ef;border-radius:3px;border-left:2px solid #c4a9a1">
+        <span style="font-size:0.80rem;color:#5a4840">${tips}</span>
       </div>`;
     })()}
 
@@ -2274,7 +2419,7 @@ function renderDagPanel(dk){
         const visaFörslag=!aktivaPassDag.length&&!vilaFlag&&dk>=todayKey()&&planeradeForDk.length;
         const förstaSess=visaFörslag?PLAN_SESSIONS[planeradeForDk[0].sessId]:null;
         const förslagKnapp=förstaSess
-          ?`<button onclick="snabbLogPlanerat('${dk}','${planeradeForDk[0].sessId}')" style="border:1px dashed #ddd8d4;background:none;border-radius:2px;padding:3px 10px;font-size:0.60rem;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#9a8878;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${förstaSess.namn}">${förstaSess.namn}</button>`
+          ?`<button onclick="snabbLogPlanerat('${dk}','${planeradeForDk[0].sessId}')" style="border:1px dashed #ddd8d4;background:none;border-radius:2px;padding:3px 10px;font-size:0.60rem;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#b59991;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${förstaSess.namn}">${förstaSess.namn}</button>`
           :'';
         return`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
           <div class="dag-sek-title" style="margin-bottom:0">Träning</div>
@@ -2288,7 +2433,7 @@ function renderDagPanel(dk){
       ${(()=>{
         const veckodag=dato.getDay()===0?6:dato.getDay()-1;
         const rutinIDag=LS.rutin().filter(r=>r.dag===veckodag);
-        if(!rutinIDag.length) return '';
+        if(!rutinIDag.length||vilaFlag) return '';
         return rutinIDag.map(r=>{
           const loggad=aktivaPassDag.some(p=>p.typ===r.namn);
           return`<button class="rutin-chip${loggad?' loggad':''}" onclick="${loggad?`taBortRutinPass('${dk}','${r.namn}')`:`loggaRutinPass('${dk}','${r.namn}',${r.tid})`}">
@@ -2302,7 +2447,7 @@ function renderDagPanel(dk){
     </div>
 
     <div class="dag-sek">
-      <div class="dag-sek-title" style="margin-bottom:8px">🥗 Mat</div>
+      <div class="dag-sek-title" style="margin-bottom:8px">🥗 Mat & Näring</div>
       <div style="display:grid;gap:6px">
         <div style="display:flex;align-items:center;gap:8px">
           <span style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:#9e9490;min-width:52px">Frukost</span>
@@ -2317,12 +2462,14 @@ function renderDagPanel(dk){
           <div style="flex:1">${mealSlot('middag',middagR)}</div>
         </div>
       </div>
-    </div>
-
-    <div class="dag-sek">
-      <div class="dag-sek-title" style="margin-bottom:8px">📊 Näring</div>
-      <div class="dag-nutr-bars">${barsHTML}</div>
-      <div class="dag-rec">${rek.text}</div>
+      ${tot.kcal>0?`<div style="margin-top:10px;padding-top:10px;border-top:1px solid #f0ebe6">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+          <span style="font-size:0.65rem;color:#b8b0ac;text-transform:uppercase;letter-spacing:0.08em">${Math.round(tot.kcal)} kcal · ${Math.round(tot.protein)}g protein · ${Math.round(tot.fiber)}g fiber</span>
+          ${mål.kcal?`<span style="font-size:0.65rem;color:${tot.kcal>mål.kcal?'#e74c3c':'#b8b0ac'}">${Math.round(tot.kcal)}/${mål.kcal}</span>`:''}
+        </div>
+        <div style="height:4px;background:#f0ebe6;border-radius:100px;overflow:hidden"><div style="height:4px;border-radius:100px;background:#c4a9a1;width:${mål.kcal?Math.min(100,Math.round(tot.kcal/mål.kcal*100)):0}%;transition:width 0.3s"></div></div>
+      </div>`:''}
+      <div class="dag-rec" style="margin-top:8px">${rek.text}</div>
     </div>
 
   </div>`;
@@ -2415,8 +2562,8 @@ function renderPickerLista(){
     const ids=getWeeklyIds(cat);
     list=recipes[cat].filter(r=>ids.includes(r.id));
   } else if(aktivPickerTab==='favoriter'){
-    list=[...recipes.frukost,...recipes.middag].filter(r=>favs.includes(r.id)&&(cat==='frukost'?r.id.startsWith('f'):r.id.startsWith('d')));
-    if(!list.length) list=[...recipes.frukost,...recipes.middag].filter(r=>favs.includes(r.id));
+    list=[...recipes.frukost,...recipes.middag,...recipes.snacks].filter(r=>favs.includes(r.id)&&(cat==='frukost'?r.id.startsWith('f'):r.id.startsWith('d')));
+    if(!list.length) list=[...recipes.frukost,...recipes.middag,...recipes.snacks].filter(r=>favs.includes(r.id));
   } else if(aktivPickerTab==='mina'){
     const dk2=document.getElementById('pickerDatum').value;
     const lib=LS.cmlib();
@@ -2511,7 +2658,7 @@ function toggleFav(id){
 
 // ── REDIGERA ─────────────────────────────────────────────────
 function öppnaEdit(id){
-  const all=[...getRecipes().frukost,...getRecipes().middag];
+  const all=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];
   const r=all.find(x=>x.id===id); if(!r) return;
   document.getElementById('editId').value=id;
   document.getElementById('editName').value=r.name;
@@ -2650,6 +2797,22 @@ function stängSessionModal(e){
   document.getElementById('sessModalBg').classList.remove('open');
 }
 function byttTab(tab,el){ aktivTab=tab; aktivKategori=null; document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); renderRecept(); }
+function byttFilter(filter,el){
+  aktivSok=''; document.getElementById('receptSok').value='';
+  if(filter==='alla'){
+    aktivFilter=new Set(['alla']);
+  } else {
+    aktivFilter.delete('alla');
+    if(aktivFilter.has(filter)) aktivFilter.delete(filter);
+    else aktivFilter.add(filter);
+    if(aktivFilter.size===0) aktivFilter=new Set(['alla']);
+  }
+  document.querySelectorAll('.chip').forEach(c=>{
+    const f=c.getAttribute('onclick').match(/byttFilter\('([^']+)'/)?.[1];
+    c.classList.toggle('active', f&&aktivFilter.has(f));
+  });
+  renderRecept();
+}
 
 // ── RENDER VECKA/TRÄNING ─────────────────────────────────────
 function renderVecka(count){
@@ -2862,7 +3025,7 @@ function renderProfilStatistik(){
   const passPts=days.map(dk=>{ c+=(passPerDag[dk]||0); return c; });
 
   // Protein per dag
-  const allRecipes=[...getRecipes().frukost,...getRecipes().middag];
+  const allRecipes=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];
   function lösR(v){ if(!v) return null; if(typeof v==='string') return allRecipes.find(r=>r.id===v)||null; return v; }
   const proteinMål=DAILY.protein||100;
   const proteinPts=days.map(isoD=>{
@@ -2899,7 +3062,7 @@ function renderProfilStatistik(){
   const startLabel=`${parseInt(dp[2])} ${månNamn[parseInt(dp[1])-1]}`;
 
   const dots=days.map((dk,i)=>passPerDag[dk]
-    ?`<circle cx="${toX(i)}" cy="${toYPass(passPts[i])}" r="2.5" fill="#8a7968"/>`
+    ?`<circle cx="${toX(i)}" cy="${toYPass(passPts[i])}" r="2.5" fill="#c4a9a1"/>`
     :''
   ).join('');
 
@@ -2922,13 +3085,13 @@ function renderProfilStatistik(){
       <svg viewBox="0 0 ${W} ${H}" style="width:100%;display:block" preserveAspectRatio="none">
         <path d="${areaPath}" fill="rgba(138,121,104,0.10)" stroke="none"/>
         <path d="${protPath}" fill="none" stroke="rgba(180,168,152,0.5)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 2"/>
-        <path d="${linePath}" fill="none" stroke="#8a7968" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="${linePath}" fill="none" stroke="#c4a9a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         ${dots}
       </svg>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px">
         <span style="font-size:0.60rem;color:#c8c0bc">${startLabel}</span>
         <div style="display:flex;gap:10px;align-items:center">
-          <span style="font-size:0.55rem;color:#9e9490;display:flex;align-items:center;gap:3px"><svg width="14" height="3" viewBox="0 0 14 3"><line x1="0" y1="1.5" x2="14" y2="1.5" stroke="#8a7968" stroke-width="1.5"/></svg>Pass</span>
+          <span style="font-size:0.55rem;color:#9e9490;display:flex;align-items:center;gap:3px"><svg width="14" height="3" viewBox="0 0 14 3"><line x1="0" y1="1.5" x2="14" y2="1.5" stroke="#c4a9a1" stroke-width="1.5"/></svg>Pass</span>
           <span style="font-size:0.55rem;color:#c8c0bc;display:flex;align-items:center;gap:3px"><svg width="14" height="3" viewBox="0 0 14 3"><line x1="0" y1="1.5" x2="14" y2="1.5" stroke="rgba(180,168,152,0.6)" stroke-width="1" stroke-dasharray="3 2"/></svg>Protein</span>
         </div>
         <span style="font-size:0.60rem;color:#c8c0bc">idag</span>
@@ -3218,6 +3381,8 @@ function getSession(sessId){
 
 function sessExHTML(sess, vikter){
   const skadade=skadadeÖvningar();
+  const antalAnpassade=sess.övn?(sess.övn.filter(o=>skadade.has(o.k)).length):0;
+  const anpassadNot=antalAnpassade>0?`<div style="font-size:0.72rem;color:#c4846a;margin-bottom:8px">⚠ ${antalAnpassade} övning${antalAnpassade>1?'ar':''} borttagen${antalAnpassade>1?'a':''} pga skadeområde</div>`:'';
   if(sess.övnText){
     return sess.övnText.split('\n').filter(l=>l.trim()).map((line,j)=>{
       const key=övningMatchKey(line);
@@ -3228,7 +3393,7 @@ function sessExHTML(sess, vikter){
     }).join('');
   }
   let nr=0;
-  return sess.övn.map(o=>{
+  return anpassadNot+sess.övn.map(o=>{
     if(skadade.has(o.k)) return '';
     const ov=ÖVNINGAR[o.k];
     const vikt=vikter[o.k];
@@ -3399,11 +3564,12 @@ function genereraVeckoplan(){
         <div class="session-left">
           <div class="session-dag">${noDay?(planVeckaOffset<0?'Historisk vecka':'Inga fler dagar, byt till nästa vecka'):dag}${återhämtningHtml}</div>
           <div class="session-name">${sess.namn}${isPlanned?' <span style="color:#5a3c2a;font-size:0.72rem;font-weight:400;letter-spacing:0.05em;text-transform:uppercase">✓ genomfört</span>':''}${isSkipped?' <span style="color:#b8b0ac;font-size:0.72rem;font-weight:400;letter-spacing:0.05em;text-transform:uppercase">✕ hoppad</span>':''}</div>
-          <div class="session-meta">${sess.dur} · ${sess.övnText?sess.övnText.split('\n').filter(l=>l.trim()).length:sess.övn?sess.övn.length:0} övningar · ${sess.kat}${isCustom?' · <span style="color:#8a7968;font-size:0.65rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase">Anpassad</span>':''}</div>
+          <div class="session-meta">${sess.dur} · ${sess.övnText?sess.övnText.split('\n').filter(l=>l.trim()).length:sess.övn?sess.övn.length:0} övningar · ${sess.kat}${isCustom?' · <span style="color:#c4a9a1;font-size:0.65rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase">Anpassad</span>':''}</div>
         </div>
         <span style="color:#ccc;font-size:0.88rem" id="sessArr-${i}">▼</span>
       </div>
       <div class="session-body" id="sessBody-${i}">
+        ${(()=>{const sk=LS.skador();if(!sk.length)return'';const etk=sk.map(s=>SKADE_ETIKETTER[s]||s).join(', ');const konflikter=sessionKonfliktScore(sessId);return`<div style="font-size:0.72rem;padding:7px 10px;background:#fdf6f2;border-left:2px solid #c4846a;border-radius:0 2px 2px 0;margin-bottom:8px;color:#7a4030">${konflikter>0?`⚠ ${konflikter} övning${konflikter>1?'ar':''} borttagen${konflikter>1?'a':''} pga ${etk}`:`✓ Anpassat för ${etk} — inga belastande övningar`}</div>`;})()}
         <div class="session-beskr">${sess.beskr}</div>
         ${!isCustom&&sess.motivering?`<div class="session-motivering">💡 ${sess.motivering}</div>`:''}
         ${övH?`<div class="ex-lista" style="margin-top:10px">${övH}</div>`:''}
@@ -3710,20 +3876,20 @@ function receptKort(r,tabName,favs){
         <div class="recipe-btns">
           <button class="fav-btn" onclick="toggleFav('${r.id}')">${isFav?'★':'☆'}</button>
           ${tabName!=='favoriter'?`<button class="fav-btn" style="font-size:0.88rem;color:#d4ccc8" title="Inte för mig" onclick="dismissRecipe('${r.id}','${tabName}')">✕</button>`:''}
-          ${(()=>{const inHandel=LS.handel().recept.some(x=>x.id===r.id);return`<button class="small-btn" onclick="snabbLäggTillHandel('${r.id}')" style="${inHandel?'background:#f0ede8;color:#8a7968':''}" title="Lägg till i handlingslista">${inHandel?'🛒✓':'🛒'}</button>`;})()}
+          ${(()=>{const inHandel=LS.handel().recept.some(x=>x.id===r.id);return`<button class="small-btn" onclick="snabbLäggTillHandel('${r.id}')" style="${inHandel?'background:#f0ede8;color:#c4a9a1':''}" title="Lägg till i handlingslista">${inHandel?'🛒✓':'🛒'}</button>`;})()}
           <button class="small-btn" onclick="öppnaEdit('${r.id}')">Redigera</button>
           <button class="small-btn green" onclick="väljMåltidFranRecept('${r.id}')">+ Idag</button>
         </div>
       </div>
       <div class="recipe-tags">${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
       <div style="display:flex;align-items:center;gap:10px;margin-top:10px;margin-bottom:2px">
-        <span style="font-size:0.65rem;color:#b8b0ac;text-transform:uppercase;letter-spacing:0.1em">Portioner</span>
+        <span style="font-size:0.65rem;color:#b8b0ac;text-transform:uppercase;letter-spacing:0.1em">${getPortUnit(r,2)}</span>
         <div style="display:flex;align-items:center;gap:6px">
           <button onclick="event.stopPropagation();ändraPortioner('${r.id}',-1)" style="width:26px;height:26px;border:1px solid #ece8e4;border-radius:2px;background:white;font-size:1rem;cursor:pointer;line-height:1;color:#1a1a18">−</button>
-          <span id="port-${r.id}" style="min-width:18px;text-align:center;font-size:0.88rem;font-weight:500">${recipePortioner[r.id]||1}</span>
+          <span id="port-${r.id}" style="min-width:18px;text-align:center;font-size:0.88rem;font-weight:500">${(()=>{const bp=getBasePort(r);if(!recipePortioner[r.id])recipePortioner[r.id]=r.cat==='snack'?bp:2;return recipePortioner[r.id];})()}</span>
           <button onclick="event.stopPropagation();ändraPortioner('${r.id}',1)" style="width:26px;height:26px;border:1px solid #ece8e4;border-radius:2px;background:white;font-size:1rem;cursor:pointer;line-height:1;color:#1a1a18">+</button>
         </div>
-        <span id="port-lbl-${r.id}" style="font-size:0.72rem;color:#9e9490">${(recipePortioner[r.id]||1)===1?'portion':'portioner'}</span>
+        <span id="port-lbl-${r.id}" style="font-size:0.72rem;color:#9e9490">${getPortUnit(r,recipePortioner[r.id]||getBasePort(r))}</span>
       </div>
       <div class="nutr-row">
         <div class="nutr-cell"><div class="nutr-val" id="nutr-kcal-${r.id}">${Math.round(n.kcal)}</div><div class="nutr-lbl">kcal</div></div>
@@ -3732,13 +3898,14 @@ function receptKort(r,tabName,favs){
         <div class="nutr-cell"><div class="nutr-val" id="nutr-fett-${r.id}">${Math.round(n.fett*10)/10}g</div><div class="nutr-lbl">fett</div></div>
         <div class="nutr-cell"><div class="nutr-val" id="nutr-fiber-${r.id}">${Math.round(n.fiber*10)/10}g</div><div class="nutr-lbl">fiber</div></div>
       </div>
+      ${/Recept:\s*\d+\s*boll/.test(r.steps||'')?'<div style="font-size:0.65rem;color:#b8b0ac;text-align:right;margin-top:3px;letter-spacing:0.03em">Näring per boll</div>':''}
       <div class="glow-desc">✨ ${r.glow}</div>
       <div class="recipe-details" id="det-${r.id}">
-        <h4>Ingredienser <span id="port-ingr-lbl-${r.id}" style="font-weight:400;color:#b8b0ac;font-size:0.72rem">${(recipePortioner[r.id]||1)>1?' · för '+(recipePortioner[r.id]||1)+' portioner':''}</span></h4>
+        <h4>Ingredienser <span id="port-ingr-lbl-${r.id}" style="font-weight:400;color:#b8b0ac;font-size:0.72rem">${(()=>{const p=recipePortioner[r.id]||getBasePort(r);return p>1?' · för '+p+' '+getPortUnit(r,p):'';})()}</span></h4>
         <ul id="ingr-${r.id}">${r.ingr.map(i=>{
           const rubrik=i.match(/^—\s*(.+?)\s*—$/);
           if(rubrik) return`<li style="list-style:none;margin-left:-16px;margin-top:8px;margin-bottom:2px"><strong style="font-size:0.80rem;color:#1a1a18;letter-spacing:0.03em">${rubrik[1]}</strong></li>`;
-          return`<li>${skalaIngrediens(i,recipePortioner[r.id]||1)}</li>`;
+          return`<li>${skalaIngrediens(i,(recipePortioner[r.id]||getBasePort(r))/getBasePort(r))}</li>`;
         }).join('')}</ul>
         <h4 style="margin-top:12px">Tillagning</h4>
         <div style="font-size:0.80rem;color:#4a4240;line-height:1.7;margin-top:8px">${r.steps.split('\n').map(rad=>rad.trim()).filter(Boolean).map(rad=>`<p style="margin:0 0 6px">${rad}</p>`).join('')}</div>
@@ -3759,79 +3926,36 @@ function sokRecept(q){
 
 function renderRecept(){
   const recipes=getRecipes();
+  const alla=[...recipes.frukost,...recipes.middag,...recipes.snacks];
   const favs=LS.favs();
   const grid=document.getElementById('recipeGrid');
   document.getElementById('veckaInfo').textContent='';
 
-  // Sökläge — visa alla matchande recept oavsett tab
+  function tabForRecipe(r){ return r.cat==='kott'||r.cat==='fisk'||r.cat==='veg'?'middag':r.cat==='snack'?'snacks':'frukost'; }
+
+  let visas;
   if(aktivSok){
-    const alla=[...recipes.frukost,...recipes.middag];
-    const träffar=alla.filter(r=>{
-      const s=aktivSok;
-      return r.name.toLowerCase().includes(s)||
-        (r.tags&&r.tags.some(t=>t.toLowerCase().includes(s)))||
-        (r.glow&&r.glow.toLowerCase().includes(s));
+    const s=aktivSok;
+    visas=alla.filter(r=>r.name.toLowerCase().includes(s)||(r.tags&&r.tags.some(t=>t.toLowerCase().includes(s)))||(r.glow&&r.glow.toLowerCase().includes(s)));
+  } else if(aktivFilter.has('alla')){
+    visas=alla;
+  } else {
+    visas=alla.filter(r=>{
+      if(aktivFilter.has('favoriter')&&favs.includes(r.id)) return true;
+      if(aktivFilter.has('frukost')&&recipes.frukost.includes(r)) return true;
+      if(aktivFilter.has('snack')&&r.cat==='snack') return true;
+      if(aktivFilter.has('kott')&&r.cat==='kott') return true;
+      if(aktivFilter.has('fisk')&&r.cat==='fisk') return true;
+      if(aktivFilter.has('veg')&&r.cat==='veg') return true;
+      return false;
     });
-    if(!träffar.length){
-      grid.innerHTML='<div class="empty">Inga recept matchar sökningen.</div>';
-    } else {
-      grid.innerHTML=träffar.map(r=>receptKort(r,r.cat==='fisk'||r.cat==='kott'||r.cat==='veg'?'middag':'frukost',favs)).join('');
-    }
-    return;
   }
 
-  if(aktivTab==='favoriter'){
-    const list=[...recipes.frukost,...recipes.middag].filter(r=>favs.includes(r.id));
-    if(!list.length){grid.innerHTML='<div class="empty">Inga favoriter ännu, klicka ☆ på ett recept.</div>';return;}
-    grid.innerHTML=list.map(r=>receptKort(r,'favoriter',favs)).join('');
+  if(!visas.length){
+    grid.innerHTML=`<div class="empty">${aktivFilter==='favoriter'?'Inga favoriter ännu — klicka ☆ på ett recept.':'Inga recept matchar.'}</div>`;
     return;
   }
-
-  if(aktivTab==='frukost'){
-    const smoothies=recipes.frukost.filter(r=>r.name.toLowerCase().includes('smoothie'));
-    const mat=recipes.frukost.filter(r=>!r.name.toLowerCase().includes('smoothie'));
-    if(!aktivKategori){
-      const lådor=[
-        {id:'smoothies',emoji:'🥤',label:'Smoothies & Dryck',count:smoothies.length},
-        {id:'frukmat',emoji:'🍳',label:'Frukost & Brunch',count:mat.length},
-      ].filter(l=>l.count>0);
-      grid.innerHTML=`<div class="kat-box-grid">${lådor.map(l=>`
-        <div class="kat-box" onclick="öppnaKategori('${l.id}')">
-          <span class="kat-box-emoji">${l.emoji}</span>
-          <span class="kat-box-label">${l.label}</span>
-          <span class="kat-box-count">${l.count} recept</span>
-        </div>`).join('')}</div>`;
-      return;
-    }
-    const list=aktivKategori==='smoothies'?smoothies:mat;
-    const label=aktivKategori==='smoothies'?'🥤 Smoothies & Dryck':'🍳 Frukost & Mat';
-    grid.innerHTML=`<div class="kat-back" onclick="aktivKategori=null;renderRecept()">← Alla kategorier</div>
-      <div class="kat-aktiv-rubrik">${label} <span style="font-size:0.72rem;font-weight:400;color:#b8b0ac;font-family:'Jost',sans-serif">${list.length} recept</span></div>
-      ${list.map(r=>receptKort(r,'frukost',favs)).join('')}`;
-    return;
-  }
-
-  // Lunch/Middag
-  const katInfo={
-    kott:{emoji:'🥩',label:'Kött',fullLabel:'🥩 Kött'},
-    fisk:{emoji:'🐟',label:'Fisk',fullLabel:'🐟 Fisk'},
-    veg:{emoji:'🌿',label:'Vegetarisk',fullLabel:'🌿 Vegetarisk'},
-  };
-  if(!aktivKategori){
-    const lådor=['kott','fisk','veg'].map(id=>({id,...katInfo[id],count:recipes.middag.filter(r=>r.cat===id).length})).filter(l=>l.count>0);
-    grid.innerHTML=`<div class="kat-box-grid tre">${lådor.map(l=>`
-      <div class="kat-box" onclick="öppnaKategori('${l.id}')">
-        <span class="kat-box-emoji">${l.emoji}</span>
-        <span class="kat-box-label">${l.label}</span>
-        <span class="kat-box-count">${l.count} recept</span>
-      </div>`).join('')}</div>`;
-    return;
-  }
-  const list=recipes.middag.filter(r=>r.cat===aktivKategori);
-  const info=katInfo[aktivKategori];
-  grid.innerHTML=`<div class="kat-back" onclick="aktivKategori=null;renderRecept()">← Alla kategorier</div>
-    <div class="kat-aktiv-rubrik">${info.fullLabel} <span style="font-size:0.72rem;font-weight:400;color:#b8b0ac;font-family:'Jost',sans-serif">${list.length} recept</span></div>
-    ${list.map(r=>receptKort(r,'middag',favs)).join('')}`;
+  grid.innerHTML=visas.map(r=>receptKort(r,tabForRecipe(r),favs)).join('');
 }
 
 function öppnaKategori(id){
@@ -3859,7 +3983,7 @@ function toggleReceptKat(id){
 
 function väljMåltidFranRecept(id){
   const dk=todayKey();
-  const all=[...getRecipes().frukost,...getRecipes().middag];
+  const all=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];
   const r=all.find(x=>x.id===id); if(!r) return;
   const typ=r.id.startsWith('f')?'frukost':'middag';
   const meal=LS.meal(dk);
@@ -3879,6 +4003,16 @@ function rensaIngrediens(str){
   return str.replace(/ekologisk[at]?\s*/gi,'').trim();
 }
 
+function getBasePort(r){
+  const m=(r.steps||'').match(/Recept:\s*(\d+)\s*(portion|boll)/);
+  return m?parseInt(m[1]):1;
+}
+function getPortUnit(r,n){
+  const m=(r.steps||'').match(/Recept:\s*\d+\s*(boll)/);
+  if(m) return n===1?'boll':'bollar';
+  return n===1?'portion':'portioner';
+}
+
 function skalaIngrediens(str,mult){
   str=rensaIngrediens(str);
   str=str.replace(/½/g,'0.5');
@@ -3891,17 +4025,23 @@ function skalaIngrediens(str,mult){
 }
 
 function ändraPortioner(id,delta){
-  const all=[...getRecipes().frukost,...getRecipes().middag];
+  const all=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];
   const r=all.find(x=>x.id===id); if(!r) return;
-  const cur=recipePortioner[id]||1;
-  const ny=Math.max(1,Math.min(4,cur+delta));
+  const bp=getBasePort(r);
+  const cur=recipePortioner[id]||bp;
+  const ny=Math.max(1,Math.min(8,cur+delta));
   recipePortioner[id]=ny;
   document.getElementById('port-'+id).textContent=ny;
-  document.getElementById('port-lbl-'+id).textContent=ny===1?'portion':'portioner';
+  document.getElementById('port-lbl-'+id).textContent=getPortUnit(r,ny);
+  const mult=ny/bp;
   const ingrEl=document.getElementById('ingr-'+id);
-  if(ingrEl) ingrEl.innerHTML=r.ingr.map(i=>`<li>${skalaIngrediens(i,ny)}</li>`).join('');
+  if(ingrEl) ingrEl.innerHTML=r.ingr.map(i=>{
+    const rubrik=i.match(/^—\s*(.+?)\s*—$/);
+    if(rubrik) return`<li style="list-style:none;margin-left:-16px;margin-top:8px;margin-bottom:2px"><strong style="font-size:0.80rem;color:#1a1a18;letter-spacing:0.03em">${rubrik[1]}</strong></li>`;
+    return`<li>${skalaIngrediens(i,mult)}</li>`;
+  }).join('');
   const ingrLbl=document.getElementById('port-ingr-lbl-'+id);
-  if(ingrLbl) ingrLbl.textContent=ny>1?' · för '+ny+' portioner':'';
+  if(ingrLbl) ingrLbl.textContent=ny>1?' · för '+ny+' '+getPortUnit(r,ny):'';
 }
 
 // ── HANDLINGSLISTA ───────────────────────────────────────────
@@ -3922,13 +4062,15 @@ function parseIngrediens(str){
 }
 
 function aggregeraHandel(receptLista, manuellt){
-  const allRecipes=[...getRecipes().frukost,...getRecipes().middag];
+  const allRecipes=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];
   const map={};
   receptLista.forEach(({id,portioner})=>{
     const r=allRecipes.find(x=>x.id===id); if(!r) return;
-    const port=portioner||1;
+    const bp=getBasePort(r);
+    const port=portioner||bp;
+    const mult=port/bp;
     r.ingr.forEach(ingr=>{
-      const skalad=skalaIngrediens(ingr,port);
+      const skalad=skalaIngrediens(ingr,mult);
       const p=parseIngrediens(skalad);
       if(p.name==='vatten') return;
       const key=`${p.name}||${p.unit}`;
@@ -3987,7 +4129,7 @@ function toggleSummera(){
 
 function delaHandlingslista(){
   const h=LS.handel();
-  const allRecipes=[...getRecipes().frukost,...getRecipes().middag];
+  const allRecipes=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];
   const katItems={};
   BUTIK_KATEGORIER.forEach(k=>{katItems[k.id]=[];});
 
@@ -4003,11 +4145,13 @@ function delaHandlingslista(){
   } else {
     h.recept.forEach(({id,portioner})=>{
       const r=allRecipes.find(x=>x.id===id); if(!r) return;
-      const port=portioner||1;
+      const bp=getBasePort(r);
+      const port=portioner||bp;
+      const mult=port/bp;
       r.ingr.forEach((ingr,idx)=>{
         const key=`r_${id}_${idx}`;
         if(h.hidden[key]) return;
-        const skalad=skalaIngrediens(ingr,port);
+        const skalad=skalaIngrediens(ingr,mult);
         const p=parseIngrediens(skalad);
         const kat=kategoriseraIngrediens(p.name||skalad);
         if(kat==='smak'&&!h.checked[key]) return;
@@ -4052,7 +4196,7 @@ function toggleHandel(){
 
 function renderHandel(){
   const h=LS.handel();
-  const allRecipes=[...getRecipes().frukost,...getRecipes().middag];
+  const allRecipes=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];
   const el=document.getElementById('handelLista');
   if(!h.recept.length&&!h.manuellt.length){
     el.innerHTML='<div class="handel-tom">Lägg till recept eller ingredienser ovan för att börja.</div>';
@@ -4099,10 +4243,12 @@ function renderHandel(){
   let html='';
   h.recept.forEach(({id,portioner})=>{
     const r=allRecipes.find(x=>x.id===id); if(!r) return;
-    const port=portioner||1;
+    const bp=getBasePort(r);
+    const port=portioner||bp;
+    const mult=port/bp;
     const rader=r.ingr.map((ingr,idx)=>{
       const key=`r_${id}_${idx}`;
-      const skalad=skalaIngrediens(ingr,port);
+      const skalad=skalaIngrediens(ingr,mult);
       if(parseIngrediens(skalad).name==='vatten') return '';
       return ingrediensRad(key,skalad);
     }).join('');
@@ -4174,7 +4320,8 @@ function renderHandelVäljare(){
     const entry=h.recept.find(x=>x.id===r.id);
     const added=!!entry;
     if(added){
-      const port=entry.portioner||1;
+      const bp=getBasePort(r);
+      const port=entry.portioner||bp;
       return`<div class="handel-valj-rad">
         <span class="handel-valj-namn">${r.name}</span>
         <div style="display:flex;align-items:center;gap:6px">
@@ -4194,7 +4341,7 @@ function renderHandelVäljare(){
     </div>`;
   }
   if(sok){
-    const alla=[...getRecipes().frukost,...getRecipes().middag];
+    const alla=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];
     const träffar=filtrera(alla);
     document.getElementById('handelValjareLista').innerHTML=träffar.length
       ? träffar.map(radHtml).join('')
@@ -4212,6 +4359,11 @@ function renderHandelVäljare(){
       html+=list.map(radHtml).join('');
     });
     document.getElementById('handelValjareLista').innerHTML=html||'<div class="empty">Inga recept matchar sökningen.</div>';
+  } else if(handelTab==='snacks'){
+    const list=filtrera(getRecipes().snacks);
+    document.getElementById('handelValjareLista').innerHTML=list.length
+      ? list.map(radHtml).join('')
+      : '<div class="empty">Inga recept matchar sökningen.</div>';
   } else {
     const list=filtrera(getRecipes().frukost);
     document.getElementById('handelValjareLista').innerHTML=list.length
@@ -4223,7 +4375,7 @@ function toggleReceptHandel(id){
   const h=LS.handel();
   const idx=h.recept.findIndex(x=>x.id===id);
   if(idx>=0) h.recept.splice(idx,1);
-  else h.recept.push({id,portioner:recipePortioner[id]||1});
+  else{const allR=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];const rr=allR.find(x=>x.id===id);const bp=rr?getBasePort(rr):1;h.recept.push({id,portioner:recipePortioner[id]||bp});}
   LS.saveHandel(h);
   renderHandelVäljare();
   renderRecept();
@@ -4306,7 +4458,7 @@ function snabbLäggTillHandel(id){
   const h=LS.handel();
   const idx=h.recept.findIndex(x=>x.id===id);
   if(idx>=0) h.recept.splice(idx,1);
-  else h.recept.push({id,portioner:recipePortioner[id]||1});
+  else{const allR=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];const rr=allR.find(x=>x.id===id);const bp=rr?getBasePort(rr):1;h.recept.push({id,portioner:recipePortioner[id]||bp});}
   LS.saveHandel(h);
   renderRecept();
   if(document.getElementById('handelContent').style.display==='block') renderHandel();
