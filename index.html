@@ -63,14 +63,14 @@
     .tab.active { background: #c4a9a1; color: white; border-color: #c4a9a1; }
     .tab.fav.active { background: #c4a9a1; border-color: #c4a9a1; }
     .recipe-grid { display: flex; flex-direction: column; gap: 7px; }
-    .recipe-card { border: 1px solid #e8e2dc; border-radius: 3px; padding: 14px 16px 12px; transition: border-color 0.25s, box-shadow 0.25s; }
+    .recipe-card { border: 1px solid #e8e2dc; border-radius: 3px; padding: 14px 16px 12px; transition: border-color 0.25s, box-shadow 0.25s; overflow: hidden; }
     .recipe-card:hover { border-color: #c8b89e; box-shadow: 0 2px 12px rgba(160,112,96,0.07); }
     .recipe-card.is-fav { border-color: #c4a9a1; }
-    .recipe-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
-    .recipe-name { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 1.08rem; cursor: pointer; color: #1a1a18; line-height: 1.25; letter-spacing: 0.01em; }
+    .recipe-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; overflow: hidden; }
+    .recipe-name { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 1.08rem; cursor: pointer; color: #1a1a18; line-height: 1.25; letter-spacing: 0.01em; overflow-wrap: break-word; word-break: break-word; }
     .recipe-name:hover { color: #5a3c2a; }
     .recipe-rating { font-size: 0.72rem; color: #c4a9a1; margin-top: 3px; letter-spacing: 0.02em; }
-    .recipe-btns { display: flex; gap: 5px; flex-shrink: 0; align-items: flex-start; flex-wrap: wrap; justify-content: flex-end; }
+    .recipe-btns { display: flex; gap: 5px; flex: 0 0 auto; max-width: 55%; align-items: flex-start; flex-wrap: wrap; justify-content: flex-end; }
     .fav-btn { background: none; border: none; font-size: 1.05rem; cursor: pointer; line-height: 1; padding: 1px 3px; color: #c4a9a1; }
     .small-btn { border: 1px solid #ece8e4; background: none; border-radius: 1px; font-size: 0.65rem; color: #9e9490; padding: 3px 9px; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Jost', sans-serif; }
     .small-btn:hover { border-color: #1a1a18; color: #1a1a18; }
@@ -439,6 +439,9 @@
       <button class="nav-btn" onclick="navVecka(1)">›</button>
     </div>
     <div class="week-grid" id="weekGrid"></div>
+    <div style="text-align:right;margin-top:6px;margin-bottom:2px">
+      <button onclick="öppnaVeckoplanMat()" style="border:none;background:none;font-size:0.65rem;color:#c4a9a1;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:2px 0">Planera vecka ›</button>
+    </div>
     <div id="dagPanel"></div>
   </section>
 </div>
@@ -446,7 +449,10 @@
 <!-- ══ RECEPT ══ -->
 <div id="panel-recept" class="panel">
   <section>
-    <h2>Recept</h2>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <h2 style="margin:0">Recept</h2>
+      <button onclick="öppnaEgetReceptForm()" style="border:1px solid #ece8e4;background:none;border-radius:1px;font-size:0.65rem;color:#9e9490;padding:5px 12px;cursor:pointer;letter-spacing:0.06em;text-transform:uppercase;font-family:'Jost',sans-serif">+ Nytt recept</button>
+    </div>
     <p class="vecka-info" id="veckaInfo"></p>
     <div class="sok-wrap">
       <input type="search" id="receptSok" placeholder="Sök recept..." oninput="sokRecept(this.value)" autocomplete="off" autocorrect="off" spellcheck="false">
@@ -578,7 +584,24 @@
       <div class="skada-chips" id="skadaChips"></div>
     </div>
     <div style="margin-top:16px;padding-top:14px;border-top:1px solid #ece8e4">
-      <div style="font-size:0.65rem;color:#9e9490;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">Senaste 30 dagarna</div>
+      <div style="font-size:0.65rem;color:#9e9490;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">Viktlogg</div>
+      <div style="display:flex;gap:6px;margin-bottom:10px;align-items:flex-end">
+        <div style="flex:1">
+          <label style="margin-bottom:3px">Vikt (kg)</label>
+          <input type="number" id="viktInput" step="0.1" min="30" max="200" placeholder="t.ex. 56.2" style="max-width:100px">
+        </div>
+        <button onclick="loggaVikt()" style="background:#b59991;color:white;border:none;padding:9px 14px;border-radius:2px;font-size:0.72rem;font-weight:500;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.08em;text-transform:uppercase;flex-shrink:0">Logga</button>
+      </div>
+      <div id="viktLogHtml"></div>
+    </div>
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid #ece8e4">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <div style="font-size:0.65rem;color:#9e9490;letter-spacing:0.06em;text-transform:uppercase">Träningshistorik</div>
+        <div style="display:flex;gap:4px">
+          <button id="statBtn30" onclick="byttStatDagar(30)" style="padding:3px 10px;border:1px solid #c4a9a1;background:#c4a9a1;color:white;border-radius:2px;font-size:0.60rem;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.07em;text-transform:uppercase">30 dagar</button>
+          <button id="statBtn90" onclick="byttStatDagar(90)" style="padding:3px 10px;border:1px solid #ece8e4;background:none;color:#9e9490;border-radius:2px;font-size:0.60rem;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.07em;text-transform:uppercase">90 dagar</button>
+        </div>
+      </div>
       <div id="traningStatHtml"></div>
     </div>
     <button class="vila-btn" style="margin-top:12px" onclick="ändraPIN()">🔒 Ändra PIN-kod</button>
@@ -654,6 +677,62 @@
     <h2>Veckans loggade pass</h2>
     <div class="pass-list" id="passList"></div>
   </section>
+</div>
+
+<!-- ══ PLANERA VECKA MODAL ══ -->
+<div class="modal-bg" id="veckoplanMatBg" onclick="stängVeckoplanMat(event)" style="align-items:flex-start;padding-top:20px">
+  <div class="modal" style="max-width:520px;padding:0;overflow:hidden">
+    <div style="padding:16px 20px 12px;border-bottom:1px solid #f0ebe8;display:flex;justify-content:space-between;align-items:center">
+      <h2 style="margin:0">Planera vecka</h2>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button onclick="byggHandelFranVecka()" style="padding:5px 12px;background:#c4a9a1;color:white;border:none;border-radius:2px;font-size:0.65rem;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.08em;text-transform:uppercase">🛒 Bygg lista</button>
+        <button onclick="stängVeckoplanMat()" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:#b8b0ac;padding:0">×</button>
+      </div>
+    </div>
+    <div id="veckoplanMatInnehall" style="padding:0 0 16px;overflow-y:auto;max-height:70vh"></div>
+  </div>
+</div>
+
+<!-- ══ EGET RECEPT MODAL ══ -->
+<div class="modal-bg" id="egetReceptBg" onclick="stängEgetRecept(event)">
+  <div class="modal" style="max-width:500px">
+    <h2 id="egetReceptRubrik">Nytt recept</h2>
+    <input type="hidden" id="er_id">
+    <label>Namn *</label>
+    <input type="text" id="er_namn" placeholder="T.ex. Quinoasallad med halloumi">
+    <label>Kategori</label>
+    <select id="er_kat">
+      <option value="frukost">Frukost</option>
+      <option value="middag" selected>Lunch & Middag</option>
+      <option value="snacks">Snacks</option>
+    </select>
+    <label>Typ</label>
+    <select id="er_type">
+      <option value="veg">Vegetariskt</option>
+      <option value="fisk">Fisk</option>
+      <option value="kott">Kött</option>
+    </select>
+    <label>Taggar (kommaseparerade, t.ex. Protein, Antiinflammatorisk)</label>
+    <input type="text" id="er_tags" placeholder="Protein, Omega-3, Snabbt">
+    <label>Varför är detta bra? (glow-text)</label>
+    <textarea id="er_glow" rows="2" placeholder="T.ex. Lax ger omega-3 som minskar inflammation..."></textarea>
+    <label>Ingredienser (en per rad)</label>
+    <textarea id="er_ingr" rows="5" placeholder="150 g laxfilé&#10;1 msk olivolja&#10;Salt och peppar"></textarea>
+    <label>Tillagning</label>
+    <textarea id="er_steps" rows="4" placeholder="1. Ugn 200°..."></textarea>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+      <div><label>Kcal (per portion)</label><input type="number" id="er_kcal" min="0" placeholder="t.ex. 450"></div>
+      <div><label>Protein (g)</label><input type="number" id="er_protein" min="0" placeholder="t.ex. 32"></div>
+      <div><label>Kolhydrater (g)</label><input type="number" id="er_kolh" min="0" placeholder="t.ex. 40"></div>
+      <div><label>Fett (g)</label><input type="number" id="er_fett" min="0" placeholder="t.ex. 18"></div>
+      <div><label>Fiber (g)</label><input type="number" id="er_fiber" min="0" placeholder="t.ex. 5"></div>
+    </div>
+    <div class="modal-footer" style="margin-top:16px">
+      <button class="cancel" onclick="stängEgetRecept()">Avbryt</button>
+      <button id="erRaderaBtn" class="cancel" style="color:#e74c3c;border-color:#e74c3c;display:none" onclick="raderaEgetRecept()">Ta bort</button>
+      <button class="save" onclick="sparaEgetRecept()">Spara</button>
+    </div>
+  </div>
 </div>
 
 <!-- ══ EDIT RECIPE MODAL ══ -->
@@ -800,7 +879,7 @@
 
 <script>
 // ── AUTO-UPPDATERING ──────────────────────────────────────────
-const APP_VERSION = '1';
+const APP_VERSION = '4';
 (function(){
   const stored = localStorage.getItem('ll_appVersion');
   if(stored && stored !== APP_VERSION){
@@ -1016,8 +1095,8 @@ const DR = {
     { id:'f3', name:'Avokadotoast med pocherat ägg', rating:4.8, cat:'veg',
       tags:['E-vitamin','Biotin','Skin food'],
       glow:'Avokado ger E-vitamin och glutathion, kroppens eget antioxidant. Ägg ger biotin (B7) för hår och hud, och kolin som stärker cellmembranen. Körsbärstomater ger lykopen, en antioxidant som skyddar hudceller mot UV-skada.',
-      nutr:{kcal:453,protein:19,kolh:37,fett:24,fiber:9},
-      ingr:['2 skivor surdegsbröd','½ avokado','2 ägg','50 g körsbärstomater','Citronjuice, salt, peppar, chiliflingor','1 msk ättika (till poachering)'],
+      nutr:{kcal:353,protein:15,kolh:18,fett:24,fiber:8},
+      ingr:['1 skiva surdegsbröd','½ avokado','2 ägg','50 g körsbärstomater','Citronjuice, salt, peppar, chiliflingor','1 msk ättika (till poachering)'],
       steps:'1. Rosta surdegsbrödet.\n2. Mosa avokadon med citronsaft, salt och peppar.\n3. Pochera äggen: fyll en kastrull med ca 8 cm vatten och tillsätt 1 msk ättika. Koka upp, sänk sedan till svag sjudning, vattnet ska darra men inte bubbla.\n4. Knäck ett ägg i en liten kopp eller ramekin. Rör om vattnet med en sked så det bildas en virvel, håll koppen nära vattenytan och glid ner ägget försiktigt i mitten av virveln. Ättikan och virveln hjälper vitan att samla sig runt gulan.\n5. Sjud 3 min för rinnig gula, 4 min för halvfast. Lyft upp med hålslev och låt rinna av på hushållspapper. Upprepa med det andra ägget.\n6. Bred avokado på brödet, lägg ägg ovan. Toppa med körsbärstomater och chiliflingor.' },
     { id:'f4', name:'Bananpannkakor (2 ingredienser)', rating:4.6, cat:'veg',
       tags:['Glutenfri','Hög protein','Snabb'],
@@ -1062,7 +1141,7 @@ const DR = {
     { id:'f10', name:'Green Mineral Smoothie med spirulina', rating:4.7, cat:'veg',
       tags:['Spirulina','Hudbarriär','Mineraler'],
       glow:'Spirulina är ett av de mest näringsdensa livsmedlen på planeten, ger komplett protein, klorofyll, järn, B12 och kraftfulla antioxidanter som phycocyanin. Avokado stärker hudbarriären med E-vitamin och hälsosamma fettsyror. Dadlar ger naturlig sötma plus kalium och magnesium som lugnar inflammation. Chiafrön ger omega-3 och prebiotisk fiber.',
-      nutr:{kcal:187,protein:4,kolh:22,fett:9,fiber:5},
+      nutr:{kcal:160,protein:4,kolh:14,fett:9,fiber:3},
       ingr:['1 tsk spirulina-pulver','½ avokado','4 dadlar (urkärnade)','1 msk chiafrön','4 dl mandelmjölk (osötad)','2 dl vatten'],
       steps:'1. Lägg alla ingredienser i mixern.\n2. Mixa slät och krämig. Dadlarna behöver en kraftig mixer, ge det tid.\n3. Servera direkt.\nRecept: 2 portioner. Näring angiven per portion.' },
     { id:'f8', name:'Grön styrke-smoothie med bönor & grönkål', rating:4.8, cat:'veg',
@@ -1320,7 +1399,7 @@ const DR = {
     { id:'d14', name:'Pasta med svamp och silkestofu', rating:4.8, cat:'veg',
       tags:['Komplett protein','D-vitamin','Hög fiber'],
       glow:'Silkestofu ger komplett vegetabiliskt protein med alla essentiella aminosyror - sällsynt i växtbaserade livsmedel. Svamp ger D-vitamin och selen, centralt för immunförsvar och inflammationsreglering. Frön och nötter ger omega-3, zink och E-vitamin.',
-      nutr:{kcal:600,protein:26,kolh:62,fett:25,fiber:5},
+      nutr:{kcal:610,protein:34,kolh:44,fett:29,fiber:11},
       ingr:[
         '200 g svamp, t.ex. champinjoner',
         '1 klick smör',
@@ -2022,6 +2101,8 @@ const LS = {
   savePass:(l)=>localStorage.setItem('ll_pass',JSON.stringify(l)),
   custom:()=>JSON.parse(localStorage.getItem('ll_custom')||'{}'),
   saveCustom:(o)=>localStorage.setItem('ll_custom',JSON.stringify(o)),
+  egnaRecept:()=>JSON.parse(localStorage.getItem('ll_egna_recept')||'[]'),
+  saveEgnaRecept:(arr)=>localStorage.setItem('ll_egna_recept',JSON.stringify(arr)),
   favs:()=>JSON.parse(localStorage.getItem('ll_fav')||'[]'),
   saveFavs:(a)=>localStorage.setItem('ll_fav',JSON.stringify(a)),
   dismissed:()=>{
@@ -2058,6 +2139,8 @@ const LS = {
   saveCustomTargets:(o)=>localStorage.setItem('ll_ct',JSON.stringify(o)),
   skipPat:()=>JSON.parse(localStorage.getItem('ll_skip_pat')||'{}'),
   saveSkipPat:(o)=>localStorage.setItem('ll_skip_pat',JSON.stringify(o)),
+  viktLog:()=>JSON.parse(localStorage.getItem('ll_vikt_log')||'[]'),
+  saveViktLog:(arr)=>localStorage.setItem('ll_vikt_log',JSON.stringify(arr)),
   egnaPass:()=>JSON.parse(localStorage.getItem('ll_egna_pass')||'[]'),
   saveEgnaPass:(arr)=>localStorage.setItem('ll_egna_pass',JSON.stringify(arr)),
   customSessions:()=>JSON.parse(localStorage.getItem('ll_custom_sessions')||'{}'),
@@ -2068,6 +2151,10 @@ const LS = {
   saveSkador:(v)=>localStorage.setItem('ll_skador',JSON.stringify(v)),
   vit:(dk)=>localStorage.getItem('ll_vit_'+dk)==='1',
   saveVit:(dk,v)=>v?localStorage.setItem('ll_vit_'+dk,'1'):localStorage.removeItem('ll_vit_'+dk),
+  vatten:(dk)=>localStorage.getItem('ll_vatten_'+dk)==='1',
+  saveVatten:(dk,v)=>v?localStorage.setItem('ll_vatten_'+dk,'1'):localStorage.removeItem('ll_vatten_'+dk),
+  visaVatten:()=>localStorage.getItem('ll_visaVatten')==='1',
+  saveVisaVatten:(v)=>localStorage.setItem('ll_visaVatten',v?'1':'0'),
   las:(dk)=>parseInt(localStorage.getItem('ll_las_'+dk)||'0'),
   saveLas:(dk,min)=>localStorage.setItem('ll_las_'+dk,String(min)),
   rutin:()=>JSON.parse(localStorage.getItem('ll_rutin')||'[]'),
@@ -2160,7 +2247,15 @@ const VIKT_STEG={hipthrust:2,rdl:2,skulderpress:2,biceps:2,hammer:2,triceps:2,sk
 function getRecipes(){
   const c=LS.custom();
   const merge=list=>list.map(r=>c[r.id]?{...r,...c[r.id],modified:true}:r);
-  return{frukost:merge(DR.frukost),middag:merge(DR.middag),snacks:merge(DR.snacks)};
+  const egna=LS.egnaRecept();
+  const egnaFrukost=egna.filter(r=>r._storageKat==='frukost').map(r=>({...r,eget:true}));
+  const egnaMiddag=egna.filter(r=>!r._storageKat||r._storageKat==='middag').map(r=>({...r,eget:true}));
+  const egnaSnacks=egna.filter(r=>r._storageKat==='snacks').map(r=>({...r,eget:true}));
+  return{
+    frukost:[...merge(DR.frukost),...egnaFrukost],
+    middag:[...merge(DR.middag),...egnaMiddag],
+    snacks:[...merge(DR.snacks),...egnaSnacks]
+  };
 }
 
 // ── FOKUS → SESSIONER ────────────────────────────────────────
@@ -2361,11 +2456,13 @@ function renderDagPanel(dk){
   const frokostR=lösRecept(meal.frukost);
   const lunchR=lösRecept(meal.lunch);
   const middagR=lösRecept(meal.middag);
+  const snacksR=lösRecept(meal.snacks);
 
   const tot={kcal:0,protein:0,kolh:0,fett:0,fiber:0};
   if(frokostR){Object.keys(tot).forEach(k=>tot[k]+=frokostR.nutr[k]||0);}
   if(lunchR){Object.keys(tot).forEach(k=>tot[k]+=lunchR.nutr[k]||0);}
   if(middagR){Object.keys(tot).forEach(k=>tot[k]+=middagR.nutr[k]||0);}
+  if(snacksR){Object.keys(tot).forEach(k=>tot[k]+=snacksR.nutr[k]||0);}
 
   const dato=parseDateKey(dk);
   const isToday=dk===todayKey();
@@ -2375,13 +2472,13 @@ function renderDagPanel(dk){
   const planeradeForDk=LS.planerade().filter(p=>p.dk===dk);
   const vilaPassDag=dagPass.filter(p=>ärVilaPass(p));
   const passHTML=aktivaPassDag.map(p=>`<div class="pass-chip"><div><div class="pc-name">${p.typ}</div><div class="pc-meta">${p.tid} min${p.anteckning?' · '+p.anteckning:''}</div></div><button class="icon-btn" onclick="raderaPassOchRenderKal(${p.id})">✕</button></div>`).join('');
-  const vilaPassHTML=vilaPassDag.map(p=>`<div class="pass-chip" style="background:#f5f5f5;border-color:#e5e5e5"><div><div class="pc-name" style="color:#888">${p.typ}</div><div class="pc-meta">${p.tid} min${p.anteckning?' · '+p.anteckning:''}</div></div><button class="icon-btn" onclick="raderaPassOchRenderKal(${p.id})">✕</button></div>`).join('');
+  const vilaPassHTML=vilaPassDag.map(p=>`<div class="pass-chip" style="background:#f5f5f5;border-color:#e5e5e5"><div><div class="pc-name" style="color:#888">${p.typ}</div>${p.anteckning?`<div class="pc-meta">${p.anteckning}</div>`:''}</div><button class="icon-btn" onclick="raderaPassOchRenderKal(${p.id})">✕</button></div>`).join('');
 
   const gårD=parseDateKey(dk); gårD.setDate(gårD.getDate()-1);
   const gårMeal=LS.meal(dateKey(gårD));
 
   function mealSlot(typ,r){
-    const typLbl=typ==='frukost'?'frukost':typ==='lunch'?'lunch':'middag';
+    const typLbl=typ==='frukost'?'frukost':typ==='lunch'?'lunch':typ==='snacks'?'snacks':'middag';
     if(r) return`<div class="meal-slot"><div><div class="ms-name">${r.name}</div><div class="ms-nutr">${r.nutr.kcal} kcal · ${r.nutr.protein}g protein · ${r.nutr.fiber}g fiber</div></div><div class="ms-actions"><button class="ms-btn" onclick="öppnaPicker('${dk}','${typ}')">Ändra</button><button class="ms-btn" onclick="taBortMåltid('${dk}','${typ}')">✕</button></div></div>`;
     return`<button class="add-link" onclick="öppnaPicker('${dk}','${typ}')">+ Välj ${typLbl}</button>`;
   }
@@ -2422,8 +2519,8 @@ function renderDagPanel(dk){
     </div>
 
     ${(()=>{
-      const visV=LS.visaVit(), visL=LS.visaLas();
-      if(!visV&&!visL) return '';
+      const visV=LS.visaVit(), visL=LS.visaLas(), visW=LS.visaVatten();
+      if(!visV&&!visL&&!visW) return '';
       const veckoLas=getLäsveckaSumma(dk);
       const dagLas=LS.las(dk);
       const vanorStil='font-size:0.65rem;font-family:\'Jost\',sans-serif;letter-spacing:0.08em;text-transform:uppercase;color:#9e9490';
@@ -2444,12 +2541,16 @@ function renderDagPanel(dk){
             ${veckoLas?`<span style="${vanorStil}">min/v</span>`:''}
           </div>
         </div>`:''}
+        ${visW?`<div style="display:flex;align-items:center;gap:6px;cursor:pointer" onclick="toggleVatten('${dk}')">
+          <span style="${vanorStil}">Vatten</span>
+          <span style="width:13px;height:13px;border:1px solid ${LS.vatten(dk)?'#c4a9a1':'#ddd8d4'};border-radius:2px;display:inline-flex;align-items:center;justify-content:center;background:${LS.vatten(dk)?'#f6f0e8':'none'};font-size:0.55rem;color:#c4a9a1;flex-shrink:0">${LS.vatten(dk)?'✓':''}</span>
+        </div>`:''}
       </div>`;
     })()}
 
     ${(()=>{
       if(!isToday) return '';
-      const ingetMat=!frokostR&&!lunchR&&!middagR;
+      const ingetMat=!frokostR&&!lunchR&&!middagR&&!snacksR;
       const ingetPass=!aktivaPassDag.length&&!vilaFlag;
       if(!(ingetMat&&ingetPass)) return '';
       const h=new Date().getHours();
@@ -2510,6 +2611,10 @@ function renderDagPanel(dk){
         <div style="display:flex;align-items:center;gap:8px">
           <span style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:#9e9490;min-width:52px">Middag</span>
           <div style="flex:1">${mealSlot('middag',middagR)}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:#9e9490;min-width:52px">Snacks</span>
+          <div style="flex:1">${mealSlot('snacks',snacksR)}</div>
         </div>
       </div>
       ${tot.kcal>0?`<div style="margin-top:10px;padding-top:10px;border-top:1px solid #f0ebe6">
@@ -2578,10 +2683,103 @@ document.getElementById('traningTyp').addEventListener('change',function(){
 });
 
 // ── MEAL PICKER ──────────────────────────────────────────────
+// ── PLANERA VECKA ────────────────────────────────────────────
+function öppnaVeckoplanMat(){
+  renderVeckoplanMat();
+  document.getElementById('veckoplanMatBg').style.display='flex';
+}
+function stängVeckoplanMat(e){
+  if(e&&e.target!==document.getElementById('veckoplanMatBg'))return;
+  document.getElementById('veckoplanMatBg').style.display='none';
+}
+function renderVeckoplanMat(){
+  const allRecipes=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];
+  function lösR(v){ if(!v) return null; if(typeof v==='string') return allRecipes.find(r=>r.id===v)||null; return v; }
+  const vDag=new Date(); vDag.setHours(0,0,0,0);
+  const dayOfWeek=vDag.getDay()===0?6:vDag.getDay()-1;
+  const måndag=new Date(vDag); måndag.setDate(vDag.getDate()-dayOfWeek);
+  const dagar=['Mån','Tis','Ons','Tor','Fre','Lör','Sön'];
+  const slots=[{k:'frukost',lbl:'Frukost'},{k:'lunch',lbl:'Lunch'},{k:'middag',lbl:'Middag'},{k:'snacks',lbl:'Snacks'}];
+  let html='';
+  for(let i=0;i<7;i++){
+    const d=new Date(måndag); d.setDate(måndag.getDate()+i);
+    const dk=d.toISOString().slice(0,10).replace(/-/g,'');
+    const meal=LS.meal(dk);
+    const isToday=dk===todayKey();
+    html+=`<div style="border-bottom:1px solid #f0ebe8;padding:12px 20px">
+      <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:${isToday?'#c4a9a1':'#9e9490'};font-weight:${isToday?'500':'400'};margin-bottom:8px">${dagar[i]}${isToday?' · Idag':''}</div>
+      <div style="display:grid;gap:5px">`;
+    slots.forEach(({k,lbl})=>{
+      const r=lösR(meal[k]);
+      html+=`<div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:0.60rem;text-transform:uppercase;letter-spacing:0.07em;color:#b8b0ac;min-width:44px">${lbl}</span>
+        ${r
+          ?`<div style="flex:1;display:flex;align-items:center;justify-content:space-between;background:#faf7f2;border-radius:2px;padding:5px 8px;border:1px solid #ece8e4">
+              <span style="font-size:0.72rem;color:#3a2820;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0">${r.name}</span>
+              <button onclick="taBortMåltidOchUppdatera('${dk}','${k}')" style="background:none;border:none;color:#d4ccc8;cursor:pointer;font-size:0.80rem;padding:0 0 0 6px;flex-shrink:0">✕</button>
+            </div>`
+          :`<button onclick="öppnaPickerFranVecka('${dk}','${k}')" style="flex:1;border:1px dashed #ddd8d4;background:none;border-radius:2px;padding:5px 8px;font-size:0.65rem;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#c8c0bc;text-align:left">+ Välj ${lbl.toLowerCase()}</button>`
+        }
+      </div>`;
+    });
+    html+=`</div></div>`;
+  }
+  document.getElementById('veckoplanMatInnehall').innerHTML=html;
+}
+function öppnaPickerFranVecka(dk,typ){
+  document.getElementById('veckoplanMatBg').style.display='none';
+  öppnaPicker(dk,typ);
+  // Återöppna veckoplan när picker stängs
+  const origStäng=window._origPickerClose;
+  window._veckoplanCallback=()=>{ öppnaVeckoplanMat(); };
+}
+function byggHandelFranVecka(){
+  const allRecipes=[...getRecipes().frukost,...getRecipes().middag,...getRecipes().snacks];
+  const vDag=new Date(); vDag.setHours(0,0,0,0);
+  const dayOfWeek=vDag.getDay()===0?6:vDag.getDay()-1;
+  const måndag=new Date(vDag); måndag.setDate(vDag.getDate()-dayOfWeek);
+  const h=LS.handel();
+  const slots=['frukost','lunch','middag','snacks'];
+  let tillagda=0;
+  for(let i=0;i<7;i++){
+    const d=new Date(måndag); d.setDate(måndag.getDate()+i);
+    const dk=d.toISOString().slice(0,10).replace(/-/g,'');
+    const meal=LS.meal(dk);
+    slots.forEach(k=>{
+      const id=meal[k]; if(!id) return;
+      const rId=typeof id==='string'?id:id.id;
+      if(!rId) return;
+      const r=allRecipes.find(x=>x.id===rId); if(!r) return;
+      if(!h.recept.some(x=>x.id===rId)){
+        const bp=getBasePort(r);
+        h.recept.push({id:rId,portioner:bp});
+        tillagda++;
+      }
+    });
+  }
+  LS.saveHandel(h);
+  if(tillagda>0){
+    alert(`${tillagda} recept lades till i handlingslistan.`);
+  } else {
+    alert('Alla veckans recept finns redan i handlingslistan.');
+  }
+  stängVeckoplanMat();
+  renderRecept();
+}
+
+function taBortMåltidOchUppdatera(dk,typ){
+  const meal=LS.meal(dk);
+  delete meal[typ];
+  LS.saveMeal(dk,meal);
+  renderVeckoplanMat();
+  if(valDatum===dk) renderDagPanel(dk);
+  renderKalender();
+}
+
 function öppnaPicker(dk,typ){
   document.getElementById('pickerDatum').value=dk;
   document.getElementById('pickerTyp').value=typ;
-  document.getElementById('pickerRubrik').textContent='Välj '+(typ==='frukost'?'frukost':typ==='lunch'?'lunch':'middag');
+  document.getElementById('pickerRubrik').textContent='Välj '+(typ==='frukost'?'frukost':typ==='lunch'?'lunch':typ==='snacks'?'snacks':'middag');
   aktivPickerTab='vecka';
   pickerSokTerm='';
   const psi=document.getElementById('pickerSokInp'); if(psi) psi.value='';
@@ -2604,7 +2802,7 @@ function pickerSokFn(q){
 }
 function renderPickerLista(){
   const typ=document.getElementById('pickerTyp').value;
-  const cat=typ==='lunch'?'middag':typ;
+  const cat=typ==='lunch'?'middag':typ==='snacks'?'snacks':typ;
   const recipes=getRecipes();
   const favs=LS.favs();
   let list;
@@ -2654,6 +2852,8 @@ function väljMåltid(dk,typ,id){
   stängPicker();
   if(valDatum===dk) renderDagPanel(dk);
   renderKalender();
+  const vpBg=document.getElementById('veckoplanMatBg');
+  if(vpBg&&vpBg.style.display==='flex') renderVeckoplanMat();
 }
 function taBortMåltid(dk,typ){
   const meal=LS.meal(dk);
@@ -3049,8 +3249,92 @@ function initVäder(){
   if(p.lat&&p.lon) hämtaVäder(p.lat,p.lon);
 }
 
+// ── VIKTLOGG ────────────────────────────────────────────────
+function loggaVikt(){
+  const v=parseFloat(document.getElementById('viktInput').value);
+  if(!v||v<30||v>200){alert('Ange en rimlig vikt (30-200 kg).');return;}
+  const log=LS.viktLog();
+  const today=new Date().toISOString().slice(0,10);
+  const idx=log.findIndex(e=>e.date===today);
+  if(idx>=0) log[idx].kg=v; else log.push({date:today,kg:v});
+  log.sort((a,b)=>a.date.localeCompare(b.date));
+  LS.saveViktLog(log);
+  // Uppdatera profilgewichts-fält om det matchar
+  document.getElementById('viktInput').value='';
+  renderViktLog();
+}
+function taBortViktPost(date){
+  LS.saveViktLog(LS.viktLog().filter(e=>e.date!==date));
+  renderViktLog();
+}
+function renderViktLog(){
+  const log=LS.viktLog();
+  const el=document.getElementById('viktLogHtml');
+  if(!el) return;
+  if(!log.length){
+    el.innerHTML='<p style="font-size:0.80rem;color:#c8c0bc;margin:0">Inga mätningar loggade ännu.</p>';
+    return;
+  }
+  // Graf
+  const månNamn=['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
+  const W=300,H=60,PX=2,PY=6;
+  const n=log.length;
+  const vals=log.map(e=>e.kg);
+  const minV=Math.min(...vals)-1, maxV=Math.max(...vals)+1;
+  const toX=i=>PX+(n>1?i/(n-1):0.5)*(W-2*PX);
+  const toY=v=>H-PY-((v-minV)/(maxV-minV||1))*(H-2*PY);
+  let path=`M ${toX(0)} ${toY(vals[0])}`;
+  for(let i=1;i<n;i++){
+    const cx=(toX(i-1)+toX(i))/2;
+    path+=` C ${cx} ${toY(vals[i-1])}, ${cx} ${toY(vals[i])}, ${toX(i)} ${toY(vals[i])}`;
+  }
+  const areaPath=path+` L ${toX(n-1)} ${H} L ${toX(0)} ${H} Z`;
+  const dots=log.map((e,i)=>`<circle cx="${toX(i)}" cy="${toY(e.kg)}" r="2.5" fill="#c4a9a1"/>`).join('');
+  const startD=log[0].date.split('-');
+  const endD=log[log.length-1].date.split('-');
+  const startLbl=`${parseInt(startD[2])} ${månNamn[parseInt(startD[1])-1]}`;
+  const endLbl=`${parseInt(endD[2])} ${månNamn[parseInt(endD[1])-1]}`;
+  // Senaste 5 poster
+  const senaste=[...log].reverse().slice(0,5);
+  el.innerHTML=`
+    <svg viewBox="0 0 ${W} ${H}" style="width:100%;display:block;margin-bottom:8px" preserveAspectRatio="none">
+      <path d="${areaPath}" fill="rgba(196,169,161,0.12)" stroke="none"/>
+      <path d="${path}" fill="none" stroke="#c4a9a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      ${dots}
+    </svg>
+    <div style="display:flex;justify-content:space-between;margin-bottom:12px">
+      <span style="font-size:0.60rem;color:#c8c0bc">${startLbl}</span>
+      <span style="font-size:0.65rem;color:#3a2820;font-weight:500">${vals[vals.length-1].toFixed(1)} kg</span>
+      <span style="font-size:0.60rem;color:#c8c0bc">${endLbl}</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px">
+      ${senaste.map(e=>{
+        const dp=e.date.split('-');
+        const lbl=`${parseInt(dp[2])} ${månNamn[parseInt(dp[1])-1]}`;
+        return`<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:#faf7f2;border-radius:2px;border:1px solid #ece8e4">
+          <span style="font-size:0.72rem;color:#6a5a48">${lbl}</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:0.80rem;font-weight:500;color:#1a1a18">${e.kg.toFixed(1)} kg</span>
+            <button onclick="taBortViktPost('${e.date}')" style="background:none;border:none;color:#d4ccc8;cursor:pointer;font-size:0.80rem;padding:0 2px">✕</button>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>`;
+}
+
+let statDagar=30;
+function byttStatDagar(n){
+  statDagar=n;
+  document.getElementById('statBtn30').style.background=n===30?'#c4a9a1':'none';
+  document.getElementById('statBtn30').style.color=n===30?'white':'#9e9490';
+  document.getElementById('statBtn30').style.borderColor=n===30?'#c4a9a1':'#ece8e4';
+  document.getElementById('statBtn90').style.background=n===90?'#c4a9a1':'none';
+  document.getElementById('statBtn90').style.color=n===90?'white':'#9e9490';
+  document.getElementById('statBtn90').style.borderColor=n===90?'#c4a9a1':'#ece8e4';
+  renderProfilStatistik();
+}
 function renderProfilStatistik(){
-  const grans=Date.now()-30*24*60*60*1000;
+  const grans=Date.now()-statDagar*24*60*60*1000;
   const alla=LS.pass().filter(p=>new Date(p.datum).getTime()>=grans);
   const aktiva=alla.filter(p=>!ärVilaPass(p));
   const totalPass=aktiva.length;
@@ -3061,9 +3345,8 @@ function renderProfilStatistik(){
   const tidEtikett=timmar>0?(minKvar>0?`${timmar}h ${minKvar}m`:`${timmar}h`):`${totalMin}`;
   const tidLabel=timmar>0?'Timmar':'Minuter';
 
-  // Bygg 30-dagarsarray
   const days=[];
-  for(let i=29;i>=0;i--){
+  for(let i=statDagar-1;i>=0;i--){
     const d=new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()-i);
     days.push(d.toISOString().slice(0,10));
   }
@@ -3081,8 +3364,8 @@ function renderProfilStatistik(){
   const proteinPts=days.map(isoD=>{
     const dk=isoD.replace(/-/g,'');
     const m=LS.meal(dk);
-    const fr=lösR(m.frukost), lu=lösR(m.lunch), mi=lösR(m.middag);
-    const tot=(fr?.nutr?.protein||0)+(lu?.nutr?.protein||0)+(mi?.nutr?.protein||0);
+    const fr=lösR(m.frukost), lu=lösR(m.lunch), mi=lösR(m.middag), sn=lösR(m.snacks);
+    const tot=(fr?.nutr?.protein||0)+(lu?.nutr?.protein||0)+(mi?.nutr?.protein||0)+(sn?.nutr?.protein||0);
     return Math.min(tot/proteinMål, 1.1); // normaliserat 0-1 (cap vid 110%)
   });
 
@@ -3161,6 +3444,7 @@ function laddaProfil(){
   renderRutinLista();
   renderRutinTabbar();
   renderKalenderVanorChips();
+  renderViktLog();
 }
 
 function renderKalenderVanorChips(){
@@ -3168,7 +3452,8 @@ function renderKalenderVanorChips(){
   if(!el) return;
   el.innerHTML=
     `<button class="skada-chip${LS.visaVit()?' active':''}" onclick="toggleKalenderVisa('vit',this)">Vitaminer</button>`+
-    `<button class="skada-chip${LS.visaLas()?' active':''}" onclick="toggleKalenderVisa('las',this)">Läsning</button>`;
+    `<button class="skada-chip${LS.visaLas()?' active':''}" onclick="toggleKalenderVisa('las',this)">Läsning</button>`+
+    `<button class="skada-chip${LS.visaVatten()?' active':''}" onclick="toggleKalenderVisa('vatten',this)">Vatten</button>`;
 }
 
 let aktivRutinDag=0;
@@ -3287,11 +3572,19 @@ function toggleKalenderVisa(typ, el){
   if(typ==='vit'){
     LS.saveVisaVit(!LS.visaVit());
     el.classList.toggle('active', LS.visaVit());
-  } else {
+  } else if(typ==='las'){
     LS.saveVisaLas(!LS.visaLas());
     el.classList.toggle('active', LS.visaLas());
+  } else if(typ==='vatten'){
+    LS.saveVisaVatten(!LS.visaVatten());
+    el.classList.toggle('active', LS.visaVatten());
   }
   if(valDatum) renderDagPanel(valDatum);
+}
+
+function toggleVatten(dk){
+  LS.saveVatten(dk,!LS.vatten(dk));
+  renderDagPanel(dk);
 }
 
 function toggleVit(dk){
@@ -3916,8 +4209,8 @@ function receptKort(r,tabName,favs){
   const tagCls=r.cat==='kott'?'kott':r.cat==='fisk'?'fisk':'veg';
   return`<div class="recipe-card ${isFav?'is-fav':''}" id="card-${r.id}">
       <div class="recipe-top">
-        <div>
-          <div class="recipe-name" onclick="toggleDet('${r.id}')">${r.name}${r.modified?'<span class="mod-badge">Modifierad</span>':''}</div>
+        <div style="flex:1;min-width:0">
+          <div class="recipe-name" onclick="toggleDet('${r.id}')">${r.name}${r.modified?'<span class="mod-badge">Modifierad</span>':''}${r.eget?'<span class="mod-badge" style="background:#f0f5ec;color:#3a5830;border-color:#b8d4a8">Eget</span>':''}</div>
           <div style="display:flex;gap:8px;align-items:center;margin-top:3px">
             <span class="tag ${tagCls}">${catLabel[r.cat]}</span>
           </div>
@@ -3925,7 +4218,7 @@ function receptKort(r,tabName,favs){
         <div class="recipe-btns">
           <button class="fav-btn" onclick="toggleFav('${r.id}')">${isFav?'★':'☆'}</button>
           ${(()=>{const inHandel=LS.handel().recept.some(x=>x.id===r.id);return`<button class="small-btn" onclick="snabbLäggTillHandel('${r.id}')" style="${inHandel?'background:#f0ede8;color:#c4a9a1':''}" title="Lägg till i handlingslista">${inHandel?'🛒✓':'🛒'}</button>`;})()}
-          <button class="small-btn" onclick="öppnaEdit('${r.id}')">Redigera</button>
+          <button class="small-btn" onclick="${r.eget?`öppnaEgetReceptForm('${r.id}')`:`öppnaEdit('${r.id}')`}">Redigera</button>
           <button class="small-btn green" onclick="väljMåltidFranRecept('${r.id}')">+ Idag</button>
         </div>
       </div>
@@ -4502,6 +4795,86 @@ function rensaHelHandel(){
   if(btn){btn.style.background='';btn.style.color='';}
   renderHandel();
 }
+// ── EGNA RECEPT ────────────────────────────────────────────
+function öppnaEgetReceptForm(id){
+  document.getElementById('er_id').value=id||'';
+  document.getElementById('egetReceptRubrik').textContent=id?'Redigera recept':'Nytt recept';
+  document.getElementById('erRaderaBtn').style.display=id?'inline-flex':'none';
+  if(id){
+    const r=LS.egnaRecept().find(x=>x.id===id);
+    if(r){
+      document.getElementById('er_namn').value=r.name||'';
+      document.getElementById('er_kat').value=r.cat||'middag';
+      document.getElementById('er_type').value=r.cat==='fisk'?'fisk':r.cat==='kott'?'kott':'veg';
+      document.getElementById('er_tags').value=(r.tags||[]).join(', ');
+      document.getElementById('er_glow').value=r.glow||'';
+      document.getElementById('er_ingr').value=(r.ingr||[]).join('\n');
+      document.getElementById('er_steps').value=r.steps||'';
+      document.getElementById('er_kcal').value=r.nutr?.kcal||'';
+      document.getElementById('er_protein').value=r.nutr?.protein||'';
+      document.getElementById('er_kolh').value=r.nutr?.kolh||'';
+      document.getElementById('er_fett').value=r.nutr?.fett||'';
+      document.getElementById('er_fiber').value=r.nutr?.fiber||'';
+    }
+  } else {
+    ['er_namn','er_tags','er_glow','er_ingr','er_steps','er_kcal','er_protein','er_kolh','er_fett','er_fiber'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('er_kat').value='middag';
+    document.getElementById('er_type').value='veg';
+  }
+  document.getElementById('egetReceptBg').style.display='flex';
+  setTimeout(()=>document.getElementById('er_namn').focus(),50);
+}
+function stängEgetRecept(e){
+  if(e&&e.target!==document.getElementById('egetReceptBg'))return;
+  document.getElementById('egetReceptBg').style.display='none';
+}
+function sparaEgetRecept(){
+  const namn=document.getElementById('er_namn').value.trim();
+  if(!namn){alert('Ange ett namn på receptet.');return;}
+  const kcal=parseFloat(document.getElementById('er_kcal').value);
+  if(!kcal||kcal<10){alert('Ange kcal (minst 10).');return;}
+  const id=document.getElementById('er_id').value||'cr_'+Date.now();
+  const kat=document.getElementById('er_kat').value;
+  const typeVal=document.getElementById('er_type').value;
+  const tags=document.getElementById('er_tags').value.split(',').map(t=>t.trim()).filter(Boolean);
+  const ingr=document.getElementById('er_ingr').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  const r={
+    id, name:namn, cat:typeVal, rating:4.5,
+    tags, glow:document.getElementById('er_glow').value.trim()||namn,
+    nutr:{
+      kcal:parseFloat(document.getElementById('er_kcal').value)||0,
+      protein:parseFloat(document.getElementById('er_protein').value)||0,
+      kolh:parseFloat(document.getElementById('er_kolh').value)||0,
+      fett:parseFloat(document.getElementById('er_fett').value)||0,
+      fiber:parseFloat(document.getElementById('er_fiber').value)||0
+    },
+    ingr, steps:document.getElementById('er_steps').value.trim(),
+    _kat:kat
+  };
+  // Bestäm vilken kategori-array receptet hamnar i
+  r.cat=typeVal; // fisk/kott/veg for display
+  r._storageKat=kat; // frukost/middag/snacks for storage
+  const list=LS.egnaRecept();
+  const idx=list.findIndex(x=>x.id===id);
+  // Spara cat som storage-kategori
+  const save={...r, cat:kat==='frukost'?'frukost':kat==='snacks'?'snacks':'middag', displayCat:typeVal};
+  // Fixa: cat används av getRecipes för routing, displayCat för tag-färg
+  // Vi löser det i receptKort istället
+  const saveObj={...r, cat:typeVal, _storageKat:kat};
+  if(idx>=0) list[idx]=saveObj; else list.push(saveObj);
+  LS.saveEgnaRecept(list);
+  stängEgetRecept();
+  renderRecept();
+}
+function raderaEgetRecept(){
+  const id=document.getElementById('er_id').value;
+  if(!id) return;
+  if(!confirm('Ta bort detta recept?')) return;
+  LS.saveEgnaRecept(LS.egnaRecept().filter(x=>x.id!==id));
+  stängEgetRecept();
+  renderRecept();
+}
+
 function snabbLäggTillHandel(id){
   const h=LS.handel();
   const idx=h.recept.findIndex(x=>x.id===id);
@@ -4674,6 +5047,11 @@ renderFokus();
 renderEgnaPass();
 uppdateraPassDropdown();
 initVäder();
+</script>
+<script>
+  document.addEventListener('gesturestart', function(e){ e.preventDefault(); }, { passive: false });
+  document.addEventListener('gesturechange', function(e){ e.preventDefault(); }, { passive: false });
+  document.addEventListener('touchmove', function(e){ if(e.touches.length > 1) e.preventDefault(); }, { passive: false });
 </script>
 </body>
 </html>
