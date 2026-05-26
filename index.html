@@ -144,7 +144,7 @@
     .pass-chip { display: flex; align-items: center; justify-content: space-between; padding: 7px 10px; background: #faf7f2; border: 1px solid #ece8e4; border-radius: 2px; margin-bottom: 6px; }
     .pass-chip .pc-name { font-size: 0.88rem; font-weight: 500; }
     .pass-chip .pc-meta { font-size: 0.72rem; color: #b8b0ac; margin-top: 1px; }
-    .add-link { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 9px; border: 1px dashed #ddd8d4; border-radius: 2px; background: none; color: #c8c0bc; font-size: 0.72rem; cursor: pointer; font-family: 'Jost', sans-serif; letter-spacing: 0.06em; }
+    .add-link { display: flex; align-items: center; justify-content: flex-start; gap: 6px; width: 100%; padding: 9px 9px 9px 14px; border: 1px dashed #ddd8d4; border-radius: 2px; background: none; color: #c8c0bc; font-size: 0.72rem; cursor: pointer; font-family: 'Jost', sans-serif; letter-spacing: 0.06em; box-sizing: border-box; }
     .add-link:hover { border-color: #1a1a18; color: #1a1a18; background: #faf7f2; }
     .meal-slot { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #faf7f2; border-radius: 2px; margin-bottom: 6px; gap: 8px; border: 1px solid #f0ebe8; }
     .ms-name { font-size: 0.88rem; font-weight: 500; color: #1a1a18; }
@@ -449,29 +449,8 @@
 <!-- ══ RECEPT ══ -->
 <div id="panel-recept" class="panel">
   <section>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-      <h2 style="margin:0">Recept</h2>
-      <button onclick="öppnaEgetReceptForm()" style="border:1px solid #ece8e4;background:none;border-radius:1px;font-size:0.65rem;color:#9e9490;padding:5px 12px;cursor:pointer;letter-spacing:0.06em;text-transform:uppercase;font-family:'Jost',sans-serif">+ Nytt recept</button>
-    </div>
-    <p class="vecka-info" id="veckaInfo"></p>
-    <div class="sok-wrap">
-      <input type="search" id="receptSok" placeholder="Sök recept..." oninput="sokRecept(this.value)" autocomplete="off" autocorrect="off" spellcheck="false">
-      <span class="sok-icon">⌕</span>
-    </div>
-    <div class="filter-chips" id="receptTabs">
-      <button class="chip active" onclick="byttFilter('alla',this)">Alla</button>
-      <button class="chip" onclick="byttFilter('frukost',this)">Frukost</button>
-      <button class="chip" onclick="byttFilter('kott',this)">Kött</button>
-      <button class="chip" onclick="byttFilter('fisk',this)">Fisk</button>
-      <button class="chip" onclick="byttFilter('veg',this)">Vegetariskt</button>
-      <button class="chip" onclick="byttFilter('snack',this)">Snacks</button>
-      <button class="chip" onclick="byttFilter('favoriter',this)">★</button>
-    </div>
-    <div class="recipe-grid" id="recipeGrid"></div>
-  </section>
-  <section>
     <div class="kollaps-header" onclick="toggleHandel()">
-      <h2>🛒 Handlingslista</h2>
+      <h2>Handlingslista</h2>
       <span class="kollaps-pil" id="handelPil">▼ Visa</span>
     </div>
     <div id="handelContent" style="display:none">
@@ -493,6 +472,27 @@
       </div>
       <button id="delaBtn" onclick="delaHandlingslista()" style="width:100%;margin-top:8px;padding:11px;border:1px solid #c4a9a1;border-radius:2px;background:white;font-size:0.72rem;font-weight:500;cursor:pointer;font-family:inherit;letter-spacing:0.1em;text-transform:uppercase;color:#c4a9a1">↗ Dela handlingslista</button>
     </div>
+  </section>
+  <section>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <h2 style="margin:0">Recept</h2>
+      <button onclick="öppnaEgetReceptForm()" style="border:1px solid #ece8e4;background:none;border-radius:1px;font-size:0.65rem;color:#9e9490;padding:5px 12px;cursor:pointer;letter-spacing:0.06em;text-transform:uppercase;font-family:'Jost',sans-serif">+ Nytt recept</button>
+    </div>
+    <p class="vecka-info" id="veckaInfo"></p>
+    <div class="sok-wrap">
+      <input type="search" id="receptSok" placeholder="Sök recept..." oninput="sokRecept(this.value)" autocomplete="off" autocorrect="off" spellcheck="false">
+      <span class="sok-icon">⌕</span>
+    </div>
+    <div class="filter-chips" id="receptTabs">
+      <button class="chip active" onclick="byttFilter('alla',this)">Alla</button>
+      <button class="chip" onclick="byttFilter('frukost',this)">Frukost</button>
+      <button class="chip" onclick="byttFilter('kott',this)">Kött</button>
+      <button class="chip" onclick="byttFilter('fisk',this)">Fisk</button>
+      <button class="chip" onclick="byttFilter('veg',this)">Vegetariskt</button>
+      <button class="chip" onclick="byttFilter('snack',this)">Snacks</button>
+      <button class="chip" onclick="byttFilter('favoriter',this)">★</button>
+    </div>
+    <div class="recipe-grid" id="recipeGrid"></div>
   </section>
 </div>
 
@@ -700,17 +700,13 @@
     <input type="hidden" id="er_id">
     <label>Namn *</label>
     <input type="text" id="er_namn" placeholder="T.ex. Quinoasallad med halloumi">
-    <label>Kategori</label>
-    <select id="er_kat">
-      <option value="frukost">Frukost</option>
-      <option value="middag" selected>Lunch & Middag</option>
-      <option value="snacks">Snacks</option>
-    </select>
     <label>Typ</label>
     <select id="er_type">
       <option value="veg">Vegetariskt</option>
       <option value="fisk">Fisk</option>
       <option value="kott">Kött</option>
+      <option value="frukost">Frukost</option>
+      <option value="snacks">Snacks</option>
     </select>
     <label>Taggar (kommaseparerade, t.ex. Protein, Antiinflammatorisk)</label>
     <input type="text" id="er_tags" placeholder="Protein, Omega-3, Snabbt">
@@ -879,7 +875,7 @@
 
 <script>
 // ── AUTO-UPPDATERING ──────────────────────────────────────────
-const APP_VERSION = '5';
+const APP_VERSION = '6';
 (function(){
   const stored = localStorage.getItem('ll_appVersion');
   if(stored && stored !== APP_VERSION){
@@ -1096,7 +1092,7 @@ const DR = {
       tags:['E-vitamin','Biotin','Skin food'],
       glow:'Avokado ger E-vitamin och glutathion, kroppens eget antioxidant. Ägg ger biotin (B7) för hår och hud, och kolin som stärker cellmembranen. Körsbärstomater ger lykopen, en antioxidant som skyddar hudceller mot UV-skada.',
       nutr:{kcal:353,protein:15,kolh:18,fett:24,fiber:8},
-      ingr:['1 skiva surdegsbröd','½ avokado','2 ägg','50 g körsbärstomater','Citronjuice, salt, peppar, chiliflingor','1 msk ättika (till poachering)'],
+      ingr:['1 brödskiva surdegsbröd','½ avokado','2 ägg','50 g körsbärstomater','Citronjuice, salt, peppar, chiliflingor','1 msk ättika (till pochering)'],
       steps:'1. Rosta surdegsbrödet.\n2. Mosa avokadon med citronsaft, salt och peppar.\n3. Pochera äggen: fyll en kastrull med ca 8 cm vatten och tillsätt 1 msk ättika. Koka upp, sänk sedan till svag sjudning, vattnet ska darra men inte bubbla.\n4. Knäck ett ägg i en liten kopp eller ramekin. Rör om vattnet med en sked så det bildas en virvel, håll koppen nära vattenytan och glid ner ägget försiktigt i mitten av virveln. Ättikan och virveln hjälper vitan att samla sig runt gulan.\n5. Sjud 3 min för rinnig gula, 4 min för halvfast. Lyft upp med hålslev och låt rinna av på hushållspapper. Upprepa med det andra ägget.\n6. Bred avokado på brödet, lägg ägg ovan. Toppa med körsbärstomater och chiliflingor.' },
     { id:'f4', name:'Bananpannkakor (2 ingredienser)', rating:4.6, cat:'veg',
       tags:['Glutenfri','Hög protein','Snabb'],
@@ -2470,7 +2466,7 @@ function renderDagPanel(dk){
 
   const aktivaPassDag=dagPass.filter(p=>!ärVilaPass(p));
   const planeradeForDk=LS.planerade().filter(p=>p.dk===dk);
-  const vilaPassDag=dagPass.filter(p=>ärVilaPass(p));
+  const vilaPassDag=dagPass.filter(p=>ärVilaPass(p)&&!(vilaFlag&&p.typ==='Vilodag'));
   const passHTML=aktivaPassDag.map(p=>`<div class="pass-chip"><div><div class="pc-name">${p.typ}</div><div class="pc-meta">${p.tid} min${p.anteckning?' · '+p.anteckning:''}</div></div><button class="icon-btn" onclick="raderaPassOchRenderKal(${p.id})">✕</button></div>`).join('');
   const vilaPassHTML=vilaPassDag.map(p=>`<div class="pass-chip" style="background:#f5f5f5;border-color:#e5e5e5"><div><div class="pc-name" style="color:#888">${p.typ}</div>${p.anteckning?`<div class="pc-meta">${p.anteckning}</div>`:''}</div><button class="icon-btn" onclick="raderaPassOchRenderKal(${p.id})">✕</button></div>`).join('');
 
@@ -2511,7 +2507,7 @@ function renderDagPanel(dk){
 
   const el=document.getElementById('dagPanel');
   const vDag=getVäder()[dato.toISOString().slice(0,10)];
-  const vädertxt=vDag?` · ${vDag.ikon} ${vDag.temp}°`:'';
+  const vädertxt=vDag?` ${vDag.ikon} ${vDag.temp}°`:'';
   el.innerHTML=`<div class="dag-panel anim">
     <div class="dag-header">
       <div class="dag-dato">${datoLbl}${vädertxt}</div>
@@ -2587,8 +2583,9 @@ function renderDagPanel(dk){
         if(!rutinIDag.length||vilaFlag) return '';
         return rutinIDag.map(r=>{
           const loggad=aktivaPassDag.some(p=>p.typ===r.namn);
-          return`<button class="rutin-chip${loggad?' loggad':''}" onclick="${loggad?`taBortRutinPass('${dk}','${r.namn}')`:`loggaRutinPass('${dk}','${r.namn}',${r.tid})`}">
-            <span class="vit-check" style="flex-shrink:0">${loggad?'✓':''}</span>
+          if(loggad) return '';
+          return`<button class="rutin-chip" onclick="loggaRutinPass('${dk}','${r.namn}',${r.tid})">
+            <span class="vit-check" style="flex-shrink:0"></span>
             <span style="flex:1">${r.namn}</span>
             <span style="font-size:0.60rem;color:#b8b0aa">${r.tid} min</span>
           </button>`;
@@ -4433,7 +4430,9 @@ function aggregeraHandel(receptLista, manuellt){
     let text;
     if(v.amount!==null){
       const amt=v.amount%1===0?String(v.amount):v.amount.toFixed(1);
-      text=`${amt}${v.unit?' '+v.unit:''} ${v.name}`;
+      let nameDisplay=v.name;
+      if(parseFloat(amt)>=2&&!v.unit) nameDisplay=nameDisplay.replace(/^brödskiva\b/,'brödskivor');
+      text=`${amt}${v.unit?' '+v.unit:''} ${nameDisplay}`;
     } else {
       text=v.original||v.name;
     }
@@ -4804,8 +4803,8 @@ function öppnaEgetReceptForm(id){
     const r=LS.egnaRecept().find(x=>x.id===id);
     if(r){
       document.getElementById('er_namn').value=r.name||'';
-      document.getElementById('er_kat').value=r.cat||'middag';
-      document.getElementById('er_type').value=r.cat==='fisk'?'fisk':r.cat==='kott'?'kott':'veg';
+      const sk=r._storageKat||'middag';
+      document.getElementById('er_type').value=sk==='frukost'?'frukost':sk==='snacks'?'snacks':r.cat==='fisk'?'fisk':r.cat==='kott'?'kott':'veg';
       document.getElementById('er_tags').value=(r.tags||[]).join(', ');
       document.getElementById('er_glow').value=r.glow||'';
       document.getElementById('er_ingr').value=(r.ingr||[]).join('\n');
@@ -4818,7 +4817,6 @@ function öppnaEgetReceptForm(id){
     }
   } else {
     ['er_namn','er_tags','er_glow','er_ingr','er_steps','er_kcal','er_protein','er_kolh','er_fett','er_fiber'].forEach(id=>document.getElementById(id).value='');
-    document.getElementById('er_kat').value='middag';
     document.getElementById('er_type').value='veg';
   }
   document.getElementById('egetReceptBg').style.display='flex';
@@ -4834,8 +4832,8 @@ function sparaEgetRecept(){
   const kcal=parseFloat(document.getElementById('er_kcal').value);
   if(!kcal||kcal<10){alert('Ange kcal (minst 10).');return;}
   const id=document.getElementById('er_id').value||'cr_'+Date.now();
-  const kat=document.getElementById('er_kat').value;
   const typeVal=document.getElementById('er_type').value;
+  const kat=typeVal==='frukost'?'frukost':typeVal==='snacks'?'snacks':'middag';
   const tags=document.getElementById('er_tags').value.split(',').map(t=>t.trim()).filter(Boolean);
   const ingr=document.getElementById('er_ingr').value.split('\n').map(s=>s.trim()).filter(Boolean);
   const r={
