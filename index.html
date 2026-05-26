@@ -5050,6 +5050,9 @@ initVäder();
   document.addEventListener('gesturestart', function(e){ e.preventDefault(); }, { passive: false });
   document.addEventListener('gesturechange', function(e){ e.preventDefault(); }, { passive: false });
   document.addEventListener('touchmove', function(e){ if(e.touches.length > 1) e.preventDefault(); }, { passive: false });
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/leanlog/sw.js', {scope:'/leanlog/'});
+  }
 </script>
 </body>
 </html>
