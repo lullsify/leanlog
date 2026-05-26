@@ -2,7 +2,7 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="color-scheme" content="light">
   <title>LeanLog</title>
   <link rel="manifest" href="manifest.json">
@@ -11,6 +11,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="LeanLog">
   <meta name="theme-color" content="#c4a9a1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -454,7 +457,7 @@
       <button class="chip" onclick="byttFilter('frukost',this)">Frukost</button>
       <button class="chip" onclick="byttFilter('kott',this)">Kött</button>
       <button class="chip" onclick="byttFilter('fisk',this)">Fisk</button>
-      <button class="chip" onclick="byttFilter('veg',this)">Vegetarisk</button>
+      <button class="chip" onclick="byttFilter('veg',this)">Vegetariskt</button>
       <button class="chip" onclick="byttFilter('snack',this)">Snacks</button>
       <button class="chip" onclick="byttFilter('favoriter',this)">★</button>
     </div>
@@ -511,6 +514,11 @@
 <div id="panel-profil" class="panel">
   <section>
     <h2>Min profil</h2>
+    <label>Kön</label>
+    <select id="pKon" style="margin-bottom:10px">
+      <option value="kvinna">Kvinna</option>
+      <option value="man">Man</option>
+    </select>
     <div class="profil-grid">
       <div><label>Längd (cm)</label><input type="number" id="pLangd" placeholder="cm"></div>
       <div><label>Ålder</label><input type="number" id="pAlder" placeholder="år"></div>
@@ -791,6 +799,17 @@
 </div>
 
 <script>
+// ── AUTO-UPPDATERING ──────────────────────────────────────────
+const APP_VERSION = '1';
+(function(){
+  const stored = localStorage.getItem('ll_appVersion');
+  if(stored && stored !== APP_VERSION){
+    localStorage.setItem('ll_appVersion', APP_VERSION);
+    location.reload(true);
+  } else {
+    localStorage.setItem('ll_appVersion', APP_VERSION);
+  }
+})();
 // ── PIN LOCK ─────────────────────────────────────────────────
 (function(){
   const STORAGE_KEY='ll_pin';
@@ -1033,7 +1052,7 @@ const DR = {
       glow:'Chiafrön har mer omega-3 per gram än lax (växtbaserat ALA). Fiber är prebiotika för tarmbakterierna, forskning via gut-skin axis visar direkt koppling mellan tarmhälsa och hudens klarhet.',
       nutr:{kcal:326,protein:9,kolh:37,fett:17,fiber:17},
       ingr:['40 g chiafrön','200 ml kokosmjölk (light)','100 ml mandelmjölk (osötad)','1 tsk vaniljextrakt','150 g mango, skivad','Lime och mynta'],
-      steps:'1. Blanda chiafrön med kokosmjölk, havremjölk och vaniljextrakt. Rör kraftigt.\n2. Vänta 5 min, rör igen så klumpar löser sig.\n3. Kyl minst 4 h, gärna över natten.\n4. Toppa med skivad mango och limejuice.' },
+      steps:'1. Blanda chiafrön med kokosmjölk, mandelmjölk och vaniljextrakt. Rör kraftigt.\n2. Vänta 5 min, rör igen så klumpar löser sig.\n3. Kyl minst 4 h, gärna över natten.\n4. Toppa med skivad mango och limejuice.' },
     { id:'f9', name:'Lemon Balance Smoothie', rating:4.8, cat:'veg',
       tags:['Avgiftning','Anti-inflammatorisk','Klorofyll'],
       glow:'Citron och ingefära stödjer leverns avgiftning, en välmående lever reglerar hormonnivåerna som direkt påverkar hudens klarhet och jämnhet. Linfrön ger lignaner (fytoöstrogener som balanserar hormoner) och omega-3. Spenat ger klorofyll och nitrat som ökar blodflödet till huden.',
@@ -1044,7 +1063,7 @@ const DR = {
       tags:['Spirulina','Hudbarriär','Mineraler'],
       glow:'Spirulina är ett av de mest näringsdensa livsmedlen på planeten, ger komplett protein, klorofyll, järn, B12 och kraftfulla antioxidanter som phycocyanin. Avokado stärker hudbarriären med E-vitamin och hälsosamma fettsyror. Dadlar ger naturlig sötma plus kalium och magnesium som lugnar inflammation. Chiafrön ger omega-3 och prebiotisk fiber.',
       nutr:{kcal:187,protein:4,kolh:22,fett:9,fiber:5},
-      ingr:['1 tsk spirulina-pulver','½ avokado','6 dadlar (urkärnade)','1 msk chiafrön','4 dl mandelmjölk (osötad)','2 dl vatten'],
+      ingr:['1 tsk spirulina-pulver','½ avokado','4 dadlar (urkärnade)','1 msk chiafrön','4 dl mandelmjölk (osötad)','2 dl vatten'],
       steps:'1. Lägg alla ingredienser i mixern.\n2. Mixa slät och krämig. Dadlarna behöver en kraftig mixer, ge det tid.\n3. Servera direkt.\nRecept: 2 portioner. Näring angiven per portion.' },
     { id:'f8', name:'Grön styrke-smoothie med bönor & grönkål', rating:4.8, cat:'veg',
       tags:['Hög protein','Klorofyll','Gut-skin axis'],
@@ -1071,7 +1090,7 @@ const DR = {
       glow:'Ingefärans gingerol och gurkumejans curcumin är bland de mest studerade antiinflammatoriska ämnena, direkt relevanta för knäleder och hudinflammation. Svartpeppar ökar curcuminupptaget med upp till 2 000%.',
       nutr:{kcal:399,protein:21,kolh:56,fett:8,fiber:14},
       ingr:['100 g röda linser','100 ml kokosmjölk (light)','1 lök','1 vitlöksklyfta','1 msk riven ingefära','1 tsk gurkmeja','1 tsk spiskummin','Nypa svartpeppar','4 dl grönsaksbuljong','¼ broccoli, delad i mindre buketter','Lime, koriander'],
-      steps:'1. Fräs lök, vitlök och ingefära i olja på medelhög värme, 3–4 min.\n2. Tillsätt gurkmeja, spiskummin och svartpeppar, rör 1 min tills doftsamt.\n3. Häll i linser, kokosmjölk och buljong. Koka upp.\n4. Sjud under lock 20 min tills linserna är mjuka och sönderfalliga.\n5. Mixa slät med stavmixer. Smaka av med salt.\n6. Lägg i broccolibuketterna och sjud 3–4 min tills de är mjuka men fortfarande gröna och har lite tuggmotstånd.\n7. Servera med limeklyftor och rikligt med färsk koriander.' },
+      steps:'1. Fräs lök, vitlök och ingefära i olivolja på medelhög värme, 3–4 min.\n2. Tillsätt gurkmeja, spiskummin och svartpeppar, rör 1 min tills doftsamt.\n3. Häll i linser, kokosmjölk och buljong. Koka upp.\n4. Sjud under lock 20 min tills linserna är mjuka och sönderfalliga.\n5. Mixa slät med stavmixer. Smaka av med salt.\n6. Lägg i broccolibuketterna och sjud 3–4 min tills de är mjuka men fortfarande gröna och har lite tuggmotstånd.\n7. Servera med limeklyftor och rikligt med färsk koriander.' },
     { id:'d04', name:'Buddha bowl med svart ris, kikärtor och tahini', rating:4.7, cat:'veg',
       tags:['Komplett protein','Kalcium','Zink'],
       glow:'Tahini (sesamfrön) ger koppar och zink, koppar aktiverar enzymer som behövs för kollagenproduktion. Kikärtor ger zink och folat. Avokado tillför glutathion, kroppens kraftigaste inbyggda antioxidant.',
@@ -1201,14 +1220,15 @@ const DR = {
         '1 msk gurkmeja',
         '¼ tsk svartpeppar (aktiverar curcumin med 2 000%)',
         '2 msk jordnötssmör (100%, utan socker)',
-        '1 msk sambal manis',
+        '1 msk sambal oelek',
+        '½ tsk honung',
         '2 msk fisksås',
         'Saft av 1–2 lime',
         '150 ml kokosmjölk light',
         '1 msk sesamolja',
         '1 tsk honung (valfritt)'
       ],
-      steps:'1. Strimla vitkål, rödkål, morot och gurka tunt, använd mandolin om du har. Skiva rödlök, salladslök och mangon. Blanda allt i en stor skål med sockerärtor, mynta och koriander.\n2. Dressing: mixa chili, vitlök och ingefära i en mixer eller mortla ihop. Tillsätt jordnötssmör, gurkmeja, sambal manis, fisksås, limejuice, kokosmjölk och sesamolja. Mixa slät. Smaka av, balansera sälta (fisksås), syra (lime) och hetta (chili). Tillsätt honung om du vill ha lite sötma.\n3. Krydda laxen med salt och peppar. Stek på medelhög värme 3–4 min/sida tills precis genomstekt och gyllene på utsidan, den ska vara saftig inuti, inte torr.\n4. Häll dressing över salladen och blanda väl. Börja med hälften och tillsätt mer, salladen ska vara täckt men inte blöt.\n5. Lägg upp sallad, toppa med lax, strö över jordnötter och extra örter.\nRecept: 3 portioner. Näring angiven per portion.' },
+      steps:'1. Strimla vitkål, rödkål, morot och gurka tunt, använd mandolin om du har. Skiva rödlök, salladslök och mangon. Blanda allt i en stor skål med sockerärtor, mynta och koriander.\n2. Dressing: mixa chili, vitlök och ingefära i en mixer eller mortla ihop. Tillsätt jordnötssmör, gurkmeja, sambal oelek, honung, fisksås, limejuice, kokosmjölk och sesamolja. Mixa slät. Smaka av, balansera sälta (fisksås), syra (lime) och hetta (chili). Tillsätt honung om du vill ha lite sötma.\n3. Krydda laxen med salt och peppar. Stek på medelhög värme 3–4 min/sida tills precis genomstekt och gyllene på utsidan, den ska vara saftig inuti, inte torr.\n4. Häll dressing över salladen och blanda väl. Börja med hälften och tillsätt mer, salladen ska vara täckt men inte blöt.\n5. Lägg upp sallad, toppa med lax, strö över jordnötter och extra örter.\nRecept: 3 portioner. Näring angiven per portion.' },
     { id:'d10', name:'Ugnsrostad lax med spenat och fetaost', rating:4.8, cat:'fisk',
       tags:['Omega-3','Järn','Anti-inflammatorisk'],
       glow:'Lax ger EPA och DHA som direkt minskar inflammatoriska markörer i huden. Spenat ger nitrat (ökar blodflöde = glow) och järn. Fetaost ger probiotika.',
@@ -1303,27 +1323,27 @@ const DR = {
       nutr:{kcal:600,protein:26,kolh:62,fett:25,fiber:5},
       ingr:[
         '200 g svamp, t.ex. champinjoner',
-        '1 klick smör eller margarin',
+        '1 klick smör',
         '1 gul lök',
         '3 vitlöksklyftor',
-        'Olja att steka i',
+        'Olivolja att steka i',
         '400 g silkestofu (1 paket)',
         '1 citron (juicen)',
         '0,5 dl fryst persilja',
         '100 g smakrik ost (t.ex. prästost, västerbotten eller parmesan)',
-        '320 g pasta (80 g/portion)',
+        '320 g bönpasta, t.ex. kikärtspenne (80 g/portion)',
         '2–3 dl pastavatten',
         '1 dl frön eller nötter (t.ex. solroskärnor, mandlar, valnötter)',
         '— Vegansk variant —',
         '3 msk näringsjäst istället för ost, eller vegansk ost'
       ],
       steps:'1. Rosta frön eller nötter i torr stekpanna på medelhög värme tills gyllene och doftande. Ställ åt sidan.\n2. Skär svampen i bitar. Fräs i torr stekpanna på hög värme tills allt vatten ångat av och svampen fått fin färg. Lägg i en klick smör, rör om. Ställ åt sidan.\n3. Hacka lök och vitlök. Stek i olja på medelhög värme tills löken är mjuk och genomskinlig, 5–7 min.\n4. Koka upp saltat vatten och koka pastan al dente. Spara 2–3 dl pastavatten innan du häller av.\n5. Lägg löken i en mixer. Tillsätt silkestofu och citronsaft. Mixa till en slät, krämig sås.\n6. Häll tillbaka såsen i pannan på låg värme. Späd med pastavatten och rör om. Tillsätt fryst persilja och riv i osten. Rör tills osten smält och såsen är sammetslen.\n7. Blanda ner pastan i såsen och vänd runt.\n8. Servera med rikligt med svartpeppar, rostade frön/nötter, stekt svamp och lite extra riven ost.\nRecept: 4 portioner. Näring angiven per portion.' },
-    { id:'d15', name:'Teriyaki-lax med pak choi och svart ris', rating:4.7, cat:'fisk',
+    { id:'d15', name:'Teriyaki-lax med pak choy och svart ris', rating:4.7, cat:'fisk',
       tags:['Omega-3','K-vitamin','Umami'],
-      glow:'Pak choi ger K-vitamin som är nödvändigt för benmetabolism. Laxen ger omega-3 och astaxantin. Ingefäran i marinaden ger gingerol som minskar ledinflammation.',
+      glow:'Pak choy ger K-vitamin som är nödvändigt för benmetabolism. Laxen ger omega-3 och astaxantin. Ingefäran i marinaden ger gingerol som minskar ledinflammation.',
       nutr:{kcal:585,protein:41,kolh:46,fett:23,fiber:6},
-      ingr:['165 g laxfilé','2 pak choi, halverade','80 g svart ris (okokt)','2 msk soja','½ tsk honung','1 tsk sesamolja','1 vitlöksklyfta','1 tsk ingefära','Sesamfrön, lime'],
-      steps:'1. Koka svart ris (ca 30 min, starta detta först): skölj, koka upp med vatten och salt, sjud under lock.\n2. Blanda marinad av soja, honung, sesamolja, vitlök och ingefära. Marinera laxen 20 min.\n3. Stek laxen 3–4 min/sida på medelhög värme tills gyllene.\n4. Woka pak choi i lite olja 2–3 min tills mjuk men fortfarande grön.\n5. Servera lax och pak choi över riset med limeklyftor och sesamfrön.' },
+      ingr:['165 g laxfilé','80 g svart ris (okokt)','2 msk soja','½ tsk honung','1 tsk sesamolja','1 vitlöksklyfta (marinad)','1 tsk riven ingefära (marinad)','Sesamfrön, lime','— Pak choy —','2 pak choy','5–6 vitlöksklyftor','1 nypa strösocker','Thailändsk svampsoja (ca ½ msk)','Neutral olja till stekning'],
+      steps:'1. Koka svart ris (ca 30 min, starta detta först): skölj, koka upp med vatten och salt, sjud under lock.\n2. Blanda marinad av soja, honung, sesamolja, vitlök och ingefära. Marinera laxen 20 min.\n3. Stek laxen 3–4 min/sida på medelhög värme tills gyllene.\n4. Pak choy: ta bort lite av understa delen och dela i 3 bitar (blad, mittendel och botten). Dela de hårda bitarna på längden till munsstora stavar. Banka vitlöken under knivbladet och hacka i ganska slarviga bitar.\n5. Värm wokpanna tills den ryker lite. Ha i 1–2 msk neutral olja. Lägg i de hårdare pak choy-bitarna. Woka ca 30 sek. Tillsätt vitlöken och bladen och fortsätt woka 20–30 sek till. Grönsakerna ska mjukna lite men fortfarande vara krispiga. Vitlöken ska mjukna och ge smak men inte få färg.\n6. Krydda med en nypa socker och svampsojan (ca ½ msk). Häll snabbt upp på serveringsfat så sojan inte hinner reducera.\n7. Servera lax och pak choy med riset och limeklyftor.' },
     { id:'d16', name:'Ugnsrostat fiskfat med torsk, lax och räkor', rating:4.8, cat:'fisk',
       tags:['Omega-3','Probiotika','Hög protein'],
       glow:'Torsk ger magert protein och jod. Lax tillför astaxantin och omega-3, fettsyror kliniskt kopplade till minskad hudtorrhet och inflammation. Räkor ger zink för kollagensyntes. Citronyoghurten bidrar med probiotika.',
@@ -1359,7 +1379,7 @@ const DR = {
       tags:['Sulforafan','C-vitamin','Hög protein'],
       glow:'Rödkål innehåller antocyaniner och sulforafan, en förening som aktiverar kroppens egna antioxidantförsvar. Avokado ger E-vitamin för hudbarriären.',
       nutr:{kcal:350,protein:32,kolh:17,fett:16,fiber:9},
-      ingr:['150 g torskfilé','4 stora isbergssalladblad (wrap)','¼ rödkål, strimlad','1 morot, riven','½ avokado','Saft av 1 lime','Koriander','1 tsk spiskummin','Chiliflingor','2 msk yoghurt'],
+      ingr:['150 g torskfilé','4 romansalladblad (wrap)','¼ rödkål, strimlad','1 morot, riven','½ avokado','Saft av 1 lime','Koriander','1 tsk spiskummin','Chiliflingor','2 msk yoghurt'],
       steps:'1. Krydda torsken med spiskummin och chiliflingor på båda sidor.\n2. Stek i olja 3 min/sida tills gyllene och genomstekt.\n3. Blanda strimlad rödkål och riven morot med limejuice, salt och yoghurt till en slaw.\n4. Mosa avokado med limejuice och salt.\n5. Fördela slaw i salladsbladet, lägg torsk ovan, toppa med avokadokräm och koriander.' },
     { id:'d19', name:'Lättstekt torsk med mango-limesalsa', rating:4.7, cat:'fisk',
       tags:['Betakaroten','C-vitamin','Lågkalorig'],
@@ -1403,12 +1423,12 @@ const DR = {
       nutr:{kcal:520,protein:41,kolh:42,fett:18,fiber:10},
       ingr:['150 g räkor (skalade)','80 g bönpasta (t.ex. kikärtspenne)','100 g babyspenat','1 vitlöksklyfta','Skal av 1 citron (citroncest)','Saft av 1 citron','1,5 msk persilja, hackad','3/4 msk fiskbuljong','2 msk olivolja','30 g parmesan','Chiliflingor, salt'],
       steps:'1. Koka bönpastan al dente, spara lite pastavatten.\n2. Fräs vitlök i olivolja på medelhög värme, 1 min.\n3. Tillsätt räkorna, stek 2 min tills rosa.\n4. Rör ner spenat, låt den falla ihop.\n5. Pasta i med lite pastavatten, rör om. Tillsätt citronskal, parmesan och chiliflingor. Smaka av.' },
-    { id:'d23', name:'Ingefärslax med glaserad pak choi och sesamfrön', rating:4.8, cat:'fisk',
+    { id:'d23', name:'Ingefärslax med pak choy och sesamfrön', rating:4.8, cat:'fisk',
       tags:['Gingerol','Koppar','Omega-3'],
       glow:'Ingefärans gingerol minskar inflammation via samma mekanism som ibuprofen men utan biverkningar. Sesamfrön ger koppar som aktiverar enzymet lysyloxidas, nödvändigt för att binda samman kollagentrådar.',
       nutr:{kcal:450,protein:39,kolh:16,fett:25,fiber:3},
-      ingr:['165 g laxfilé','2 pak choi, halverade','1 msk riven ingefära','2 msk soja','1 msk honung','1 msk sesamolja','Sesamfrön, lime, salladslök'],
-      steps:'1. Blanda ingefära, soja, honung och sesamolja till marinad. Lägg laxen i och marinera 20 min.\n2. Stek laxen 3–4 min/sida på medelhög värme, pensla med lite extra marinad.\n3. Woka pak choi med en skvätt marinad 2 min tills mjuk och glaserad.\n4. Servera med sesamfrön och limeklyftor.' },
+      ingr:['165 g laxfilé','2 msk soja','1 msk honung','1 msk sesamolja','Sesamfrön, lime, salladslök','— Pak choy —','2 pak choy','4 skivor ingefära','2–3 vitlöksklyftor','1 nypa socker (ca ½ tsk)','Salt','Neutral olja','Valfritt: 1 msk ostronsås eller kikkoman soja'],
+      steps:'1. Blanda soja, honung och sesamolja till marinad. Marinera laxen 20 min.\n2. Stek laxen 3–4 min/sida på medelhög värme, pensla med lite extra marinad.\n3. Pak choy: skär ner i mindre bitar. Dela på 3–4 på längden, lämna bladen hela och dela stammarna i småstavar. Skiva ingefäran rakt över. Hacka vitlöken, behöver inte vara smått.\n4. Värm wokpanna. Tillsätt pyttelite olivolja och lägg ner pak choy. Stek tills mjuka, tillsätt ev. en msk vatten om de får för mycket färg. Häll över i en skål.\n5. Tillsätt ny olja i pannan, lägg i ingefära och vitlök. Stek ca 30 sek tills vitlöken mjuknar och ger smak i oljan men inte tar färg.\n6. Häll tillbaka pak choyen. Tillsätt salt och socker, woka tills grönsakerna är lagom mjuka. Valfritt: tillsätt ostronsås eller soja.\n7. Lägg upp på fat och servera direkt med laxen, sesamfrön och limeklyftor.' },
     { id:'d24', name:'Mediterran bakad torsk med oliver och kapris', rating:4.7, cat:'fisk',
       tags:['Hydroxytyrosol','Quercetin','Lykopin'],
       glow:'Svarta oliver ger hydroxytyrosol, en av de kraftigaste antioxidanterna, starkare än E-vitamin. Kapris ger quercetin. Körsbärstomater ger lykopin som skyddar mot UV-åldrande.',
@@ -1431,9 +1451,9 @@ const DR = {
     { id:'d25', name:'Rökt lax med krämig pasta och citronkapris', rating:4.6, cat:'fisk',
       tags:['Astaxantin','Omega-3','Snabb'],
       glow:'Rökt lax bevarar astaxantin, antioxidanten som motverkar UV-åldrande och ökar hudhydrering. Kapris ger quercetin. Crème fraîche bär de fettlösliga vitaminerna.',
-      nutr:{kcal:490,protein:28,kolh:52,fett:18,fiber:3},
-      ingr:['100 g rökt lax','80 g bönpasta (t.ex. kikärtspenne)','100 ml crème fraîche (lätt)','1 msk kapris','Citronskal + -juice','Rikligt med dill','Ruccola'],
-      steps:'1. Koka fullkornspenne al dente.\n2. Blanda crème fraîche med citronskal och kapris i en kastrull. Värm försiktigt på låg värme, rör om.\n3. Blanda ner pastan, rör om tills allt är täckt av såsen.\n4. Fördela i skål, lägg rökt lax ovan, toppa med ruccola och rikligt med dill.' },
+      nutr:{kcal:420,protein:36,kolh:52,fett:8,fiber:3},
+      ingr:['100 g rökt lax','80 g bönpasta (t.ex. kikärtspenne)','100 g grekisk yoghurt 0%','1 tsk olivolja','1 msk kapris','Citronskal + -juice','Rikligt med dill','Ruccola'],
+      steps:'1. Koka bönpastan al dente.\n2. Blanda grekisk yoghurt med citronskal, olivolja och kapris i en kastrull. Värm försiktigt på lägsta värme under omrörning, låt inte koka.\n3. Blanda ner pastan, rör om tills allt är täckt av såsen.\n4. Fördela i skål, lägg rökt lax ovan, toppa med ruccola och rikligt med dill.' },
     { id:'d26', name:'Rödbetssallad med blåbär, tahini och ingefärsdressing', rating:4.7, cat:'veg',
       tags:['Betalainer','Antocyaniner','Glutathion','Omega-3'],
       glow:'Rödbeta ger betalainer som skyddar DNA mot oxidativ skada och ökar blodflödet till huden. Blåbär ger antocyaniner, de kraftfullaste antioxidanterna för kollagenstrukturen. Avokado ger glutathion och E-vitamin. Valnötter ger omega-3. Ingefära i dressingen ger gingerol, antiinflammatoriskt på cellnivå.',
@@ -1467,8 +1487,8 @@ const DR = {
       ingr:[
         '150 g entrecôte',
         '½ sötpotatis (ca 100 g), i klyftor',
-        '½ tsk olivolja',
-        'En klick smör, 1 vitlöksklyfta, 1 kvist timjan (till bastering)',
+        '½ tsk olivolja (till stekning)',
+        'En klick ghee, 1 vitlöksklyfta, 1 kvist timjan (till bastering)',
         'Salt & nymald svartpeppar',
         '— Grönkåls-chimichurri (6 portioner, håller 1 vecka i kylen) —',
         '2 dl finhackad grönkål',
@@ -1484,7 +1504,7 @@ const DR = {
         '0,5 msk citronjuice',
         'Salt & nymald svartpeppar'
       ],
-      steps:'1. Gör chimichurrin: finhacka grönkål, persilja, koriander, basilika, mynta, vitlök, silverlök och chili. Blanda med neutral olja, olivolja och citronjuice. Smaka av med salt och svartpeppar. Ställ åt sidan minst 15 min. Håller 1 vecka i kylskåp.\n2. Ugn 200°. Skär sötpotatisen i klyftor, vänd i olivolja och salt. Rosta 25 min tills gyllene och mjuka.\n3. Ta ut entrecôten ur kylen minst 30 min innan stekning - en kall biff ger ojämn stekning.\n4. Hetta upp en stekpanna, helst gjutjärn, på högsta värme tills den börjar ryka. Tillsätt lite neutral olja med hög rökpunkt.\n5. Krydda entrecôten generöst med salt och nymald svartpeppar precis innan stekning.\n6. Lägg biffen i pannan utan att röra. Stek 2–3 min tills djupt brunstekt yta bildas, vänd en gång. Stek 2 min till för medium-rare (57°) eller 3 min för medium (63°).\n7. Sänk värmen, tillsätt smör, krossad vitlöksklyfta och timjankvist. Luta pannan och basta biffen med det skummande smöret i 1 min.\n8. Vila biffen 3–5 min löst täckt med folie. Skär mot fibrerna.\n9. Servera med sötpotatisklyftorna och riklig grönkåls-chimichurri.' },
+      steps:'1. Gör chimichurrin: finhacka grönkål, persilja, koriander, basilika, mynta, vitlök, silverlök och chili. Blanda med neutral olja, olivolja och citronjuice. Smaka av med salt och svartpeppar. Ställ åt sidan minst 15 min. Håller 1 vecka i kylskåp.\n2. Ugn 200°. Skär sötpotatisen i klyftor, vänd i olivolja och salt. Rosta 25 min tills gyllene och mjuka.\n3. Ta ut entrecôten ur kylen minst 30 min innan stekning - en kall biff ger ojämn stekning.\n4. Hetta upp en stekpanna, helst gjutjärn, på högsta värme tills den börjar ryka. Tillsätt lite ghee.\n5. Krydda entrecôten generöst med salt och nymald svartpeppar precis innan stekning.\n6. Lägg biffen i pannan utan att röra. Stek 2–3 min tills djupt brunstekt yta bildas, vänd en gång. Stek 2 min till för medium-rare (57°) eller 3 min för medium (63°).\n7. Sänk värmen, tillsätt smör, krossad vitlöksklyfta och timjankvist. Luta pannan och basta biffen med det skummande smöret i 1 min.\n8. Vila biffen 3–5 min löst täckt med folie. Skär mot fibrerna.\n9. Servera med sötpotatisklyftorna och riklig grönkåls-chimichurri.' },
     { id:'d28', name:'Nötköttswok med broccoli, oyster sauce och blomkålsris', rating:4.7, cat:'kott',
       tags:['Järn+C-vitamin','Sulforafan','Snabb'],
       glow:'Broccoli + nötkött: C-vitaminet i broccolin ökar järnupptaget från köttet med upp till 300%. Järn ger bättre syresättning och naturlig rodnad. Sulforafan bromsar brosk-nedbrytning.',
@@ -1584,8 +1604,8 @@ const DR = {
       tags:['D-vitamin','Kolin','Umami'],
       glow:'Svamp är en av få växtbaserade källor till D-vitamin, D-vitamin styr hudcellernas förnyelsecykel. Parmesan ger kalcium och umami. Spenat ger järn och nitrat. Blomkålsbas håller kolhydraterna låga utan att kompromissa på krämigheten.',
       nutr:{kcal:380,protein:22,kolh:18,fett:22,fiber:9},
-      ingr:['200 g blandsvamp','200 g shiitake','400 g blomkål, finriven till "ris"','100 g spenat','50 g parmesan, riven','1 lök','1 vitlöksklyfta','1 dl vitt vin (valfritt)','3 dl grönsaksbuljong, varm','1 msk olivolja','Citronsaft','½ tsk gurkmeja','Svartpeppar & salt'],
-      steps:'1. Riv blomkålen i matberedare till risliknande gryn och ställ åt sidan.\n2. Stek svampen i olivolja på hög värme, i omgångar, tills gyllenbrun med fin stekyta. Salta och ställ åt sidan.\n3. Fräs lök och vitlök i samma panna med lite olivolja, 2 min på medelhög värme.\n4. Häll i vinet om du använder och låt koka in, ca 1 min.\n5. Tillsätt blomkålsriset och rör om, 2 min.\n6. Häll i buljongen lite i taget under omrörning, 8–10 min tills blomkålen är mjuk men har lite tuggmotstånd.\n7. Rör ner svampen och spänaten, låt spänaten falla ihop.\n8. Avsluta med parmesan, citronsaft, gurkmeja och rikligt med svartpeppar. Smaka av.' },
+      ingr:['200 g blandsvamp','200 g shiitake','400 g blomkål, finriven till "ris"','100 g spenat','50 g parmesan, riven','1 lök','1 vitlöksklyfta','1 dl vitt vin (valfritt)','3 dl grönsaksbuljong, varm','1 msk olivolja','1 tsk ghee (till svampen)','Citronsaft','½ tsk gurkmeja','Svartpeppar & salt'],
+      steps:'1. Riv blomkålen i matberedare till risliknande gryn och ställ åt sidan.\n2. Stek svampen i ghee på hög värme, i omgångar, tills gyllenbrun med fin stekyta. Salta och ställ åt sidan.\n3. Fräs lök och vitlök i samma panna med lite olivolja, 2 min på medelhög värme.\n4. Häll i vinet om du använder och låt koka in, ca 1 min.\n5. Tillsätt blomkålsriset och rör om, 2 min.\n6. Häll i buljongen lite i taget under omrörning, 8–10 min tills blomkålen är mjuk men har lite tuggmotstånd.\n7. Rör ner svampen och spänaten, låt spänaten falla ihop.\n8. Avsluta med parmesan, citronsaft, gurkmeja och rikligt med svartpeppar. Smaka av.' },
     { id:'d34', name:'Shakshuka med fetaost, spenat och curcumin', rating:4.7, cat:'veg',
       tags:['Lykopin','Kollagen','C-vitamin','Curcumin'],
       glow:'Tomater ger lykopin som skyddar huden mot UV-skador, lykopin aktiveras av värme och fett, så kokt i olivolja är bättre än rå. Ägg ger biotin och kollagenbyggande aminosyror. Spenat och paprika boostar järn och C-vitamin. Fetaost ger probiotika och kalcium. Gurkmeja + svartpeppar aktiverar curcumin.',
@@ -1685,9 +1705,9 @@ const DR = {
     { id:'d39', name:'Citronlinguine med kronärtskockshjärtan och parmesan', rating:4.6, cat:'veg',
       tags:['Cinarin','Leverdetox','Kolin'],
       glow:'Kronärtskockor är de rikaste källorna till cinarin, ett ämne som stimulerar gallproduktionen och stödjer leverns avgiftning. En välfungerande lever återspeglas direkt i klarare, jämnare hud.',
-      nutr:{kcal:520,protein:18,kolh:64,fett:20,fiber:7},
-      ingr:['80 g fullkornslinguine','1 burk kronärtskockshjärtan (i olja)','1 burk vita bönor (200 g), sköljda','1 vitlöksklyfta','40 g parmesan','Citronskal och -juice','Ruccola','1 msk olivolja','Chili, salt'],
-      steps:'1. Koka fullkornslinguine al dente, spara en kopp pastavatten.\n2. Fräs vitlök och kronärtskockshjärtan i olivolja 3 min tills gyllene.\n3. Vita bönor i, värm 2 min.\n4. Pasta och lite pastavatten i, rör om. Tillsätt citronskal och parmesan.\n5. Rör ner ruccola, låt den falla ihop lätt. Toppa med chiliflingor.' },
+      nutr:{kcal:450,protein:22,kolh:52,fett:20,fiber:10},
+      ingr:['60 g bönpasta, t.ex. kikärtspenne','1 burk kronärtskockshjärtan (i olja)','1 burk vita bönor (200 g), sköljda','1 vitlöksklyfta','40 g parmesan','Citronskal och -juice','2 nävar ruccola','1 msk olivolja','Chili, salt'],
+      steps:'1. Koka bönpastan al dente, spara en kopp pastavatten.\n2. Fräs vitlök och kronärtskockshjärtan i olivolja 3 min tills gyllene.\n3. Vita bönor i, värm 2 min.\n4. Pasta och lite pastavatten i, rör om. Tillsätt citronskal och parmesan.\n5. Rör ner ruccola, låt den falla ihop lätt. Toppa med chiliflingor.' },
     { id:'d40', name:'Äggfrittata med karamelliserad lök och getost', rating:4.7, cat:'veg',
       tags:['Quercetin','Biotin','Probiotika'],
       glow:'Karamelliserad lök ger quercetin, en av de mest studerade antioxidanterna för att motverka hudåldrande och stärka blodkärlens integritet. Ägg ger biotin. Getost ger probiotika.',
@@ -1706,7 +1726,7 @@ const DR = {
       nutr:{kcal:635,protein:44,kolh:40,fett:24,fiber:12},
       ingr:[
         '800 g högrev, i bitar',
-        '75 g rökt sidfläsk, tärnat',
+        '75 g pancetta, tärnat',
         '2 morötter, skivade',
         '3 vitlöksklyftor',
         '2 msk tomatpuré',
@@ -1723,7 +1743,7 @@ const DR = {
         '200 g shiitake, skivade',
         '200 g portabello, skivade',
         '1 burk syltlök, avrunnen',
-        '1 klick smör',
+        '1 klick ghee',
         'Salt & svartpeppar',
         '— Glow-blomkålsmos —',
         '700 g potatis',
@@ -1736,11 +1756,11 @@ const DR = {
         '— Topping —',
         'Rikligt med färsk persilja'
       ],
-      steps:'1. Bryn sidfläsket krispigt i gryta, ta upp och ställ åt sidan.\n2. Salta och peppra högreven lätt, bryn i omgångar på hög värme för djup smak.\n3. Stek morot och vitlök i grytan tills mjuka, ca 3 min.\n4. Tillsätt tomatpuré och stek 1 min.\n5. Lägg tillbaka kött och fläsk. Tillsätt linser, vin, buljong, lagerblad, timjan och soja.\n6. Koka upp, sänk värmen och sjud under lock 2–2,5 h tills köttet är mört. Ta av locket sista 20–30 min för tjockare sås.\n7. Avsluta med rödvinsvinäger och smaka av.\n8. Blomkålsmos: rosta vitlök i folie 200° i 30 min. Koka potatis och blomkål, häll av noga. Mosa med rostade vitlöksklyftor, yoghurt, smör och parmesan. Smaka av med salt och vitpeppar.\n9. Svamp & syltlök: stek svampen i smör på hög värme tills gyllene och all vätska ångat bort, ca 8 min. Salta och peppra. Lägg i syltlöken och värm igenom en minut.\n10. Servera grytan över moset med svamp och syltlök vid sidan av. Toppa generöst med hackad persilja.\nRecept: 4 portioner. Näring angiven per portion.'  },
-    { id:'d43', name:'Scampiwok med sweet chili, thaibasilika och svart ris', rating:4.8, cat:'fisk',
+      steps:'1. Bryn sidfläsket krispigt i gryta, ta upp och ställ åt sidan.\n2. Salta och peppra högreven lätt, bryn i omgångar på hög värme för djup smak.\n3. Stek morot och vitlök i grytan tills mjuka, ca 3 min.\n4. Tillsätt tomatpuré och stek 1 min.\n5. Lägg tillbaka kött och fläsk. Tillsätt linser, vin, buljong, lagerblad, timjan och soja.\n6. Koka upp, sänk värmen och sjud under lock 2–2,5 h tills köttet är mört. Ta av locket sista 20–30 min för tjockare sås.\n7. Avsluta med rödvinsvinäger och smaka av.\n8. Blomkålsmos: rosta vitlök i folie 200° i 30 min. Koka potatis och blomkål, häll av noga. Mosa med rostade vitlöksklyftor, yoghurt, smör och parmesan. Smaka av med salt och vitpeppar.\n9. Svamp & syltlök: stek svampen i ghee på hög värme tills gyllene och all vätska ångat bort, ca 8 min. Salta och peppra. Lägg i syltlöken och värm igenom en minut.\n10. Servera grytan över moset med svamp och syltlök vid sidan av. Toppa generöst med hackad persilja.\nRecept: 4 portioner. Näring angiven per portion.'  },
+    { id:'d43', name:'Scampiwok med thaibasilika och svart ris', rating:4.8, cat:'fisk',
       tags:['Zink','Probiotika','Hög protein','Gut-skin axis'],
       glow:'Scampi ger zink och jod, zink är nödvändigt för kollagensyntes och sårheling. Broccoli ger sulforafan som bromsar brosk-nedbrytning. Miso ger levande probiotika som stärker gut-skin axis. Avokado ger glutathion, kroppens kraftigaste inbyggda antioxidant. Svart ris ger antocyaniner, 3x mer än blåbär.',
-      nutr:{kcal:550,protein:37,kolh:57,fett:14,fiber:7},
+      nutr:{kcal:500,protein:37,kolh:48,fett:14,fiber:7},
       ingr:[
         '— Scampi —',
         '600 g scampi (råa, skalade)',
@@ -1760,8 +1780,8 @@ const DR = {
         '200 g böngroddar',
         '— Glow-sås —',
         '0,5 dl japansk soja (låg salt)',
-        '0,5 dl sweet chili',
-        '0,5 dl mirin',
+        '3 msk risvinäger',
+        '2 tsk honung',
         '0,5 dl vatten',
         '1 msk sesamolja',
         '1–2 tsk sriracha (efter smak)',
@@ -1781,7 +1801,7 @@ const DR = {
     { id:'d44', name:'Scampi cashew skinfood med thaibasilika', rating:4.8, cat:'fisk',
       tags:['Selen','Glutathion','Hög protein','Antiinflammatorisk'],
       glow:'Scampi är en av de rikaste källorna till selen, en antioxidant som skyddar hudcellerna mot oxidativ stress. Låg fetthalt gör rätten lätt att smälta utan att kompromissa på proteinkvaliteten. Avokado ger glutathion och E-vitamin för hudbarriären. Cashew ger koppar som aktiverar kollagensyntes-enzymet lysyloxidas. Ingefärans gingerol och svartpepparn verkar antiinflammatoriskt på cellnivå.',
-      nutr:{kcal:490,protein:37,kolh:33,fett:21,fiber:8},
+      nutr:{kcal:470,protein:37,kolh:28,fett:21,fiber:8},
       ingr:[
         '— Scampi —',
         '600 g scampi (råa, skalade)',
@@ -1797,17 +1817,18 @@ const DR = {
         '1 knippe salladslök, skivad',
         '— Skinfood-sås —',
         '0,75 dl japansk soja (låg salt)',
-        '0,3 dl sweet chili',
+        '2 msk risvinäger',
+        '1 tsk chiliflingor',
         '0,5 dl vatten',
         '1 msk sesamolja',
         '1 msk limejuice',
-        '1 tsk honung',
+        '1½ tsk honung',
         'Svartpeppar, extra ingefära',
         '— Topping —',
         '1 avokado, skivad',
         '1 näve babyspenat',
         '1 näve thaibasilika',
-        '40 g cashew, lättsaltade',
+        '40 g cashew, osaltade',
         'Sesamfrön',
         'Limeklyftor'
       ],
@@ -1849,7 +1870,20 @@ const DR = {
         '8 dadlar, urkärnade',
         '1 msk kallt espresso eller kaffe'
       ],
-      steps:'1. Lägg solroskärnor, valnötter, kokos, kakaopulver, chiafrön, hampafrön, mandelsmör, kanel, salt, vaniljpulver, dadlar och kaffe i en matberedare eller blender.\n2. Mixa tills massan är jämn och klumpig.\n3. Blanda ner havregryn för hand med en sked.\n4. Rulla till ca 12 bollar.\n5. Rulla bollarna i riven kokos.\n6. Förvara i kylen upp till en vecka, eller i frysen i upp till 3 månader.\nRecept: 12 bollar. Näring angiven per boll.' }
+      steps:'1. Lägg solroskärnor, valnötter, kokos, kakaopulver, chiafrön, hampafrön, mandelsmör, kanel, salt, vaniljpulver, dadlar och kaffe i en matberedare eller blender.\n2. Mixa tills massan är jämn och klumpig.\n3. Blanda ner havregryn för hand med en sked.\n4. Rulla till ca 12 bollar.\n5. Rulla bollarna i riven kokos.\n6. Förvara i kylen upp till en vecka, eller i frysen i upp till 3 månader.\nRecept: 12 bollar. Näring angiven per boll.' },
+    { id:'s02', name:'Chokladrutor med cashew och hampafrön', rating:4.8, cat:'snack',
+      tags:['Antioxidanter','Protein','Naturligt sött'],
+      glow:'Mörk choklad 85% ger flavonoider och magnesium som motverkar inflammation. Cashewnötter innehåller zink och järn. Hampafrön tillför komplett protein och omega-3. Dadlar ger naturlig sötma med fiber och kalium.',
+      nutr:{kcal:74,protein:2,kolh:7,fett:5,fiber:1},
+      ingr:[
+        '2 dl cashewnötter, osaltade',
+        '10–12 mjuka kärnfria dadlar',
+        '1–2 msk kaffe (espresso)',
+        '1 msk kokos',
+        '1½ msk hampafrön',
+        '50 g mörk choklad 85%'
+      ],
+      steps:'1. Kör cashewnötterna i mixer eller hushållsassistent tills det blir en smulig massa.\n2. Tillsätt dadlar och kaffe successivt så konsistensen blir rätt, inte för löst. Smeten ska gå ihop och hålla ihop som en fast bollsmet.\n3. Tillsätt kokos och hampafrön i massan och rör ihop med en sked, gaffel eller fingrarna.\n4. Platta ut massan i en liten form täckt med bakplåtspapper, ca 2 cm tjock. Sätt in i frysen medan du smälter chokladen.\n5. Smält chokladen över vattenbad eller i mikron. Ta ut formen och pensla på chokladen, även sidorna. Sätt in i frysen igen ca 30–60 min.\n6. Skär upp i ca 20 mini-bites. Förvara i frysen.\nRecept: 20 bitar. Näring angiven per bit.' }
   ]
 };
 
@@ -2052,12 +2086,14 @@ function getDailyTargets(){
     return{kcal:ct.kcal||0,protein:ct.protein||0,kolh:ct.kolh||150,fett:ct.fett||50,fiber:ct.fiber||28,
       bmr:0,tdee:0,deficit:0,calcKcal:0,calcProtein:0,profilSaknas:!ct.protein&&!ct.kcal};
   }
-  const bmr=Math.round(10*p.vikt+6.25*p.langd-5*(p.alder||30)-161);
+  const könsKorr=p.kon==='man'?5:-161;
+  const bmr=Math.round(10*p.vikt+6.25*p.langd-5*(p.alder||30)+könsKorr);
   const fakt={lag:1.2,latt:1.375,mattlig:1.55};
   const tdee=Math.round(bmr*(fakt[p.aktivitet]||1.375));
   const diff=Math.max(0,p.vikt-(p.malvikt||p.vikt));
   const deficit=diff<=0?0:diff<=2?250:diff<=5?400:500;
-  const calcKcal=Math.max(1200,tdee-deficit);
+  const minKcal=p.kon==='man'?1500:1200;
+  const calcKcal=Math.max(minKcal,tdee-deficit);
   const calcProtein=Math.round(p.vikt*1.8);
   return{
     kcal:ct.kcal||calcKcal,
@@ -2269,14 +2305,26 @@ function veljadag(dk){
 // Hjälpfunktion: behandla Stretching som vila oavsett lagrat kategori (bakåtkompatibelt)
 function ärVilaPass(p){ return p.kategori==='vila'||p.typ==='Stretching'; }
 
+// MET-värden per kategori (Compendium of Physical Activities, Ainsworth et al. 2011)
+const MET={styrka:4.0, kondition:6.0, rörlighet:3.0, vila:0};
+
+function metKcal(passLista){
+  const vikt=LS.profil().vikt||60;
+  return Math.round(passLista.filter(p=>!ärVilaPass(p)).reduce((sum,p)=>{
+    const met=MET[p.kategori]||3.0;
+    const tid=(p.tid||45)/60;
+    return sum+met*vikt*tid;
+  },0));
+}
+
 function dagRek(passLista, dk){
   const t=getDailyTargets();
   const base=t.kcal;
   const harKcal=base>0;
   if(dk && LS.vila(dk)) return{
     text: harKcal
-      ? `Vilodag ✓ håll dig till ${base} kcal. Prioritera sömn, protein och antiinflammatorisk mat för optimal återhämtning.`
-      : `Vilodag ✓. Prioritera sömn, protein och antiinflammatorisk mat för optimal återhämtning.`,
+      ? `Vilodag - håll dig till ${base} kcal. Prioritera sömn, protein och antiinflammatorisk mat för optimal återhämtning.`
+      : `Vilodag. Prioritera sömn, protein och antiinflammatorisk mat för optimal återhämtning.`,
     kcal:base,vila:true};
   const aktivaPas=passLista.filter(p=>!ärVilaPass(p));
   if(aktivaPas.length===0&&passLista.length>0) return{
@@ -2284,18 +2332,20 @@ function dagRek(passLista, dk){
       ? `Återhämtning & stretch, räknas som vilodag. Håll dig till ${base} kcal och prioritera antiinflammatoriska råvaror.`
       : `Återhämtning & stretch, räknas som vilodag. Prioritera antiinflammatoriska råvaror.`,
     kcal:base};
-  const kats=aktivaPas.map(p=>p.kategori);
-  const styrka=kats.filter(k=>k==='styrka').length;
-  const kondition=kats.includes('kondition');
   if(!aktivaPas.length) return{
-    text: harKcal
-      ? `Ingen träning loggad, ${base} kcal. Logga ett pass eller markera som vilodag för att se anpassad rekommendation.`
-      : `Ingen träning loggad. Logga ett pass eller markera som vilodag.`,
+    text: harKcal ? `${base} kcal idag. Logga ett pass för anpassad rekommendation.` : '',
     kcal:base};
-  if(styrka>=2) return{text:`Tung styrkedag!${harKcal?` Öka till ${base+350} kcal och`:''} Sikta på ${t.protein>0?t.protein+20+'g':''} protein. Välj fisk eller kött till middag för optimal muskeltillväxt.`,kcal:base+350};
-  if(styrka) return{text:`Styrkedag:${harKcal?` öka till ca ${base+200} kcal och`:''} välj en proteinrik middag (30 g+). Protein inom 2 h efter träning optimerar muskeltillväxt.`,kcal:base+200};
-  if(kondition) return{text:`Konditionsdag:${harKcal?` öka med 150 kcal (${base+150} kcal totalt),`:''} välj komplexa kolhydrater och antioxidantrika livsmedel för återhämtning.`,kcal:base+150};
-  return{text:`Rörlighetsdag:${harKcal?` öka till ${base+100} kcal.`:''} Pilates och liknande aktiverar muskler och förtjänar lite extra energi. Välj antiinflammatoriska råvaror för ledhälsa.`,kcal:base+100};
+  const extra=metKcal(aktivaPas);
+  const total=base+extra;
+  const kats=aktivaPas.map(p=>p.kategori);
+  const harStyrka=kats.includes('styrka');
+  const harKondition=kats.includes('kondition');
+  const text=harStyrka
+    ?`Styrkedag: ${harKcal?`öka till ca ${total} kcal och `:''}välj en proteinrik middag (30 g+). Protein inom 2 h efter träning optimerar muskeltillväxt.`
+    :harKondition
+    ?`Konditionsdag: ${harKcal?`öka med ca ${extra} kcal (${total} kcal totalt), `:''}välj komplexa kolhydrater och antioxidantrika livsmedel för återhämtning.`
+    :`Rörlighetsdag: ${harKcal?`öka till ca ${total} kcal. `:''}Välj antiinflammatoriska råvaror för ledhälsa.`;
+  return{text, kcal:total};
 }
 
 function renderDagPanel(dk){
@@ -3100,6 +3150,7 @@ function renderProfilStatistik(){
 
 function laddaProfil(){
   const p=LS.profil();
+  document.getElementById('pKon').value=p.kon||'kvinna';
   document.getElementById('pLangd').value=p.langd||'';
   document.getElementById('pAlder').value=p.alder||'';
   document.getElementById('pVikt').value=p.vikt||'';
@@ -3172,8 +3223,6 @@ function renderRutinLista(){
     const opts=rutinPassOptioner().replace(`value="${matchVal}"`,`value="${matchVal}" selected`);
     return`<div class="rutin-item">
       <select style="flex:1;border:none;background:none;font-size:0.80rem;font-family:'Jost',sans-serif;color:#3a2820;padding:0;outline:none;min-width:0;cursor:pointer" onchange="uppdateraRutinVal(${r.id},this)">${opts}</select>
-      <input class="rutin-tid" type="number" value="${r.tid}" min="5" max="300" onchange="uppdateraRutin(${r.id},'tid',parseInt(this.value)||30)">
-      <span style="font-size:0.60rem;color:#b8b0aa">min</span>
       <button class="rutin-ta-bort" onclick="taBortRutin(${r.id})">✕</button>
     </div>`;
   }).join('');
@@ -3197,7 +3246,7 @@ function uppdateraRutinVal(id, sel){
 
 function läggTillRutinAktivitet(){
   const rutin=LS.rutin();
-  rutin.push({id:Date.now(), dag:aktivRutinDag, namn:'', tid:30});
+  rutin.push({id:Date.now(), dag:aktivRutinDag, namn:'', val:'', tid:null});
   LS.saveRutin(rutin);
   renderRutinLista();
   renderRutinTabbar();
@@ -3282,6 +3331,7 @@ function sparaProfil(){
   const viktV=parseFloat(document.getElementById('pVikt').value);
   const malviktV=parseFloat(document.getElementById('pMalvikt').value);
   const aktivitet=document.getElementById('pAktivitet').value;
+  const kon=document.getElementById('pKon').value;
   const current=LS.profil();
   LS.saveProfil({
     ...current,
@@ -3289,7 +3339,7 @@ function sparaProfil(){
     ...(!isNaN(alderV)&&alderV>0?{alder:alderV}:{}),
     ...(!isNaN(viktV)&&viktV>0?{vikt:viktV}:{}),
     ...(!isNaN(malviktV)&&malviktV>0?{malvikt:malviktV}:{}),
-    aktivitet
+    aktivitet, kon
   });
   visaProfilResultat();
   genereraVeckoplan();
@@ -3313,10 +3363,9 @@ function visaProfilResultat(){
       <div class="pr-row"><span>TDEE (inkl. vardagsaktivitet)</span><span class="pr-val">${t.tdee} kcal</span></div>
       <div class="pr-row"><span>Kaloriunderskott</span><span class="pr-val">−${t.deficit} kcal</span></div>
       <div class="pr-row"><span>Rekommenderat per vilodag</span><span class="pr-val">${t.kcal} kcal</span></div>
-      <div class="pr-row"><span>Styrkedag (+200 kcal)</span><span class="pr-val">${t.kcal+200} kcal</span></div>
-      <div class="pr-row"><span>Tung dag (+350 kcal)</span><span class="pr-val">${t.kcal+350} kcal</span></div>
+      <div class="pr-row"><span>Träningsdagar</span><span class="pr-val" style="font-size:0.75rem;color:#9e9490">+kcal beräknas per pass</span></div>
       <div class="pr-row"><span>Proteinmål</span><span class="pr-val">${t.protein} g/dag (1,8 g/kg)</span></div>
-      <div class="pr-note">${defText}. Formel: Mifflin-St Jeor BMR × aktivitetsfaktor − underskott.</div>
+      <div class="pr-note">${defText}. Formel: Mifflin-St Jeor BMR × aktivitetsfaktor − underskott. Träningspass: MET × kroppsvikt × tid.</div>
     </div>`;
 }
 
@@ -3875,7 +3924,6 @@ function receptKort(r,tabName,favs){
         </div>
         <div class="recipe-btns">
           <button class="fav-btn" onclick="toggleFav('${r.id}')">${isFav?'★':'☆'}</button>
-          ${tabName!=='favoriter'?`<button class="fav-btn" style="font-size:0.88rem;color:#d4ccc8" title="Inte för mig" onclick="dismissRecipe('${r.id}','${tabName}')">✕</button>`:''}
           ${(()=>{const inHandel=LS.handel().recept.some(x=>x.id===r.id);return`<button class="small-btn" onclick="snabbLäggTillHandel('${r.id}')" style="${inHandel?'background:#f0ede8;color:#c4a9a1':''}" title="Lägg till i handlingslista">${inHandel?'🛒✓':'🛒'}</button>`;})()}
           <button class="small-btn" onclick="öppnaEdit('${r.id}')">Redigera</button>
           <button class="small-btn green" onclick="väljMåltidFranRecept('${r.id}')">+ Idag</button>
